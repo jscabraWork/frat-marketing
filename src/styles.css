@@ -1,1 +1,785 @@
+
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: inter-regular;
+    src: url("assets/fonts/Inter-Regular.ttf");
+  }
+  
+  @font-face{
+      font-family: inter-bold;
+      src: url("assets/fonts/Inter-Bold.ttf");
+  }
+.centrarTexto{
+    text-align: center;
+}
+.img-100 {
+    width: 100%;
+  }
+.linea-blanca {
+    color: white;
+    background-color: white;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+.redes{
+    position: fixed;
+    top: 90%;
+    left: 93%;
+    overflow: hidden;
+    width: 100%;
+}
+.imagenesRedes
+{
+    width: 70px;
+}
+
+
+@media(max-width:901px){
+    .redes{
+       
+        top: 85%;
+        left: 85%;
+        
+    }
+}
+
+@media(max-width:551px){
+    .redes{
+       
+        top: 85%;
+        left: 80%;
+        
+    }
+}
+
+@media(max-width:427px){
+    .redes{
+       
+        top: 85%;
+        left: 75%;
+        
+    }
+}
+
+
+.botonBarra{
+    color: white;
+    background-color: #E52528;
+    font-family: inter-bold;
+}
+.textoFooter{
+
+    color:white;
+   
+    text-align: center;
+   background-color: rgba(16,36,56,1);
+}
+.login
+{
+    text-align: center;
+
+}
+.error
+{
+    color: #ed701c;
+    text-align: center;
+}
+
+.fondo4
+{
+	background-color: black;
+	background-position: center center;
+    padding: 50px;
+	background-attachment: fixed;
+	background-size: cover;
+		
+}
+
+
+#prueba
+{
+	background-image: url("assets/images/img/fondo.jpg");
+    text-align: center;
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+
+}
+
+
+#prueba:before {
+	content:'';
+	position: absolute;
+        top: 0;
+	bottom: 0;
+	left: 0;
+    right: 0;
+    background: linear-gradient(rgba(236, 158, 40, 0.87), rgba(255, 80, 28, 0.87)); 
+	
+}
+
+#prueba h1 {
+
+	color: white;
+	position: relative;
+ 
+    
+}
+
+#prueba small {
+	font-size: 12px;
+	color: white;
+    position: relative
+    
+}
+
+.titulos2{
+    background-color: #ed701c; color: white;text-align: center;
+}
+
+#prueba2
+{
+	
+    background-image: url("assets/images/img/fondo.jpg");
+    padding: 70px;
+    text-align: center;
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+
+}
+
+
+#prueba2:before {
+	content:'';
+	position: absolute;
+        top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color:rgba(0, 0, 0, 0.8);
+}
+
+#prueba2 h1 {
+
+	color: white;
+	position: relative
+}
+
+#prueba2 small {
+	font-size: 12px;
+	color: white;
+    position: relative
+    
+}
+
+.descripciones{
+   
+    color:white;
+    background-color: black;
+
+}
+
+
+
+
+#contenido {
+
+
+    
+
+    color:white;
+
+}
+ 
+
+@media(max-width:10000px) and (min-width:1200px){
+
+    #prueba6
+    {
+        padding: 185px;
+    }  
+
+    #prueba6 h1 {
+        font-size: 45px;
+
+    }
+}
+
+
+@media(max-width:1199px) and (min-width:992px){
+
+    #prueba6
+    {
+        padding: 155px;
+    }  
+
+    #prueba6 h1 {
+        font-size: 40px;
+
+    }
+}
+
+@media(max-width:991px) and (min-width:768px){
+
+    #prueba6
+    {
+        padding: 165px;
+    }  
+
+    #prueba6 h1 {
+        font-size: 40px;
+
+    }
+}
+@media(max-width:767px) and (min-width:601px){
+
+    #prueba6
+    {
+        padding: 120px;
+    }  
+
+    #prueba6 h1 {
+        font-size: 40px;
+
+    }
+}
+
+
+@media(max-width:600px) and (min-width:0px){
+
+    #prueba6
+    {
+        padding: 100px;
+    }  
+
+    #prueba6 h1 {
+        font-size: 25px;
+
+    }
+}
+
+
+
+@media(max-width:10000px) and (min-width:1200px){
+
+    #prueba
+    {
+        padding: 20px;
+    }  
+
+    #prueba h1 {
+        font-size: 32px;
+
+    }
+}
+
+
+@media(max-width:1199px) and (min-width:992px){
+
+    #prueba
+    {
+        padding: 30px;
+    }  
+
+    #prueba h1 {
+        font-size: 30px;
+
+    }
+}
+.Banner{
+    overflow: hidden;
+
+}
+
+@media(max-width:991px) and (min-width:768px){
+
+    #prueba
+    {
+        padding: 30px;
+    }  
+
+    #prueba h1 {
+        font-size: 28px;
+
+    }
+    
+}
+@media(max-width:767px) and (min-width:601px){
+
+    #prueba
+    {
+        padding: 30px;
+    }  
+
+    #prueba h1 {
+        font-size: 25px;
+
+    }
+}
+
+
+@media(max-width:600px) and (min-width:0px){
+
+    #prueba
+    {
+        padding: 30px;
+    }  
+
+    #prueba h1 {
+        font-size: 25px;
+
+    }
+}
+
+
+
+
+
+
+
+
+
+#prueba6
+{
+	
+
+    
+    
+    text-align: center;
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+
+}
+
+
+#prueba6:before {
+	content:'';
+	position: absolute;
+        top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color:rgba(0, 0, 0, 0.7);
+}
+
+#prueba6 h1 {
+	
+	color: white;
+	position: relative
+}
+
+#prueba6 small {
+	font-size: 12px;
+	color: white;
+    position: relative
+    
+}
+
+
+
+
+
+
+#prueba3
+{
+	
+
+    
+    
+    text-align: center;
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+
+}
+
+
+#prueba3:before {
+	content:'';
+	position: absolute;
+        top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color:rgba(0, 0, 0, 0.7);
+}
+
+#prueba3 h1 {
+	
+	color: white;
+	position: relative
+}
+
+#prueba3 small {
+	font-size: 12px;
+	color: white;
+    position: relative
+    
+}
+
+
+
+.fondo{
+   
+    color: #ed701c;
+    text-align: center;
+}
+
+.titulos{
+    
+    
+    color:dimgray;
+}
+
+
+@media(max-width:10000px) and (min-width:1501px){
+
+
+
+    .titulos{
+        font-size: 23px;
+    }
+
+}
+
+
+@media(max-width:1500px) and (min-width:1200px){
+
+
+
+    .titulos{
+        font-size: 18px;
+    }
+
+}
+
+
+@media(max-width:1199px) and (min-width:992px){
+
+
+    .titulos{
+        font-size: 18px;
+    }
+
+}
+
+@media(max-width:991px) and (min-width:768px){
+
+
+    .titulos{
+        font-size: 23px;
+    }
+
+    }
+
+@media(max-width:767px) and (min-width:576px){
+
+    .titulos{
+        font-size: 22px;
+    }
+
+}
+
+
+@media(max-width:575px) and (min-width:0px){
+
+    .titulos{
+        font-size: 23px;
+    }
+
+    }
+
+    
+
+.linea {
+    border-top: 1px solid #ed701c;
+    height: 2px;
+    max-width: 200px;
+    padding: 0;
+    margin: 20px auto 0 auto;
+  }
+
+
+
+.contenido{
+    position: relative;
+    min-height: 85vh ;
+    
+}
+
+
+
+	
+.contenedor{
+    overflow:hidden;
+    width: 100%;
+    height: 100%;
+ 
+}
+
+
+.ng-valid:not(form){
+    border-left:5px solid green;
+}
+.contenedor8:hover .action_button {
+    background: linear-gradient(#F9B84A, #ed701c); 
+
+}
+
+
+
+.action_button:hover {
+    background: linear-gradient(#F9B84A, #ed701c); 
+    color: #fff; 
+}
+
+.fondoNegro{
+    background-color: white;
+    
+}
+.colorNaranja{
+    color: #ed701c;
+}
+
+.action_button {
+    text-decoration: none; 
+    color: #fff; 
+    font-weight: bold; 
+    
+    background: linear-gradient(#666, #333); 
+    padding: 13px 26px;
+    font-size: 12px; 
+    text-transform: uppercase;
+}
+
+
+.contenedor img{
+    width: 100%;
+    height: 200px;
+    overflow:hidden;
+    
+  }
+
+  .contenedor2{
+    overflow:hidden;
+    width: 100%;
+    height: 100%;
+ 
+    
+    
+}
+
+
+.contenedor2 img{
+    width: 100%;
+    height: 200px;
+    overflow:hidden;
+    
+  }
+
+  .aaa {
+    border: 2px solid #ed701c;
+    
+    height: 0px;
+    width: 100px;
+    text-align: center;
+  } 
+
+.fechas{
+    font-size: 18px;
+  color:dimgray;
+    
+}
+@media(max-width:1450px) {
+    .fechas{
+        font-size: 16px;
+      color:dimgray;
+        
+    }
+}
+@media(max-width:1000px) {
+    .fechas{
+        font-size: 14px;
+      color:dimgray;
+        
+    }
+}
+@media(max-width:288px) {
+    .fechas{
+        font-size: 12px;
+      color:dimgray;
+        
+    }
+}
+
+.temperatura{
+    font-size: 17px;
+  color:dimgray;
+    
+}
+ 
+.centrado{
+  
+    color:white;
+    font-size: 20px;
+  
+    background-color:  black;
+    padding: 6px;
+}
+
+.imagenBanner{
+
+    background-color: rgb(100,100,100);
+    background-blend-mode:soft-light;
+}
+.textoGrados{
+
+    position: absolute;
+    top: 95%;
+    left: 75%;
+    transform: translate(20%, -100%);
+    color:white;
+    font-family: 'Coda Caption', sans-serif;
+
+    
+}
+.centrado2{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:white;
+
+
+}
+
+.centrado6{
+    position: absolute;
+    top: 32%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:white;
+
+}
+
+
+
+
+
+.centradoDescripcion {
+    position: absolute;
+    top:75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:white;
+}
+
+
+
+.centrado3{
+    position: absolute;
+    top: 50%;
+    left:90%;
+    transform: translate(-50%, -50%);
+    color:white;
+    font-family: 'Coda Caption', sans-serif;
+
+    
+}
+
+.centrado4{
+  
+    text-align: center;
+    color:white;
+
+
+}
+
+
+        .outerLink 
+        {
+            background-color:black; 
+            display:block; 
+            opacity:1;
+            filter:alpha(opacity=100);
+           
+        }
+
+        img.darkableImage 
+        {
+            opacity:1;
+            filter:alpha(opacity=100);
+        }
+
+
+        img.darkableImageBanner 
+        {
+           
+            opacity:0.4;
+            filter:alpha(opacity=40);
+        }
+
+
+
+
+
+        .outerLink2
+        {
+            background-color:#ff5b00; 
+            display:block; 
+            opacity:1;
+            filter:alpha(opacity=100);
+           
+        }
+
+    
+
+
+        img.darkableImageBanner2 
+        {
+           
+            opacity:0.15;
+            filter:alpha(opacity=20);
+        }
+        
+
+        img.darkableImageBanner3
+        {
+           
+            opacity:0.2;
+            filter:alpha(opacity=20);
+        }
+
+
+
+    .prueba6
+    {
+    text-align: center;
+	background: linear-gradient(rgba(236, 158, 40, 0.9), rgba(255, 80, 28, 0.9)); 
+    }
+
+
+
+
+    .prueba6 h1 {
+        font-size: 30px;
+        color: white;
+        position: relative
+    }
+   
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.clearFix{
+    clear: both;
+    float: none;
+}

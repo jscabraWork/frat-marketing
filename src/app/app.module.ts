@@ -9,6 +9,8 @@ import { MarketingComponent } from './marketing/marketing.component';
 import { InfluencersComponent } from './influencers/influencers.component';
 import { AdministradoresComponent } from './administradores/administradores.component';
 import { CampaniasComponent } from './campanias/campanias.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DashbordComponent } from './dashbord/dashbord.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +20,13 @@ import { CampaniasComponent } from './campanias/campanias.component';
     MarketingComponent,
     InfluencersComponent,
     AdministradoresComponent,
-    CampaniasComponent
+    CampaniasComponent,
+    DashbordComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

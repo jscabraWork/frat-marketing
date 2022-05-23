@@ -19,13 +19,23 @@
     font-family: 'inter-regular';
     font-size: 30px;
     padding-top: 60px;
+    cursor: pointer;
 }
 
 #menu ul li img{
 
     width: 20px;
     filter: invert(100%);
+    margin-right: 10px;
 }
 #contenido{
     background-color:white;
+}
+hr{
+    color: red;
+    height:4px;
+    opacity: 1;
+    margin-top: -3px;
+    width:300px;
+    margin-bottom: -6px;
 }

@@ -6,11 +6,11 @@ import { MarketingComponent } from './marketing/marketing.component';
 const routes: Routes = [
   {
     path:'', 
-    component:HomeComponent,
+    component:MarketingComponent,
   },
   {
     path:'home', 
-    component:HomeComponent,
+    component:MarketingComponent,
   },
   {
     path:'marketing', 

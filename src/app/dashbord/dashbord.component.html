@@ -2,17 +2,37 @@
     <div class="row">
         <div class="col-4" id="menu">
             <ul>
-                <li> <img src="../../assets/images/img/growth.png" alt=""> SEGUIMIENTO</li>
-                <li> <img src="../../assets/images/img/pie-chart.png" alt=""> CREAR CAMPAÑA</li>
-                <li> <img src="../../assets/images/img/research.png" alt=""> BASE DE DATOS</li>
-                <li> <img src="../../assets/images/img/target.png" alt=""> PROSPECCIÓN</li>
-                <li> <img src="../../assets/images/img/available.png" alt=""> REQUERIMIENTOS</li>
-                <li> <img src="../../assets/images/img/report.png" alt=""> INFORMES</li>
-                <li> <img src="../../assets/images/img/configuration.png" alt=""> CONFIGURACIÓN</li>
+                <li (click)="cambiarEstado('seguimiento')"><img src="../../assets/images/img/growth.png" alt=""><span [ngClass]="{'bold' : seguimiento}">SEGUIMIENTO</span> <hr *ngIf="seguimiento"></li>
+                <li (click)="cambiarEstado('campania')"> <img src="../../assets/images/img/pie-chart.png" alt=""><span [ngClass]="{'bold' : campania}">CREAR CAMPAÑA</span> <hr *ngIf="campania"> </li>
+                <li (click)="cambiarEstado('bd')"> <img src="../../assets/images/img/research.png" alt="" >  <span [ngClass]="{'bold' : bd}">BASE DE DATOS</span>  <hr *ngIf="bd"></li>
+                <li (click)="cambiarEstado('prospeccion')"> <img src="../../assets/images/img/target.png" alt=""><span [ngClass]="{'bold' : prospeccion}">PROSPECCIÓN</span> <hr *ngIf="prospeccion"></li>
+                <li (click)="cambiarEstado('requerimientos')"> <img src="../../assets/images/img/available.png" alt=""><span [ngClass]="{'bold' : requerimientos}">REQUERIMIENTOS</span> <hr *ngIf="requerimientos"></li>
+                <li (click)="cambiarEstado('informes')"> <img src="../../assets/images/img/report.png" alt=""><span [ngClass]="{'bold' : informes}">INFORMES</span> <hr *ngIf="informes"></li>
+                <li (click)="cambiarEstado('configuracion')"> <img src="../../assets/images/img/configuration.png" alt=""><span [ngClass]="{'bold' : configuracion}">CONFIGURACIÓN</span> <hr *ngIf="configuracion"></li>
             </ul>
         </div>
         <div class="col-8" id="contenido">
-
+            <div *ngIf="seguimiento">
+               <app-seguimiento></app-seguimiento>
+            </div>
+            <div *ngIf="campania">
+                <app-campania></app-campania>
+            </div>
+            <div *ngIf="bd">
+                <app-base-de-datos></app-base-de-datos>
+            </div>
+            <div *ngIf="prospeccion">
+                <app-prospeccion></app-prospeccion>
+            </div>
+            <div *ngIf="requerimientos">
+                <app-requerimientos></app-requerimientos>
+            </div>
+            <div *ngIf="informes">
+                <app-informes></app-informes>
+            </div>
+            <div *ngIf="configuracion">
+                <app-configuracion></app-configuracion>
+            </div>
         </div>
     </div>
 </div>

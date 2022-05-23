@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BaseDeDatosComponent implements OnInit {
 
+
+
   constructor() { }
 
   ngOnInit(): void {
+    
   }
+
 
 }

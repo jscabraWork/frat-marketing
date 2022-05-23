@@ -12,3 +12,15 @@
       font-family: inter-bold;
       src: url("assets/fonts/Inter-Bold.ttf");
   }
+
+  .centrar{
+    text-align: center;
+  }
+  .bold{
+      font-family: inter-bold;
+      transition: 300ms all;
+  }
+
+  .regular{
+    font-family: inter-regular;
+}

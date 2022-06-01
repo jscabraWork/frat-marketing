@@ -1,1 +1,40 @@
-<p>configuracion works!</p>
+<app-menu></app-menu>
+
+<div class="container mt-5 dashbord">
+    <div class="row min">
+        <div class="col-4" id="menu">
+            <ul>
+                <li> <img src="../../../assets/images/img/pie-chart.png" alt="" routerLink="/home"><span  routerLink="/home">CONFIGURACIÓN ⮛</span> <hr>
+                    <ul>
+                        <li (click)="cambiarEstado('influencer')"> <span  [ngClass]="{'bold' : influencer}">CREAR INFLUENCER</span></li>
+                        <li (click)="cambiarEstado('cliente')" ><span [ngClass]="{'bold' : cliente}"> CREAR CLIENTE</span></li>
+                        <li (click)="cambiarEstado('responsable')" ><span [ngClass]="{'bold' : responsable}"> CREAR RESPONSABLE</span></li>
+                        <li (click)="cambiarEstado('industria')" ><span [ngClass]="{'bold' : industria}"> CREAR INDUSTRIA</span></li>
+                        <li (click)="cambiarEstado('parametros')" ><span [ngClass]="{'bold' : parametros}">PARAMETROS</span></li>
+                    </ul>
+                
+                </li>
+                
+            </ul>
+        </div>
+        <div class="col-8" id="contenido">
+            <div *ngIf="influencer">
+                <app-crear-influencer></app-crear-influencer>
+             </div>
+             <div *ngIf="cliente">
+                <app-crear-cliente></app-crear-cliente>
+             </div>
+ 
+             <div *ngIf="responsable">
+                <app-crear-responsable></app-crear-responsable>
+             </div>
+ 
+             <div *ngIf="industria">
+                <app-crear-industria></app-crear-industria>
+             </div>
+             <div *ngIf="parametros">
+                <app-crear-parametros></app-crear-parametros>
+             </div>
+        </div>
+    </div>
+</div>

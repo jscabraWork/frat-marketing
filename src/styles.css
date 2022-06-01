@@ -16,6 +16,12 @@
   .centrar{
     text-align: center;
   }
+  .derecha{
+    text-align: right;
+  }
+  .izquierda{
+    text-align: left;
+  }
   .bold{
       font-family: inter-bold;
       transition: 300ms all;
@@ -24,3 +30,8 @@
   .regular{
     font-family: inter-regular;
 }
+
+.min{
+  min-height:82vh;
+}
+

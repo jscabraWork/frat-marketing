@@ -9,10 +9,10 @@ export class DashbordComponent implements OnInit {
 
   constructor() { }
   seguimiento:boolean = false;
-  campania:boolean =true;
+  metricas:boolean = false
   bd:boolean = false;
   prospeccion:boolean = false;
-  requerimientos:boolean = false;
+  requerimientos:boolean = true;
   informes:boolean = false;
   configuracion:boolean = false;
   
@@ -20,68 +20,76 @@ export class DashbordComponent implements OnInit {
     this.bd =false;
   }
   cambiarEstado(tipo:string){
-    if(tipo=='campania'){
-        this.campania=true
-        this.bd=false
-        this.seguimiento=false
-        this.prospeccion=false
-        this.requerimientos=false
-        this.informes=false
-        this.configuracion=false
-    }
-    else if(tipo=='seguimiento'){
-      this.campania=false
+
+     if(tipo=='seguimiento'){
+    
       this.bd=false
       this.seguimiento=true
       this.prospeccion=false
       this.requerimientos=false
       this.informes=false
       this.configuracion=false
+      this.metricas = false
+    }
+    else if(tipo=='metricas'){
+    
+      this.bd=false
+      this.seguimiento=false
+      this.prospeccion=false
+      this.requerimientos=false
+      this.informes=false
+      this.configuracion=false
+      this.metricas = true
     }
     else if(tipo=='bd'){
-      this.campania=false
+    
       this.bd=true
       this.seguimiento=false
       this.prospeccion=false
       this.requerimientos=false
       this.informes=false
       this.configuracion=false
+      this.metricas = false
     }
     else if(tipo=='prospeccion'){
-      this.campania=false
+     
       this.bd=false
       this.seguimiento=false
       this.prospeccion=true
       this.requerimientos=false
       this.informes=false
       this.configuracion=false
+      this.metricas = false
     }
     else if(tipo=='requerimientos'){
-      this.campania=false
+      
       this.bd=false
       this.seguimiento=false
       this.prospeccion=false
       this.requerimientos=true
       this.informes=false
       this.configuracion=false
+      this.metricas = false
     }
     else if(tipo=='informes'){
-      this.campania=false
+     
       this.bd=false
       this.seguimiento=false
       this.prospeccion=false
       this.requerimientos=false
       this.informes=true
       this.configuracion=false
+      this.metricas = false
     }
     else if(tipo=='configuracion'){
-      this.campania=false
+
       this.bd=false
       this.seguimiento=false
       this.prospeccion=false
       this.requerimientos=false
       this.informes=false
       this.configuracion=true
+      this.metricas = false
     }
   }
 }

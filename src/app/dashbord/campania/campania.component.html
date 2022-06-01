@@ -1,55 +1,27 @@
-<div class="container-fluid">
+<app-menu></app-menu>
+
+<div class="container mt-5 dashbord min">
     <div class="row">
-        <div class="col-12 pt-4">
-            <h2 class="bold">CREAR CAMPAÑA</h2>
+        <div class="col-4" id="menu">
+            <ul>
+                <li> <img src="../../../assets/images/img/pie-chart.png" alt="" routerLink="/home"><span  routerLink="/home">CREAR CAMPAÑA ⮛</span> <hr>
+                    <ul>
+                        <li (click)="cambiarEstado('crear')"> <span  [ngClass]="{'bold' : crear}">CREAR CAMPAÑA</span></li>
+                        <li (click)="cambiarEstado('campanias')" ><span [ngClass]="{'bold' : campanias}"> CAMPAÑAS ACTIVAS</span></li>
+                    </ul>
+                
+                </li>
+                
+            </ul>
         </div>
-        <div class="col-12">
-            <form>
-            <div>
-                <label for="">Empresa:</label>
-                <input type="text">
-            </div>
-            <div>
-                <label for="">Marca:</label>
-                <input type="text">
-            </div>
-            <div>
-                <label for="">Nombre:</label>
-                <input type="text">
-            </div>
-            <div>
-                <label for="">Industria:</label>
-                <input type="text">
-            </div>
-            <div>
-                <label for="">Responsable</label>
-                <input type="text">
-            </div>
-            <div>
-                <label for="">Nombre campaña:</label>
-                <input type="text">
-            </div>
-            <div>
-                <label for="">Red Social:</label>
-                <input type="text">
-            </div>
-            <div>
-                <label for="">Presupuesto:</label>
-                <input type="text">
-            </div>
-            <div>
-                <label for="">Categoria:</label>
-                <input type="text">
-            </div>
-            <div>
-                <label for="">Alcance:</label>
-                <input type="text">
-            </div>
-            <div>
-                <label for="">Descripcion:</label>
-                <input type="text">
-            </div>
-            </form>
+        <div class="col-8 min" id="contenido">
+            <div *ngIf="crear">
+                <app-crear-campanias></app-crear-campanias>
+             </div>
+ 
+             <div *ngIf="campanias">
+                <app-campanias-activas></app-campanias-activas>
+             </div>
         </div>
     </div>
 </div>

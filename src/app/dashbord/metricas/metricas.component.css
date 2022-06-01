@@ -40,7 +40,9 @@ select::-ms-expand {
     border-radius: 5px;
     padding: 5px 10px 5px 10px;
     margin-right: 40px;
-    font-size: 20px;
+    font-size: 23px;
+    width: 60%;
+    margin-left: 15%;
 }
 .boton-azul{
     background: #247BC0;

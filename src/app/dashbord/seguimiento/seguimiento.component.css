@@ -1,0 +1,48 @@
+.f-120{
+    font-size: 120px;
+}
+.f-30{
+    font-size: 30px;
+}
+.f-40{
+    font-size: 50px;
+    line-height: 40px;
+}
+.mt-60{
+    margin-top: 60px;
+}
+.logo{
+    background-color: black;
+    color: white;
+    padding:10px 18px 10px 18px;
+    font-size: 18px;
+    text-align: center;
+}
+.mr-n{
+    border-right: 1px solid black;
+}
+.font-r{
+    font-size: 13px;
+    line-height: 7px;
+    
+}
+.mt-6{
+    margin-top: 15px;
+}
+.border-b{
+    border-bottom: 1px solid black;
+}
+.border-r{
+    border-right: 1px solid black;
+}
+th{
+    font-size: 14px;
+}
+td{
+    font-size: 16px;
+    
+    
+}
+td img{
+    width: 25px;
+}

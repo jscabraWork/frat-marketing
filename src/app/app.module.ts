@@ -18,6 +18,18 @@ import { ProspeccionComponent } from './dashbord/prospeccion/prospeccion.compone
 import { RequerimientosComponent } from './dashbord/requerimientos/requerimientos.component';
 import { InformesComponent } from './dashbord/informes/informes.component';
 import { ConfiguracionComponent } from './dashbord/configuracion/configuracion.component';
+import { CampaniasActivasComponent } from './dashbord/campania/campanias-activas/campanias-activas.component';
+import { CrearCampaniasComponent } from './dashbord/campania/crear-campanias/crear-campanias.component';
+import { MetricasComponent } from './dashbord/metricas/metricas.component';
+import { CrearInfluencerComponent } from './dashbord/configuracion/crear-influencer/crear-influencer.component';
+import { CrearClienteComponent } from './dashbord/configuracion/crear-cliente/crear-cliente.component';
+import { CrearResponsableComponent } from './dashbord/configuracion/crear-responsable/crear-responsable.component';
+import { CrearIndustriaComponent } from './dashbord/configuracion/crear-industria/crear-industria.component';
+import { CrearParametrosComponent } from './dashbord/configuracion/crear-parametros/crear-parametros.component';
+import { FiltrarComponent } from './dashbord/prospeccion/filtrar/filtrar.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -35,7 +47,18 @@ import { ConfiguracionComponent } from './dashbord/configuracion/configuracion.c
          ProspeccionComponent,
          RequerimientosComponent,
          InformesComponent,
-         ConfiguracionComponent
+         ConfiguracionComponent,
+         CampaniasActivasComponent,
+         CrearCampaniasComponent,
+         MetricasComponent,
+         CrearInfluencerComponent,
+         CrearClienteComponent,
+         CrearResponsableComponent,
+         CrearIndustriaComponent,
+         CrearParametrosComponent,
+         FiltrarComponent,
+         
+         
   ],
   imports: [
     BrowserModule,

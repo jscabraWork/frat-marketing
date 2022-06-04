@@ -1,1 +1,80 @@
-<p>crear-industria works!</p>
+<div class="container-fluid">
+    <div class="row mt-5">
+        <div class="col-12">
+            <h2 class="bold">CREAR UNA MARCA</h2>
+                </div>
+        <div class="col-10">
+            <form action="" id="form">
+                <div>
+                    <label for="">Compañia:</label>
+                         <select name="anio" class="regular">
+                        <option>Selecciona una opción</option>
+                        <option>Avión</option>
+                        <option>Tren</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="">Razón Social:</label>
+                    <input type="text" placeholder="Escribe aquí">
+                </div>
+                <div>
+                    <label for="">NIT:</label>
+                    <input type="text" placeholder="Escribe aquí">
+                </div>
+                <div>
+                    <label for="">Sector:</label>
+                    <select name="anio" class="regular">
+                        <option>Selecciona una opción</option>
+                        <option>Avión</option>
+                        <option>Tren</option>
+                    </select>
+                </div>
+    
+                <div>
+                    <label for="">Facturación anual: </label>
+                    <input type="text" placeholder="Escribe aquí">
+                </div>
+    
+                <div>
+                    <label for="">Nombre contacto:</label>
+                    <input type="text" placeholder="Escribe aquí">
+                </div>
+                <div>
+                    <label for="">Cargo:</label>
+                    <input type="text" placeholder="Escribe aquí">
+                </div>
+                <div>
+                    <label for="">Telefono:</label>
+                    <input type="text" placeholder="Escribe aquí">
+                </div>
+    
+                <div>
+                    <label for="">Email:</label>
+                    <input type="text" placeholder="Escribe aquí">
+                </div>
+
+                <div>
+                    <label for="">Agregar otro contacto:</label>
+                    <input type="text" placeholder="Escribe aquí">
+                </div>
+    
+                <div>
+                    <label for="">Descripción:</label>
+                    <input type="text" placeholder="Escribe aquí">
+                </div>
+
+                <div class="centrar mt-5 mb-5">
+                    <button class="boton-rojo">AGREGAR</button>
+                    </div>
+            </form>
+        </div>
+        <div class="col-2">
+            <div>
+                
+                <button id="selectButton" class="boton-negro btn " (click)="fileInput.click()">Sube el logo</button>
+                <input type="file" #fileInput hidden   />
+            </div>
+        </div>
+    </div>
+</div>

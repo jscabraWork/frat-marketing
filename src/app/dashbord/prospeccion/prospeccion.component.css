@@ -1,0 +1,52 @@
+.boton-negro{
+    background-color: black;
+    border:0px ;
+    color:white;
+    padding: 5px 10px 5px 10px;
+    border-radius:5px ;
+
+}
+
+th,td {
+    border:1px solid black;
+}
+.tabla1, .tabla2{
+    font-size: 12px;
+    margin-bottom: 20px;
+    width: 100%;
+    
+}
+.scroll{
+    width:100%;
+    overflow-x:scroll;
+}
+
+h6{
+    margin-top: 15px;
+    font-family: Inter-regular;
+    font-size: 14px;
+    line-height: 8px;
+    text-transform: uppercase;
+
+}
+.fondo-negro{
+    background-color:black;
+    color:white;
+    line-height:15px;
+    font-size: 14px;
+    padding: 18px;
+    font-family: inter-bold;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.boton-rojo,
+.boton-azul{
+    background-color: #CA2339;
+    color: white;
+    border:0px;
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+    margin-bottom: 40px;
+    font-size: 20px;
+}

@@ -11,8 +11,8 @@ export class DashbordComponent implements OnInit {
   seguimiento:boolean = false;
   metricas:boolean = false
   bd:boolean = false;
-  prospeccion:boolean = false;
-  requerimientos:boolean = true;
+  prospeccion:boolean = true;
+  requerimientos:boolean = false;
   informes:boolean = false;
   configuracion:boolean = false;
   

@@ -1,0 +1,90 @@
+#form div{
+
+    margin-top: 13px;
+    font-size: 20px;
+}
+
+select{
+    border:0px;
+    border-radius: 3px;
+    background-color:#e7e4e4;
+    color:#858585;
+    font-size: 14px;margin-left: 5px;
+}
+input[type="text"],
+input[type="date"]{
+    width: 30%;
+    border:0px;
+    border-bottom: 1px solid black;
+    height: 20px;
+    font-size: 14px;
+    color:#858585;
+    margin-left: 10px;
+}
+
+input[type="text"]:focus{
+    color:black;
+    font-size: 16px;
+    border:0px;
+    border-bottom: 1px solid rgb(235, 12, 12);
+    outline: none;
+}
+input[type="date"]{
+    text-transform: uppercase;
+}
+.boton-gris{
+    
+    background-color:#e7e4e4;
+    color:#858585;
+    font-size: 13px;
+}
+textarea{
+    width: 85%;
+    margin-top: 5px;
+    border:0px;
+    background-color:#e7e4e4;
+    color:#858585;
+    font-size: 13px;
+    padding:8px;
+    border-radius: 10px;
+    resize: none;
+
+}
+
+textarea:focus{
+
+    color: black;
+}
+
+input[type="checkbox"]{
+    width:15px;
+    border:1px solid black;
+    margin:3px;
+}
+.letra{
+    font-size: 12px;
+}
+.otro{
+    width:20% !important;
+    font-size: 10px !important;
+}
+.boton-rojo{
+    background-color: #CA2339;
+    color: white;
+    border:0px;
+    border-radius: 5px;
+    padding: 10px 15px 10px 15px;
+    margin-top: -40px;
+    font-size: 25px;
+}
+#redes img{
+    width:25px;
+    margin-left: 7px;
+}
+
+#redes input
+{
+    width:10%;
+    margin-left: 7px;
+    
+}

@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class ConfiguracionComponent implements OnInit {
   influencer: boolean = false;
   cliente: boolean = false;
-  responsable: boolean = true;
-  industria: boolean = false;
+  responsable: boolean = false;
+  industria: boolean = true;
   parametros: boolean = false;
 
   constructor() {}

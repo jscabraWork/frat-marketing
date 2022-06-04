@@ -4,105 +4,171 @@
             <h2 class="bold">CREAR CAMPAÑA</h2>
         </div>
     </div>
-    <form class="row">
+    <form class="row regular" id="form">
         <div class="col-6">
 
             <div>
                 <label for="">Empresa:</label>
-                <input type="text">
+                <select name="anio" class="regular">
+                    <option>Selecciona una opción</option>
+                    <option>Avión</option>
+                    <option>Tren</option>
+                </select>
             </div>
             <div>
                 <label for="">Marca:</label>
-                <input type="text">
+                <select name="anio" class="regular">
+                    <option>Selecciona una opción</option>
+                    <option>Avión</option>
+                    <option>Tren</option>
+                </select>
             </div>
             <div>
                 <label for="">Industria:</label>
-                <input type="text">
+                <select name="anio" class="regular">
+                    <option>Selecciona una opción</option>
+                    <option>Avión</option>
+                    <option>Tren</option>
+                </select>
             </div>
             <div>
                 <label for="">KAM:</label>
-                <input type="text">
+                <select name="anio" class="regular">
+                    <option>Selecciona una opción</option>
+                    <option>Avión</option>
+                    <option>Tren</option>
+                </select>
             </div>
             <div>
                 <label for="">Nombre campaña:</label>
-                <input type="text">
+                <input type="text" placeholder="Escribe aquí">
             </div>
 
             <div>
                 <label for="">Responsable</label>
-                <input type="text">
+                <select name="anio" class="regular">
+                    <option>Selecciona una opción</option>
+                    <option>Avión</option>
+                    <option>Tren</option>
+                </select>
             </div>
 
             <div>
                 <label for="">Red Social:</label>
-                <input type="text">
+                <select name="anio" class="regular">
+                    <option>Selecciona una opción</option>
+                    <option>Avión</option>
+                    <option>Tren</option>
+                </select>
             </div>
             <div>
-                <label for="">Presupuesto:</label>
-                <input type="text">
+                <label for="" >Presupuesto:</label>
+                <input type="text" placeholder="Escribe aquí">
             </div>
             <div>
                 <label for="">Alcance:</label>
-                <input type="text">
+                <select name="anio" class="regular">
+                    <option>Selecciona una opción</option>
+                    <option>Avión</option>
+                    <option>Tren</option>
+                </select>
             </div>
 
             <div>
                 <label for="">Fecha Inicio:</label>
-                <input type="text">
+                <input type="date">
             </div>
 
             <div>
                 <label for="">Fecha fin:</label>
-                <input type="text">
+                <input type="date">
             </div>
 
             <div>
                 <label for="">Metodologia:</label>
-                <input type="text">
+                <br>
+                <textarea name="" id=""  placeholder="Escribe aquí"></textarea>
             </div>
 
             <div>
-                <label for="">Archivos adjuntos:</label>
-                <input type="text">
+                <label for="">Adjunta archivos importantes:</label>
+                <button id="selectButton" class="boton-gris btn " (click)="fileInput.click()">Selecciona un archivo</button>
+                <input type="file" #fileInput hidden   />
             </div>
 
         </div>
         <div class="col-6">
             <div>
-                <label for="">Perfil de influenciadores:</label>
-                <input type="text">
+                <label for="" >Perfil de influenciadores:</label>
+                <br>
+                <textarea name="" id="" placeholder="Escribe aquí" ></textarea>
             </div>
             <div>
                 <label for="">Genero:</label>
-                <input type="text">
+                <select name="anio" class="regular">
+                    <option>Selecciona una opción</option>
+                    <option>Avión</option>
+                    <option>Tren</option>
+                </select>
             </div>
             <div>
                 <label for="">Rango de edad:</label>
-                <input type="text">
+                <select name="anio" class="regular">
+                    <option>Selecciona una opción</option>
+                    <option>Avión</option>
+                    <option>Tren</option>
+                </select>
             </div>
             <div>
                 <label for="">Categoria:</label>
-                <input type="text">
+                <br>
+                <select name="anio" class="regular">
+                    <option>Selecciona una opción</option>
+                    <option>Avión</option>
+                    <option>Tren</option>
+                </select>
+                <select name="anio" class="regular">
+                    <option>Selecciona una opción</option>
+                    <option>Avión</option>
+                    <option>Tren</option>
+                </select>
+                <select name="anio" class="regular">
+                    <option>Selecciona una opción</option>
+                    <option>Avión</option>
+                    <option>Tren</option>
+                </select>
             </div>
             <div>
-                <label for="">Tipo de contenido:</label>
-                <input type="text">
+                <label class="menos-t" for="">Tipo de contenido:</label>
+                <div >
+             
+                   <input type="checkbox" value="value1" > <span class="letra">Historia</span> 
+                   <input type="checkbox" value="value2" > <span class="letra">Reels</span> 
+                    <input type="checkbox" value="value3"> <span class="letra">IGTV</span> 
+                <input type="checkbox" value="value1" > <span class="letra">Asistencia</span> 
+                    <br>
+                    <input type="checkbox" value="value2" > <span class="letra">Posts</span> 
+                    <input type="checkbox" value="value3" > <span class="letra">Live</span> 
+                    <input type="checkbox" value="value2" > <span class="letra">TikTok</span> 
+                    <input type="checkbox" value="value3" > <span class="letra">Otro: </span>  <input class="otro" type="text" value="Otro" >
+                </div>
             </div>
             <div>
                 <label for="">Breve descripción de la campaña:</label>
-                <input type="text">
+                <textarea name=""  placeholder="Escribe aquí"></textarea>
             </div>
             <div>
                 <label for="">¿Qué van a decir?</label>
-                <input type="text">
+                <textarea name=""  placeholder="Escribe aquí"></textarea>
             </div>
 
         </div>
+
+            <div class="col-12 mt-5 centrar mb-5">
+                <button class="boton-rojo">CREAR</button>
+            </div>
+
     </form>
-    <div class="row">
-        <div class="col-12 mt-3 centrar">
-            <button>CREAR</button>
-        </div>
-    </div>
+   
 
 </div>

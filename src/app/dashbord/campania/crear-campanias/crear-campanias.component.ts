@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-crear-campanias',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrearCampaniasComponent implements OnInit {
 
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }

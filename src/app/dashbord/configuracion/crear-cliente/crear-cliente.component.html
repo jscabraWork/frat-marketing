@@ -4,29 +4,27 @@
             <h2 class="bold">CREAR UN CLIENTE / EMPRESA</h2>
         </div>
         <div class="col-10">
-            <form action="" id="form">
+            <form (ngSubmit)="!todoForm.invalid && saveEmpresa()" id="form" #todoForm="ngForm">
                 <div>
                     <label for="">Nombre:</label>
-                    <input type="text" placeholder="Escribe aquí">
+                    <input type="text" placeholder="Escribe aquí" name="nombre" [(ngModel)]="empresa.nombre">
                 </div>
-               
-    
                 <div>
                     <label for="">Email:</label>
-                    <input type="text" placeholder="Escribe aquí">
+                    <input type="text" placeholder="Escribe aquí" name="correo" [(ngModel)]="empresa.correo">
                 </div>
                 <div>
                     <label for="">Contraseña:</label>
-                    <input type="text" placeholder="Escribe aquí">
+                    <input type="text" placeholder="Escribe aquí" name="password" [(ngModel)]="empresa.password">
                 </div>
 
                 <div>
                     <label for="">Descripción:</label>
-                    <input type="text" placeholder="Escribe aquí">
+                    <input type="text" placeholder="Escribe aquí" name="descripcion" [(ngModel)]="empresa.descripcion">
                 </div>
 
                 <div class="centrar mt-5 mb-5">
-                    <button class="boton-rojo">AGREGAR</button>
+                    <button class="boton-rojo" type="submit">AGREGAR</button>
                     </div>
             </form>
         </div>

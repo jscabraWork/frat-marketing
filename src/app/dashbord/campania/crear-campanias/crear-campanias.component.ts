@@ -9,10 +9,18 @@ import { Observable } from 'rxjs';
 export class CrearCampaniasComponent implements OnInit {
 
 
+  limiteInferior:number =0
+  limiteSuperior:number=0
+  listaEdades:number[]=[]
   constructor() { }
 
   ngOnInit(): void {
+
+    for(let i=1; i <=70 ; i++){
+      this.listaEdades.push(i)
+    }
   }
+
 
 
 }

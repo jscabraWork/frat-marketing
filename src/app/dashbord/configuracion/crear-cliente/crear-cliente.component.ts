@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Empresa } from 'src/app/models/empresa.model';
+import { EmpresaService } from 'src/app/services/data/empresa.service';
 
 @Component({
   selector: 'app-crear-cliente',
@@ -7,9 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrearClienteComponent implements OnInit {
 
-  constructor() { }
+  constructor(private servicio:EmpresaService) { }
+  empresa:Empresa ={
+    id:0,
+    nombre:"",
+    correo:"",
+    password:"",
+    descripcion:""
 
-  ngOnInit(): void {
   }
-
+  ngOnInit(): void {
+    this.empresa=={
+      id:0,
+      nombre:"",
+      correo:"",
+      password:"",
+      descripcion:""
+    }
+  }
+  saveEmpresa(){
+    this.empresa.nombre=this.empresa.nombre.toUpperCase();
+    this.servicio.crearEmpresa(this.empresa).subscribe(response=>{
+      alert(response.mensaje)
+      this.ngOnInit()
+    },
+    error=>{
+      alert(error.error.mensaje)
+    }
+    )
+  }
 }

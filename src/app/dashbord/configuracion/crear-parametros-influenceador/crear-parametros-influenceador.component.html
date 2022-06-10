@@ -1,0 +1,66 @@
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-12">
+            <h4 class="bold">CREAR CIUDAD</h4>
+            <form (ngSubmit)="!todoForm.invalid && saveCiudad()"   #todoForm="ngForm" id="form">
+                <div>
+                    <label for="">Nombre:</label>
+                    <input name="nombre1" required="required"[(ngModel)]="ciudad.nombre" type="text" placeholder="Escribe aquí">
+                </div>
+                <div>
+                    <button class="boton-rojo" type="submit">Guardar</button>
+                </div>
+            </form>
+            <hr>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-12">
+            <h4 class="bold">CREAR MASCOTAS</h4>
+            <form (ngSubmit)="!todoForm1.invalid && saveMascota()"   #todoForm1="ngForm" id="form">
+                <div>
+                    <label for="">Nombre:</label>
+                    <input name="nombre2" required="required"[(ngModel)]="mascota.nombre" type="text" placeholder="Escribe aquí">
+                </div>
+                <div>
+                    <button class="boton-rojo" type="submit">Guardar</button>
+                </div>
+            </form>
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <h4 class="bold">CREAR OCUPACIÓN</h4>
+            <form (ngSubmit)="!todoForm2.invalid && saveOcupacion()"   #todoForm2="ngForm" id="form">
+                <div>
+                    <label for="">Nombre:</label>
+                    <input name="nombre3" required="required"[(ngModel)]="ocupacion.nombre" type="text" placeholder="Escribe aquí">
+                </div>
+                <div>
+                    <button class="boton-rojo" type="submit">Guardar</button>
+                </div>
+            </form>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h4 class="bold">CREAR GUSTOS</h4>
+            <form (ngSubmit)="!todoForm3.invalid && saveGusto()"   #todoForm3="ngForm" id="form">
+                <div>
+                    <label for="">Nombre:</label>
+                    <input name="nombre4" required="required"[(ngModel)]="gusto.nombre" type="text" placeholder="Escribe aquí">
+                </div>
+                <div>
+                    <button class="boton-rojo" type="submit">Guardar</button>
+                </div>
+            </form>
+            <hr>
+        </div>
+    </div>
+
+</div>

@@ -27,7 +27,11 @@ import { CrearResponsableComponent } from './dashbord/configuracion/crear-respon
 import { CrearIndustriaComponent } from './dashbord/configuracion/crear-industria/crear-industria.component';
 import { CrearParametrosComponent } from './dashbord/configuracion/crear-parametros/crear-parametros.component';
 import { FiltrarComponent } from './dashbord/prospeccion/filtrar/filtrar.component';
-import { CrearMarcaComponent } from './dashbord/configuracion/crear-marca/crear-marca.component';
+
+import { CrearParametrosInfluenceadorComponent } from './dashbord/configuracion/crear-parametros-influenceador/crear-parametros-influenceador.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -59,7 +63,9 @@ import { CrearMarcaComponent } from './dashbord/configuracion/crear-marca/crear-
          CrearIndustriaComponent,
          CrearParametrosComponent,
          FiltrarComponent,
-         CrearMarcaComponent,
+
+         CrearParametrosInfluenceadorComponent,
+         
          
          
          
@@ -67,7 +73,11 @@ import { CrearMarcaComponent } from './dashbord/configuracion/crear-marca/crear-
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

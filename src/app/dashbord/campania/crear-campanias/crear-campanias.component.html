@@ -44,21 +44,17 @@
                 <input type="text" placeholder="Escribe aquí">
             </div>
 
-            <div>
-                <label for="">Responsable</label>
-                <select name="anio" class="regular">
-                    <option>Selecciona una opción</option>
-                    <option>Avión</option>
-                    <option>Tren</option>
-                </select>
-            </div>
 
             <div>
                 <label for="">Red Social:</label>
-                <select name="anio" class="regular">
-                    <option>Selecciona una opción</option>
-                    <option>Avión</option>
-                    <option>Tren</option>
+                <select name="red" class="regular">
+                    <option value="">Selecciona una opción</option>
+          
+                    <option value="Instagram">Instagram</option>
+                    <option value="TikTok">TikTok</option>
+                    <option value="Twitter">Twitter</option>
+                    <option value="Facebook">Facebook</option>
+                    <option value="Youtube">Youtube</option>
                 </select>
             </div>
             <div>
@@ -105,18 +101,25 @@
             </div>
             <div>
                 <label for="">Genero:</label>
-                <select name="anio" class="regular">
+                <select name="genero" class="regular">
                     <option>Selecciona una opción</option>
-                    <option>Avión</option>
-                    <option>Tren</option>
+                    <option value="HOMBRE">Hombre</option>
+                    <option value="MUJER">Mujer</option>
+                    <option value="OTRO">Otro</option>
                 </select>
             </div>
             <div>
                 <label for="">Rango de edad:</label>
-                <select name="anio" class="regular">
-                    <option>Selecciona una opción</option>
-                    <option>Avión</option>
-                    <option>Tren</option>
+                <select  name="edad1" class="regular form-edad">
+                    <option value="">Selecciona una opción</option>
+                    <option *ngFor="let edad of listaEdades" value="{{edad}}">{{edad}}</option>
+                    
+                </select>
+
+                <select  name="edad2" class="regular form-edad">
+                    <option value="">Selecciona una opción</option>
+                    <option *ngFor="let edad of listaEdades" value="{{edad}}">{{edad}}</option>
+                    
                 </select>
             </div>
             <div>

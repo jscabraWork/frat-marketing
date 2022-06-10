@@ -4,68 +4,66 @@
             <h2 class="bold">CREAR UNA MARCA</h2>
                 </div>
         <div class="col-10">
-            <form action="" id="form">
+            <form (ngSubmit)="!todoForm.invalid && saveMarca()" id="form" #todoForm="ngForm">
                 <div>
                     <label for="">Compañia:</label>
-                         <select name="anio" class="regular">
-                        <option>Selecciona una opción</option>
-                        <option>Avión</option>
-                        <option>Tren</option>
+                    <select name="anio" class="regular" [(ngModel)]="idEmpresa">
+                        <option value="0">Selecciona una opción</option>
+                        <option *ngFor="let empresa of companias" value="{{empresa.id}}">{{empresa.nombre}}</option>    
                     </select>
                 </div>
 
                 <div>
                     <label for="">Razón Social:</label>
-                    <input type="text" placeholder="Escribe aquí">
+                    <input type="text" placeholder="Escribe aquí" name="razon"  [(ngModel)]="marca.razonSocial">
                 </div>
                 <div>
                     <label for="">NIT:</label>
-                    <input type="text" placeholder="Escribe aquí">
+                    <input type="text" placeholder="Escribe aquí" name="NIT"  [(ngModel)]="marca.nit">
                 </div>
                 <div>
-                    <label for="">Sector:</label>
-                    <select name="anio" class="regular">
-                        <option>Selecciona una opción</option>
-                        <option>Avión</option>
-                        <option>Tren</option>
+                    <label for="">INDUSTRIA:</label>
+                    <select name="anio" class="regular" [(ngModel)]="idSector">
+                        <option value="0">Selecciona una opción</option>
+                        <option *ngFor="let sector of sectores" value="{{sector.id}}">{{sector.nombre}}</option>    
                     </select>
                 </div>
     
                 <div>
                     <label for="">Facturación anual: </label>
-                    <input type="text" placeholder="Escribe aquí">
+                    <input type="text" placeholder="Escribe aquí" name="facturacion"  [(ngModel)]="marca.facturacion">
                 </div>
     
                 <div>
                     <label for="">Nombre contacto:</label>
-                    <input type="text" placeholder="Escribe aquí">
+                    <input type="text" placeholder="Escribe aquí" name="contacto"  [(ngModel)]="marca.contacto">
                 </div>
                 <div>
                     <label for="">Cargo:</label>
-                    <input type="text" placeholder="Escribe aquí">
+                    <input type="text" placeholder="Escribe aquí" name="cargo_contacto"  [(ngModel)]="marca.cargo_contacto">
                 </div>
                 <div>
                     <label for="">Telefono:</label>
-                    <input type="text" placeholder="Escribe aquí">
+                    <input type="text" placeholder="Escribe aquí" name="telefono"  [(ngModel)]="marca.telefono">
                 </div>
     
                 <div>
                     <label for="">Email:</label>
-                    <input type="text" placeholder="Escribe aquí">
+                    <input type="text" placeholder="Escribe aquí" name="correo"  [(ngModel)]="marca.correo">
                 </div>
 
                 <div>
                     <label for="">Agregar otro contacto:</label>
-                    <input type="text" placeholder="Escribe aquí">
+                    <input type="text" placeholder="Escribe aquí" name="otroContacto"  [(ngModel)]="marca.otroContacto">
                 </div>
     
                 <div>
                     <label for="">Descripción:</label>
-                    <input type="text" placeholder="Escribe aquí">
+                    <input type="text" placeholder="Escribe aquí" name="descripcion"  [(ngModel)]="marca.descripcion">
                 </div>
 
                 <div class="centrar mt-5 mb-5">
-                    <button class="boton-rojo">AGREGAR</button>
+                    <button type="submit" class="boton-rojo">AGREGAR</button>
                     </div>
             </form>
         </div>

@@ -6,12 +6,18 @@
             <ul>
                 <li> <img src="../../../assets/images/img/pie-chart.png" alt="" routerLink="/home"><span  routerLink="/home">CONFIGURACIÓN ⮛</span> <hr>
                     <ul>
-                        <li (click)="cambiarEstado('influencer')"> <span  [ngClass]="{'bold' : influencer}">CREAR INFLUENCER</span></li>
-                        <li (click)="cambiarEstado('cliente')" ><span [ngClass]="{'bold' : cliente}"> CREAR CLIENTE</span></li>
-                        <li (click)="cambiarEstado('industria')" ><span [ngClass]="{'bold' : industria}"> CREAR MARCA</span></li>
-                        <li (click)="cambiarEstado('responsable')" ><span [ngClass]="{'bold' : responsable}"> CREAR RESPONSABLE</span></li>
+                        <li (click)="cambiarEstado('cliente')" ><span [ngClass]="{'bold' : cliente}"> 1. CREAR CLIENTE</span></li>
+                        <li (click)="cambiarEstado('industria')" ><span [ngClass]="{'bold' : industria}">2. CREAR MARCA</span></li>
+                        <li (click)="cambiarEstado('responsable')" ><span [ngClass]="{'bold' : responsable}">3. CREAR RESPONSABLE</span></li>
+                        <li (click)="cambiarEstado('influencer')"> <span  [ngClass]="{'bold' : influencer}">4. CREAR INFLUENCER</span></li>
+                      
+                        
 
-                        <li (click)="cambiarEstado('parametros')" ><span [ngClass]="{'bold' : parametros}">PARAMETROS</span></li>
+
+                        <li (click)="cambiarEstado('parametros')" ><span [ngClass]="{'bold' : parametros}">PARAMETROS CAMPAÑA</span></li>
+
+                        
+                        <li (click)="cambiarEstado('pinfluenceador')" ><span [ngClass]="{'bold' : pinfluenceador}">PARAMETROS INFLUENCEADOR</span></li>
                     </ul>
                 
                 </li>
@@ -19,12 +25,13 @@
             </ul>
         </div>
         <div class="col-8" id="contenido">
+            <div *ngIf="cliente">
+                <app-crear-cliente></app-crear-cliente>
+             </div>
             <div *ngIf="influencer">
                 <app-crear-influencer></app-crear-influencer>
              </div>
-             <div *ngIf="cliente">
-                <app-crear-cliente></app-crear-cliente>
-             </div>
+           
  
              <div *ngIf="responsable">
                 <app-crear-responsable></app-crear-responsable>
@@ -35,6 +42,9 @@
              </div>
              <div *ngIf="parametros">
                 <app-crear-parametros></app-crear-parametros>
+             </div>
+             <div *ngIf="pinfluenceador">
+                <app-crear-parametros-influenceador></app-crear-parametros-influenceador>
              </div>
         </div>
     </div>

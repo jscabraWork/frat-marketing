@@ -12,9 +12,8 @@
                 <div>
                     <label for="">Ciudad de residencia:</label>
                     <select name="anio" class="regular">
-                        <option>Selecciona una opción</option>
-                        <option>Avión</option>
-                        <option>Tren</option>
+                        <option value="0">Selecciona una opción</option>
+                        <option *ngFor="let ciudad of ciudades" [(ngModel)]="ciudadid" value="{{ciudad.id}}">{{ciudad.nombre}}</option>
                     </select>
                 </div>
                 <div>
@@ -54,22 +53,30 @@
                 <div>
                     <label for="">Tipo de contenido: </label>
                     <select name="anio" class="regular">
+                        <option value="0">Selecciona una opción</option>
+                        <option *ngFor="let tipo of tipoContenidos" [(ngModel)]="ciudadid" value="{{tipo.id}}">{{tipo.nombre}}</option>
+                    </select>
+                    <button>Agregar</button>
+                </div>
+                <div>
+                    <label for="">Gustos: </label>
+                    <select name="anio" class="regular">
                         <option>Selecciona una opción</option>
                         <option>Avión</option>
                         <option>Tren</option>
                     </select>
                 </div>
-    
                 <div>
                     <label for="">Fecha de nacimiento:</label>
                     <input type="date">
                 </div>
                 <div>
                     <label for="">Genero:</label>
-                    <select name="anio" class="regular">
+                    <select name="genero" class="regular">
                         <option>Selecciona una opción</option>
-                        <option>Avión</option>
-                        <option>Tren</option>
+                        <option value="HOMBRE">Hombre</option>
+                        <option value="MUJER">Mujer</option>
+                        <option value="OTRO">Otro</option>
                     </select>
                 </div>
                 <div>
@@ -93,9 +100,15 @@
                 <div>
                     <label for="">Hijos:</label>
                     <select name="anio" class="regular">
-                        <option>Selecciona una opción</option>
-                        <option>Avión</option>
-                        <option>Tren</option>
+                        <option value="">Selecciona una opción</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
                     </select>
                 </div>
     

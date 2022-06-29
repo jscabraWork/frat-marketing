@@ -1,0 +1,66 @@
+<section class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-12">
+            <h4 class="bold">PUBLIC OBJETIVO</h4>
+            <form (ngSubmit)="!todoForm.invalid && saveIndustria()" id="form" #todoForm="ngForm">
+                <div>
+                    <label for="nombre" >Nombre:</label>
+                    <input type="text" name="nombre1" required="required"[(ngModel)]="industria.nombre" placeholder="Escribe aquí">
+                </div>
+                <div>
+                    <button class="boton-rojo"  type="submit">Guardar</button>
+                </div>
+            </form>
+            <hr>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-12">
+            <h4 class="bold">CREAR CATEGORIA</h4>
+            <form (ngSubmit)="!todoForm1.invalid && saveCategoria()"   #todoForm1="ngForm" id="form">
+                <div>
+                    <label for="">Nombre:</label>
+                    <input type="text" name="nombre2" required="required"[(ngModel)]="categoria.nombre" placeholder="Escribe aquí">
+                </div>
+                <div>
+                    <button class="boton-rojo"  type="submit">Guardar</button>
+                </div>
+            </form>
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <h4 class="bold">CREAR TIPO DE CONTENIDO</h4>
+            <form (ngSubmit)="!todoForm2.invalid && saveTipoContenido()"  #todoForm2="ngForm" id="form">
+                <div>
+                    <label for="">Nombre:</label>
+                    <input type="text"  name="nombre3"required="required"[(ngModel)]="tipoContenido.nombre" placeholder="Escribe aquí">
+                </div>
+                <div>
+                    <label for="">Porcentaje de alcance:</label>
+                    <input type="number"  name="alcance"required="required"[(ngModel)]="tipoContenido.alcance" placeholder="Escribe aquí">
+                </div>
+                <div>
+                    <label for="">Red Social:</label>
+                    <select name="red" class="regular" [(ngModel)]="tipoContenido.redSocial" required="required">
+                        <option value="">Selecciona una opción</option>
+              
+                        <option value="Instagram">Instagram</option>
+                        <option value="TikTok">TikTok</option>
+                        <option value="Presencial">Presencial</option>
+                    </select>
+                </div>
+                <div>
+                    <button class="boton-rojo"  type="submit">Guardar</button>
+                </div>
+            </form>
+            <hr>
+        </div>
+    </div>
+
+</section>

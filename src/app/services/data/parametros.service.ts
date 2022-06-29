@@ -9,6 +9,7 @@ import { Ciudad } from 'src/app/models/ciudad.model';
 import { Mascotas } from 'src/app/models/mascota.model';
 import { Ocupacion } from 'src/app/models/ocupacion.model';
 import { Gusto } from 'src/app/models/gusto.model';
+import { TipoContenidoInfluencer } from 'src/app/models/tipoContenidoInfluencer.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -22,6 +23,11 @@ export class ParametrosService {
 
   crearTipoContenido(tipoContenido:TipoContenido){
     return this.http.post<any>(`${API_URL}/tipoContenido`,tipoContenido);
+  }
+
+
+  crearTipoContenidoInfluencer(tipoContenido:TipoContenidoInfluencer){
+    return this.http.post<any>(`${API_URL}/tipoContenidoInfluencer`,tipoContenido);
   }
 
   crearCategoria(categoria:Categoria){

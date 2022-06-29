@@ -15,7 +15,7 @@ import { SeguimientoComponent } from './dashbord/seguimiento/seguimiento.compone
 import { CampaniaComponent } from './dashbord/campania/campania.component';
 import { BaseDeDatosComponent } from './dashbord/base-de-datos/base-de-datos.component';
 import { ProspeccionComponent } from './dashbord/prospeccion/prospeccion.component';
-import { RequerimientosComponent } from './dashbord/requerimientos/requerimientos.component';
+import { RequerimientosComponent } from './dashbord/campania/requerimientos/requerimientos.component';
 import { InformesComponent } from './dashbord/informes/informes.component';
 import { ConfiguracionComponent } from './dashbord/configuracion/configuracion.component';
 import { CampaniasActivasComponent } from './dashbord/campania/campanias-activas/campanias-activas.component';
@@ -26,13 +26,20 @@ import { CrearClienteComponent } from './dashbord/configuracion/crear-cliente/cr
 import { CrearResponsableComponent } from './dashbord/configuracion/crear-responsable/crear-responsable.component';
 import { CrearIndustriaComponent } from './dashbord/configuracion/crear-industria/crear-industria.component';
 import { CrearParametrosComponent } from './dashbord/configuracion/crear-parametros/crear-parametros.component';
-import { FiltrarComponent } from './dashbord/prospeccion/filtrar/filtrar.component';
+import { FiltrarComponent } from './dashbord/campania/perfilamiento/filtrar/filtrar.component';
 
 import { CrearParametrosInfluenceadorComponent } from './dashbord/configuracion/crear-parametros-influenceador/crear-parametros-influenceador.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ParametrosCampaniaComponent } from './dashbord/campania/parametros-campania/parametros-campania.component';
+import { PerfilamientoComponent } from './dashbord/campania/perfilamiento/perfilamiento.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import {MatDialogModule} from '@angular/material/dialog';
+import { RelationsComponent } from './dashbord/relations/relations.component';
 
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
 
 
 
@@ -65,6 +72,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
          FiltrarComponent,
 
          CrearParametrosInfluenceadorComponent,
+          ParametrosCampaniaComponent,
+          PerfilamientoComponent,
+          RelationsComponent,
          
          
          
@@ -77,6 +87,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+
 
   ],
   providers: [],

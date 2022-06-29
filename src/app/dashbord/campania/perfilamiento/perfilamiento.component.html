@@ -1,0 +1,180 @@
+<!-- <app-filtrar></app-filtrar> -->
+<div class="container-fluid mt-5">
+    <div class="row">
+
+        <div class="col-12 centrar mb-3">
+            <h2 class="bold">PERFILAMIENTO</h2>
+            <select name="campania" class="regular mb-2 select" [(ngModel)]="idCampania" (change)="cambiar()">
+                <option value="0">Selecciona una campaña</option>
+                <option *ngFor="let campania of campanias" value="{{campania.id}}">{{campania.nombre}}</option>
+
+            </select>
+            <br>
+            <button class="boton-negro bold" (click)="openDialog()">Busca un influenceador</button>
+        </div>
+        <div class="col-12 centrar mt-5 mb-5" *ngIf="influencers.length == 0">
+            <h4 class="rojo-texto bold">REALIZA UNA BUSQUEDA DE INFLUENCERS</h4>
+        </div>
+        <div class="col-12" *ngFor="let influ of influencers; let i =index">
+            <table class="tabla1">
+                <tr>
+                    <th>NOMBRE</th>
+                    <th>CIUDAD</th>
+                    <th>SEGUIDORES {{redSocial}}</th>
+
+                    <th *ngFor="let precio of precios[i]">ALCANCE {{precio.tipoContenido.nombre}}</th>
+
+                    <th *ngIf="redSocial=='Instagram'">IMPRESIONES Instagram</th>
+                    <th *ngIf="redSocial=='TikTok'">IMPRESIONES TikTok</th>
+
+                    <th *ngFor="let precio of precios[i]">COSTO {{precio.tipoContenido.nombre}}</th>
+                </tr>
+                <tr>
+                    <td>{{influ.nombre}}</td>
+                    <td>{{ciudades[i]}}</td>
+                    <td *ngIf="redSocial=='Instagram'">{{influ.seguidoresInstagram}}</td>
+                    <td *ngIf="redSocial=='TikTok'">{{influ.seguidoresTikTok}}</td>
+
+                    <td *ngFor="let precio of precios[i]">{{darAlcanteTotalPre(precio,i) | number: '1.0-0'}}</td>
+
+
+                    <td *ngIf="redSocial=='Instagram'">{{darImpresiones(precios[i],influ.seguidoresInstagram)}}</td>
+                    <td *ngIf="redSocial=='TikTok'">{{darImpresiones(precios[i],influ.seguidoresTikTok)}}</td>
+
+                    <td *ngFor="let precio of precios[i]">${{precio.precio| number: '1.0-0'}}</td>
+
+                </tr>
+            </table>
+            <button class="boton-rojo-2" (click)="seleccionar(i)">Seleccionar</button>
+        </div>
+
+
+        <div class="col-12 centrar mb-3">
+            <h2 class="bold">INFLUENCERS SELECCIONADOS</h2>
+
+        </div>
+
+        <div class="col-12 centrar mt-5 mb-5" *ngIf="influencersAgregados.length == 0">
+            <h4 class="rojo-texto bold">SELECCIONA ALGUN INFLUENCER</h4>
+        </div>
+
+        <div class="col-12">
+            <div class="scroll">
+                <div *ngFor="let influ of influencersAgregados; let i =index">
+                    <table class="tabla2">
+                        <tr>
+                            <th>NOMBRE</th>
+                            <th>CIUDAD</th>
+                            <th>SEGUIDORES {{redSocial}}</th>
+
+                            <th *ngFor="let precio of preciosAgregados[i]">{{precio.tipoContenido.nombre}}</th>
+
+                            <th *ngFor="let precio of preciosAgregados[i]">ALCANCE {{precio.tipoContenido.nombre}}</th>
+
+
+                            <th>ALCANCE TOTAL</th>
+                            <th *ngIf="redSocial=='Instagram'">IMPRESIONES Instagram</th>
+                            <th *ngIf="redSocial=='TikTok'">IMPRESIONES TikTok</th>
+
+
+                            <th *ngFor="let precio of preciosAgregados[i]">COSTO {{precio.tipoContenido.nombre}}</th>
+
+
+                            <th>SUMA COSTOS</th>
+                            <th>RETENCIONES</th>
+                            <th>TOTAL COSTOS</th>
+                        </tr>
+                        <tr>
+                            <td>{{influ.nombre}}</td>
+                            <td>{{ciudadesAgregadas[i]}}</td>
+                            <td *ngIf="redSocial=='Instagram'">{{influ.seguidoresInstagram}}</td>
+                            <td *ngIf="redSocial=='TikTok'">{{influ.seguidoresTikTok}}</td>
+
+                            <td *ngFor="let numero of numeros[i];let j = index"><input type="number" name="{{influ.nombre + i +j}}" id="{{influ.nombre + i +j}}" min="0"
+                                    [(ngModel)]="numeros[i][j]" class="corto"></td>
+
+                            <td *ngFor="let precio of preciosAgregados[i];let j = index">{{((influ.seguidoresInstagram *
+                                precio.tipoContenido.alcance)/100 )*numeros[i][j]| number: '1.0-0'}}</td>
+
+                            <td *ngIf="redSocial=='Instagram'">
+                                {{darAlcanteTotal(preciosAgregados[i],influ.seguidoresInstagram,i)| number: '1.0-0'}}
+                            </td>
+                            <td *ngIf="redSocial=='TikTok'">
+                                {{darAlcanteTotal(preciosAgregados[i],influ.seguidoresTikTok,i)| number: '1.0-0'}}</td>
+
+                            <td *ngIf="redSocial=='Instagram'">
+                                {{0.012* darAlcanteTotal(preciosAgregados[i],influ.seguidoresInstagram,i) | number:
+                                '1.0-0'}}
+                            </td>
+                            <td *ngIf="redSocial=='TikTok'">
+                                {{0.012* darAlcanteTotal(preciosAgregados[i],influ.seguidoresTikTok,i)| number:
+                                '1.0-0'}}
+                            </td>
+
+                            <td *ngFor="let precio of preciosAgregados[i];let j = index">
+                                ${{(precio.precio)*numeros[i][j]| number: '1.0-0'}}</td>
+
+                            <td>${{darCosto(preciosAgregados[i],i)| number: '1.0-0'}}</td>
+                            <td>
+                                <select name="genero" class="regular corto" [(ngModel)]="retenciones[i]" required="required">
+                                    <option value="0">Selecciona una opción</option>
+                                    <option value="1.12">FACTURA PERSONA JURÍDICA</option>
+                                    <option value="1.1">FACTURA PERSONA NATURAL FUERA CALI</option>
+                                    <option value="1.11">FACTURA PERSONA NATURAL CALI</option>
+                                    <option value="1">CUENTA DE COBRO HASTA 1 MILLON</option>
+                                    <option value="1.11">CUENTA DE COBRO + 1 MILLON CALI</option>
+                                    <option value="1.1">CUENTA DE COBRO + 1 MILLON FUERA CALI</option>
+                                </select>
+                            </td>
+                            <td>${{darCosto(preciosAgregados[i],i) *retenciones[i]| number: '1.0-0'}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row centrar mt-4">
+        <div class="col-12">
+            <h4 class="bold">RESUMEN INFLUENCIADORES</h4>
+        </div>
+        <div class="col-4">
+            <h6>Equipo</h6>
+            <div class="fondo-negro">
+                
+                <div *ngIf="redSocial=='Instagram'">
+                    <p *ngFor="let info of darInfluencerIG()">{{info}}</p>
+                </div>
+                <div *ngIf="redSocial=='TikTok'">
+                    <p *ngFor="let info of darInfluencerTikTok()">{{info}}</p>
+                </div>
+            </div>
+            <h6>Ciudad</h6>
+            <div class="fondo-negro">
+                <p *ngFor="let info of darCiudades()">{{info}}</p>
+                
+            </div>
+        </div>
+        <div class="col-4">
+            <h6>Contenido</h6>
+            <div class="fondo-negro">
+                <p>Seguidores: <span *ngIf="redSocial=='Instagram'">{{darSeguidoresTotalIG()| number: '1.0-0'}}</span> <span *ngIf="redSocial=='TikTok'">{{darSeguidoresTotalTikTok()| number: '1.0-0'}}</span></p>
+                <p>Alcance: <span *ngIf="redSocial=='Instagram'">{{darAlcanteTotalCampanaIg()| number: '1.0-0'}}</span> <span *ngIf="redSocial=='TikTok'">{{darAlcanteTotalCampanaTikTok()| number: '1.0-0'}}</span></p>
+                <p>Impresiones: <span *ngIf="redSocial=='Instagram'">{{0.012*darAlcanteTotalCampanaIg()| number: '1.0-0'}}</span> <span *ngIf="redSocial=='TikTok'">{{0.012*darAlcanteTotalCampanaTikTok()| number: '1.0-0'}}</span></p>
+                <p>CPM: <span *ngIf="redSocial=='Instagram'">$ {{ ((0.012*darAlcanteTotalCampanaIg())/fee)*1000| number: '1.0-0'}}</span> <span *ngIf="redSocial=='TikTok'">$ {{((0.012*darAlcanteTotalCampanaTikTok())/fee)*1000| number: '1.0-0'}}</span></p>
+                <p>Acciones: {{darAcciones() | number: '1.0-0'}}</p>
+            </div>
+        </div>
+        <div class="col-4">
+            <h6>Valor</h6>
+            <div class="fondo-negro">
+                <p>${{darCostoTotal() | number: '1.0-0'}} Costos</p>
+                <p><input type="number" name="fee" id="fee" placeholder="FEE" [(ngModel)]="fee" min="1"> FEE</p>
+                <p>${{fee-darCostoTotal() | number: '1.0-0'}}  Utilidad Comercial</p>
+            </div>
+        </div>
+        <div class="col-12 derecha">
+            <button class="boton-rojo bold" (click)="crearTareas()">GUARDAR</button>
+        </div>
+    </div>
+</div>

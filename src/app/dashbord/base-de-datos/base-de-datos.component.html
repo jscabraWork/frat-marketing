@@ -12,19 +12,22 @@
                     <th>NOMBRE</th>
                     <th>SEGUIDORES</th>
                     <th>EDAD</th>
-                    <th>USUARIOS</th>
+                    <th>USUARIO</th>
                     <th>CIUDAD</th>
                 </tr>
 
-                <tr class="centrar regular">
-                    <td>Ejemplo</td>
-                    <td>Ejemplo</td>
-                    <td>Ejemplo</td>
-                    <td>Ejemplo</td>
-                    <td>Ejemplo</td>
+                <tr class="centrar regular" *ngFor="let influ of influencers; let i = index">
+                    <td>{{influ.nombre}}</td>
+                    <td>Seguidores Instagram: {{influ.seguidoresInstagram}}  Seguidores TikTok: {{influ.seguidoresTikTok}}</td>
+                    <td>{{CalculateAge(influ.fechaNacimiento)}}</td>
+                    <td>Instagram: {{influ.igUser}} |  TikTok: {{influ.tikTokUser}}</td>
+                    <td>{{ciudades[i]}}</td>
                     
                 </tr>
             </table>
+        </div>
+        <div class="col-12 centrar mt-5">
+            <- 1 ->
         </div>
     </div>
 </div>

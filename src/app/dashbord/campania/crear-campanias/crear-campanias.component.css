@@ -79,3 +79,35 @@ input[type="checkbox"]{
 .form-edad{
     width:10% !important;
 }
+.form-edad{
+    width:10% !important;
+}
+.btn-red{
+    background-color: #CA2339;
+    color: white;
+    margin-left: 15px;
+    padding: 2px 5px 2px 5px;
+    border:0px;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-top:10px;
+}
+small{
+    font-size: 13px;
+    margin-left: 5px;
+
+}
+small span{
+    font-size: 13px;
+    color: gray;
+    border: 0.5px solid gray;
+    width:3px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 300ms;
+}
+small span:hover{
+    background-color: gray;
+    color: white;
+}
+

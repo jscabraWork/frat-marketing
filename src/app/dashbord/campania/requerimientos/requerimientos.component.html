@@ -1,0 +1,122 @@
+<div class="container-fluid">
+    <div class="row mt-4" >
+        <div class="col-12">
+            <h2 class="bold">REQUERIMIENTOS</h2>
+            <select name="campania" class="regular select" [(ngModel)]="idActual" (change)="cambiar()">
+                <option value="0">Selecciona una campaña</option>
+                <option *ngFor="let campania of campanias" value="{{campania.id}}">{{campania.nombre}}</option>
+ 
+            </select>
+            <br>
+            <button *ngIf="influencers.length > 0" class="boton-rojo bold mt-5 font-18" (click)="guardarTodasTareas()">GUARDAR TODOS</button>
+        </div>
+    </div>
+<div class="row">
+    <div class="col-12 mt-4">
+        <table class="mb-3 tabla-2 centrar">
+            <tr>
+
+                <th>FECHA DE PUBLICACIÓN</th>
+                <th>HORA DE PUBLICACIÓN</th>
+                <th>DO´S</th>
+                <th>DONT´S</th>
+                <th>PITCH</th>
+            </tr>
+            <tr >
+               
+                <td>
+                    <input type="date" id="{{tarea.id+'Fecha'}}" name="{{tarea.id+'Fecha'}}" [(ngModel)]=" tarea.fecha">
+                   
+                </td>
+                <td>
+                    <select id="{{tarea.id+'Hora'}}" name="{{tarea.id+'Hora'}}"class="regular" [(ngModel)]="tarea.horaPublicacion ">
+                        <option value="">Selecciona una campaña</option>
+                        <option *ngFor="let hora of horas" value="{{hora}}">{{hora}}</option>
+        
+                    </select>
+                </td>
+                <td>
+                    <input type="text" id="{{tarea.id+'Hacer'}}" name="{{tarea.id+'Hacer'}}" [(ngModel)]=" tarea.hacer">
+                </td>
+                <td>
+                    <input type="text" id="{{tarea.id+'NoHacer'}}" name="{{tarea.id+'NoHacer'}}" [(ngModel)]=" tarea.noHacer">
+                </td>
+                <td>
+                    <input type="text" id="{{tarea.id+'Pitch'}}" name="{{tarea.id+'Pitch'}}" [(ngModel)]=" tarea.pitch">
+                </td>
+             
+            </tr>
+           
+            
+        </table>
+    </div>
+    <div class="col-12 derecha mb-4">
+        <button class="boton-negro bold" (click)="aplicarATodos()">Aplicar para todos seleccionados</button>
+    </div>
+</div>
+
+<div class="row" *ngFor="let influ of influencers; let i = index"> 
+        <div class="col-12 mt-4">
+          <div>
+            <img src="../../../../assets/images/img/user-2.png" alt="" class="img flotar"> <p class="regular nombre">{{influ.nombre}}</p>
+        </div>
+                <table class="tabla-1 centrar mb-3">
+                    <tr>
+                        <th *ngFor="let tipo of darNombresDeTipoContenido(tipoContenidos[i])">{{tipo}}</th>
+                        
+                    </tr>
+                    <tr>
+                        <td *ngFor="let numero of darCantidadesDeTipoContenido(tipoContenidos[i])">{{numero}}</td>
+                    </tr>
+                </table>
+        </div>
+    
+        <div class="col-12">
+            <table class="mb-3 tabla-2 centrar">
+                <tr>
+                    <th>SELECCIONAR</th>
+                    <th>ACCIÓN</th>
+                    <th>FECHA DE PUBLICACIÓN</th>
+                    <th>HORA DE PUBLICACIÓN</th>
+                    <th>DO´S</th>
+                    <th>DONT´S</th>
+                    <th>PITCH</th>
+                </tr>
+                <tr *ngFor="let tarea of tareas[i]; let j = index">
+                    <td>
+                        <input type="checkbox" id="{{tarea.id+'Check'}}" name="{{tarea.id+'Check'}}" (change)="seleccionarTarea(i,j)">
+                    </td>
+                    <td>{{tipoContenidos[i][j].nombre}}</td>
+                    <td>
+                        <input type="date" id="{{tarea.id+'Fecha'}}" name="{{tarea.id+'Fecha'}}" [(ngModel)]=" tarea.fecha">
+                       
+                    </td>
+                    <td>
+                        <select id="{{tarea.id+'Hora'}}" name="{{tarea.id+'Hora'}}"class="regular" [(ngModel)]="tarea.horaPublicacion ">
+                            <option value="">Selecciona una campaña</option>
+                            <option *ngFor="let hora of horas" value="{{hora}}">{{hora}}</option>
+            
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" id="{{tarea.id+'Hacer'}}" name="{{tarea.id+'Hacer'}}" [(ngModel)]=" tarea.hacer">
+                    </td>
+                    <td>
+                        <input type="text" id="{{tarea.id+'NoHacer'}}" name="{{tarea.id+'NoHacer'}}" [(ngModel)]=" tarea.noHacer">
+                    </td>
+                    <td>
+                        <input type="text" id="{{tarea.id+'Pitch'}}" name="{{tarea.id+'Pitch'}}" [(ngModel)]=" tarea.pitch">
+                    </td>
+                 
+                </tr>
+               
+                
+            </table>
+        </div>
+        <div class="col-12 derecha">
+
+            <button class="boton-rojo bold mb-3" (click)="guardarUnaTarea(i)">GUARDAR</button>
+        </div>
+
+    </div>
+</div>

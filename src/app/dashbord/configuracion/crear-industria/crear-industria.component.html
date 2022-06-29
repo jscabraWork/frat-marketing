@@ -22,7 +22,7 @@
                     <input type="text" placeholder="Escribe aquí" name="NIT"  [(ngModel)]="marca.nit">
                 </div>
                 <div>
-                    <label for="">INDUSTRIA:</label>
+                    <label for="">Industria:</label>
                     <select name="anio" class="regular" [(ngModel)]="idSector">
                         <option value="0">Selecciona una opción</option>
                         <option *ngFor="let sector of sectores" value="{{sector.id}}">{{sector.nombre}}</option>    
@@ -59,7 +59,9 @@
     
                 <div>
                     <label for="">Descripción:</label>
-                    <input type="text" placeholder="Escribe aquí" name="descripcion"  [(ngModel)]="marca.descripcion">
+                    <br>
+                    <textarea type="text" placeholder="Escribe aquí" name="descripcion"  [(ngModel)]="marca.descripcion"></textarea>
+                   
                 </div>
 
                 <div class="centrar mt-5 mb-5">

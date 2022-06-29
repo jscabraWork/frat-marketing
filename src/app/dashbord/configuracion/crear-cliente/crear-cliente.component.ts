@@ -30,8 +30,9 @@ export class CrearClienteComponent implements OnInit {
   saveEmpresa(){
     this.empresa.nombre=this.empresa.nombre.toUpperCase();
     this.servicio.crearEmpresa(this.empresa).subscribe(response=>{
-      alert(response.mensaje)
       this.ngOnInit()
+      alert(response.mensaje)
+     
     },
     error=>{
       alert(error.error.mensaje)

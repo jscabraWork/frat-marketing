@@ -3,42 +3,14 @@
         <div class="col-12 centrar mt-5">
             <h2 class="bold">CAMPAÑAS ACTIVAS</h2>
         </div>
-        <div class="col-4 centrar mt-5">
-            <p class="bold f-24 mtn-3">NOMBRE CAMPAÑA</p>
+        <div class="col-4 centrar mt-5" *ngFor="let campania of campanias">
+            <p class="bold f-24 mtn-3">{{campania.nombre}}</p>
             <h3 class="logo">LOGO MARCA</h3>
+            <p>Editar</p>
         </div>
-        <div class="col-4 centrar mt-5">
-            <p class="bold f-24 mtn-3">NOMBRE CAMPAÑA</p>
-            <h3 class="logo">LOGO MARCA</h3>
-        </div>
-        <div class="col-4 centrar mt-5">
-            <p class="bold f-24 mtn-3">NOMBRE CAMPAÑA</p>
-            <h3 class="logo">LOGO MARCA</h3>
-        </div>
-        <div class="col-4 centrar mt-5">
-            <p class="bold f-24 mtn-3">NOMBRE CAMPAÑA</p>
-            <h3 class="logo">LOGO MARCA</h3>
-        </div>
-        <div class="col-4 centrar mt-5">
-            <p class="bold f-24 mtn-3">NOMBRE CAMPAÑA</p>
-            <h3 class="logo">LOGO MARCA</h3>
-        </div>
-        <div class="col-4 centrar mt-5">
-            <p class="bold f-24 mtn-3">NOMBRE CAMPAÑA</p>
-            <h3 class="logo">LOGO MARCA</h3>
-        </div>
-        <div class="col-4 centrar mt-5">
-            <p class="bold f-24 mtn-3">NOMBRE CAMPAÑA</p>
-            <h3 class="logo">LOGO MARCA</h3>
-        </div>
-        <div class="col-4 centrar mt-5">
-            <p class="bold f-24 mtn-3">NOMBRE CAMPAÑA</p>
-            <h3 class="logo">LOGO MARCA</h3>
-        </div>
-        <div class="col-4 centrar mt-5">
-            <p class="bold f-24 mtn-3">NOMBRE CAMPAÑA</p>
-            <h3 class="logo">LOGO MARCA</h3>
-        </div>
-        <div class="col 12 centrar mt-2 bold ver-mas"><p>VER MÁS</p></div>
+        
+    </div>
+    <div class="row">
+        <div class="col-12 centrar mt-2 bold ver-mas"><p>VER MÁS</p></div>
     </div>
 </div>

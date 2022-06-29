@@ -3,6 +3,7 @@ import { Ciudad } from 'src/app/models/ciudad.model';
 import { Gusto } from 'src/app/models/gusto.model';
 import { Mascotas } from 'src/app/models/mascota.model';
 import { Ocupacion } from 'src/app/models/ocupacion.model';
+import { TipoContenidoInfluencer } from 'src/app/models/tipoContenidoInfluencer.model';
 import { ParametrosService } from 'src/app/services/data/parametros.service';
 
 @Component({
@@ -29,7 +30,36 @@ export class CrearParametrosInfluenceadorComponent implements OnInit {
     id:0,
     nombre:""
   };
+
+  tipoContenido:TipoContenidoInfluencer ={
+    id:0,
+    nombre:""
+  };
+
   ngOnInit(): void {
+
+    this.ciudad ={
+      id:0,
+      nombre:""
+    };
+    this.mascota ={
+      id:0,
+      nombre:""
+    };
+    this.ocupacion ={
+      id:0,
+      nombre:""
+    };
+    this.gusto ={
+      id:0,
+      nombre:""
+    };
+  
+    this.tipoContenido ={
+      id:0,
+      nombre:""
+    };
+  
   }
 
   saveCiudad(){
@@ -74,6 +104,21 @@ export class CrearParametrosInfluenceadorComponent implements OnInit {
   saveGusto(){
     this.gusto.nombre=this.gusto.nombre.toUpperCase();
     this.servicio.crearGusto(this.gusto).subscribe(response=>{
+      alert(response.mensaje)
+      this.ngOnInit()
+    },
+    error=>{
+      alert(error.error.mensaje)
+    }
+    )
+    
+  }
+
+
+  saveTipoContenido(){
+    this.tipoContenido.nombre=this.tipoContenido.nombre.toUpperCase();
+
+    this.servicio.crearTipoContenidoInfluencer(this.tipoContenido).subscribe(response=>{
       alert(response.mensaje)
       this.ngOnInit()
     },

@@ -13,4 +13,7 @@ export class AdminService {
   crearAdministrador(administrador:Administrador){
     return this.http.post<any>(`${API_URL}/administradores`,administrador);
   }
+  getAllAdministradores(){
+    return this.http.get<any>(`${API_URL}/administradores`);
+  }
 }

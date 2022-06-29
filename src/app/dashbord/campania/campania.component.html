@@ -1,20 +1,24 @@
 <app-menu></app-menu>
 
-<div class="container mt-5 dashbord min">
+<div class="container-fluid dashbord min">
     <div class="row">
-        <div class="col-4" id="menu">
+        <div class="col-3" id="menu">
             <ul>
                 <li> <img src="../../../assets/images/img/pie-chart.png" alt="" routerLink="/home"><span  routerLink="/home">CREAR CAMPAÑA ⮛</span> <hr>
                     <ul>
-                        <li (click)="cambiarEstado('crear')"> <span  [ngClass]="{'bold' : crear}">CREAR CAMPAÑA</span></li>
-                        <li (click)="cambiarEstado('campanias')" ><span [ngClass]="{'bold' : campanias}"> CAMPAÑAS ACTIVAS</span></li>
+                        <li (click)="cambiarEstado('crear')"> <span  [ngClass]="{'bold' : crear}">1.CREAR CAMPAÑA</span></li>
+                        <li (click)="cambiarEstado('perfilamiento')"> <span  [ngClass]="{'bold' : perfilamiento}">2.PERFILAMIENTO</span></li>
+                        <li (click)="cambiarEstado('requerimientos')" ><span [ngClass]="{'bold' : requerimientos}">3. REQUERIMIENTOS</span></li>
+                        <li (click)="cambiarEstado('campanias')" ><span [ngClass]="{'bold' : campanias}">4. CAMPAÑAS ACTIVAS</span></li>
+                        
+                        <li (click)="cambiarEstado('parametros')" ><span [ngClass]="{'bold' : parametros}"> PARAMETROS DE CAMPAÑA</span></li>
                     </ul>
                 
                 </li>
                 
             </ul>
         </div>
-        <div class="col-8 min" id="contenido">
+        <div class="col-9 min" id="contenido">
             <div *ngIf="crear">
                 <app-crear-campanias></app-crear-campanias>
              </div>
@@ -22,6 +26,15 @@
              <div *ngIf="campanias">
                 <app-campanias-activas></app-campanias-activas>
              </div>
+             <div *ngIf="perfilamiento">
+                <app-perfilamiento></app-perfilamiento>
+             </div>
+             <div *ngIf="parametros">
+                <app-parametros-campania></app-parametros-campania>
+             </div>
+             <div *ngIf="requerimientos">
+                <app-requerimientos></app-requerimientos>
+            </div>
         </div>
     </div>
 </div>

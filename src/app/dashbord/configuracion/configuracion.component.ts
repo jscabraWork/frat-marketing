@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./configuracion.component.css'],
 })
 export class ConfiguracionComponent implements OnInit {
-  influencer: boolean = false;
-  cliente: boolean = true;
+  influencer: boolean = true;
+  cliente: boolean = false;
   responsable: boolean = false;
   industria: boolean = false;
   parametros: boolean = false;

@@ -1,0 +1,53 @@
+.fondo-negro{
+    background-color: black;
+    color:white;
+    opacity:0.9;
+}
+label{
+    font-family: inter-bold;
+    font-size: 16px;
+    margin-top: 20px;
+}
+.form-edad{
+    width:40% !important;
+}
+option{
+    font-family: inter-regular;
+}
+.col-4 div{
+    
+    padding: 20px;
+}
+
+input,
+select
+{
+    color:white;
+    background-color:#484848;
+    border:0px;
+    padding: 5px;
+    margin-top: 10px;
+}
+.boton-blanco{
+    background-color: white;
+    color:black;
+    font-family: inter-bold;
+    border-radius: 5px;
+    font-size: 25px;
+    border:1px solid black;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+input[type= "checkbox"]{
+    background-color: transparent;
+    border:0px;
+    
+    margin-left: 30px;
+    
+    margin-top: 10px;
+}
+.pml-0:first-child input[type= "checkbox"]{ 
+    margin-left: 0px;
+}

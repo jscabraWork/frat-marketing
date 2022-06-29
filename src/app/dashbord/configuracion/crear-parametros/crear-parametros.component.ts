@@ -22,7 +22,9 @@ export class CrearParametrosComponent implements OnInit {
   };
   tipoContenido:TipoContenido={
     id:0,
-    nombre:""
+    nombre:"",
+    alcance:0,
+    redSocial:""
   };
   sector:Sector={
     id:0,
@@ -41,7 +43,9 @@ export class CrearParametrosComponent implements OnInit {
     };
     this.tipoContenido={
       id:0,
-      nombre:""
+      nombre:"",
+      alcance:0,
+      redSocial:""
     };
     this.sector={
       id:0,

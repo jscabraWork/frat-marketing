@@ -1,6 +1,6 @@
 .dashbord{
-    border:6px solid black;
-    border-radius:25px;
+    min-height: 93.3vh;
+
     overflow:hidden;
     background-color:black;
 }
@@ -30,6 +30,7 @@
 }
 #contenido{
     background-color:white;
+    min-height: 93.3vh;
 }
 hr{
     color: red;

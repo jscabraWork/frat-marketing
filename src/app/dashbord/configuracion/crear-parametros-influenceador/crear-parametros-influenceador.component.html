@@ -63,4 +63,19 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-12">
+            <h4 class="bold">CREAR CATEGORIA DE CONTENIDO</h4>
+            <form (ngSubmit)="!todoForm4.invalid && saveTipoContenido()"   #todoForm4="ngForm" id="form">
+                <div>
+                    <label for="">Nombre:</label>
+                    <input name="nombre4" required="required"[(ngModel)]="tipoContenido.nombre" type="text" placeholder="Escribe aquí">
+                </div>
+                <div>
+                    <button class="boton-rojo" type="submit">Guardar</button>
+                </div>
+            </form>
+            <hr>
+        </div>
+    </div>
 </div>

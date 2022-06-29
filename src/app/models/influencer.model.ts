@@ -4,13 +4,20 @@ export interface Influencer{
     correo:string;
     password:string;
 	celular:string;
-	fechaNacimiento:Date;
+	fechaNacimiento:any;
 	genero:string;
 	hijos:number;
-	cantidadHijos:string;
+
 	direccion:string;
 	igUser:string;
 	tikTokUser:string;
-	twitterUser:string;
-	youtubeUser:string;
+	seguidoresInstagram:number;
+	seguidoresTikTok:number;
+
+	edadInstagram:string;
+	edadTikTok:string;
+	ciudadInstagram:string;
+	ciudadTikTok:string;
+	generoInstagram:string;
+	generoTikTok:string;
 }

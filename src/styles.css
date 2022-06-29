@@ -34,4 +34,14 @@
 .min{
   min-height:82vh;
 }
+mat-dialog-container {
+  background-color: transparent !important;
+  padding: 0px 0px 0px 0px !important;
+  overflow: hidden !important;
+}
 
+.rojo-texto{
+  color:#CA2339;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

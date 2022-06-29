@@ -4,86 +4,72 @@
             <h2 class="bold">CREAR CAMPAÑA</h2>
         </div>
     </div>
-    <form class="row regular" id="form">
+    <form class="row regular" (ngSubmit)="!todoForm.invalid && saveCampania()" id="form" #todoForm="ngForm">
         <div class="col-6">
 
             <div>
-                <label for="">Empresa:</label>
-                <select name="anio" class="regular">
-                    <option>Selecciona una opción</option>
-                    <option>Avión</option>
-                    <option>Tren</option>
+                <label for="">Compañia:</label>
+                <select name="industrias" class="regular" [(ngModel)]="idEmpresa" (change)="buscarMarcas()">
+                    <option value="0">Selecciona una opción</option>
+                    <option *ngFor="let empresa of companias" value="{{empresa.id}}">{{empresa.nombre}}</option>    
                 </select>
             </div>
             <div>
                 <label for="">Marca:</label>
-                <select name="anio" class="regular">
-                    <option>Selecciona una opción</option>
-                    <option>Avión</option>
-                    <option>Tren</option>
+                <select name="marcas" class="regular"   [(ngModel)]="idMarca" >
+                    <option value="0">Selecciona una opción</option>
+                    <option *ngFor="let marca of marcas" value="{{marca.id}}">{{marca.razonSocial}}</option>    
                 </select>
             </div>
             <div>
-                <label for="">Industria:</label>
-                <select name="anio" class="regular">
-                    <option>Selecciona una opción</option>
-                    <option>Avión</option>
-                    <option>Tren</option>
+                <label for="">Publico Objetivo:</label>
+                <select name="industria" class="regular" [(ngModel)]="idIndustria" >
+                    <option value="0">Selecciona una opción</option>
+                    <option *ngFor="let industria of industrias" value="{{industria.id}}">{{industria.nombre}}</option>    
                 </select>
             </div>
             <div>
                 <label for="">KAM:</label>
-                <select name="anio" class="regular">
-                    <option>Selecciona una opción</option>
-                    <option>Avión</option>
-                    <option>Tren</option>
+                <select name="kam" class="regular" [(ngModel)]="idKam" >
+                    <option value="0">Selecciona una opción</option>
+                    <option *ngFor="let kam of administradores" value="{{kam.id}}">{{kam.nombre}}</option>    
                 </select>
             </div>
             <div>
                 <label for="">Nombre campaña:</label>
-                <input type="text" placeholder="Escribe aquí">
+                <input type="text" placeholder="Escribe aquí" name="nombre" [(ngModel)]="campania.nombre" required="required"> 
             </div>
 
 
             <div>
                 <label for="">Red Social:</label>
-                <select name="red" class="regular">
+                <select name="red" class="regular" [(ngModel)]="campania.redSocial" required="required">
                     <option value="">Selecciona una opción</option>
           
                     <option value="Instagram">Instagram</option>
                     <option value="TikTok">TikTok</option>
-                    <option value="Twitter">Twitter</option>
-                    <option value="Facebook">Facebook</option>
-                    <option value="Youtube">Youtube</option>
                 </select>
             </div>
             <div>
                 <label for="" >Presupuesto:</label>
-                <input type="text" placeholder="Escribe aquí">
+                <input type="text" placeholder="Escribe aquí" [(ngModel)]="campania.presupuesto" required="required" name="presupuesto">
             </div>
-            <div>
-                <label for="">Alcance:</label>
-                <select name="anio" class="regular">
-                    <option>Selecciona una opción</option>
-                    <option>Avión</option>
-                    <option>Tren</option>
-                </select>
-            </div>
+
 
             <div>
                 <label for="">Fecha Inicio:</label>
-                <input type="date">
+                <input type="date" [(ngModel)]="campania.fechaInicio" required="required"  name="inicio">
             </div>
 
             <div>
                 <label for="">Fecha fin:</label>
-                <input type="date">
+                <input type="date" [(ngModel)]="campania.fechaFin" required="required" name="fin">
             </div>
 
             <div>
                 <label for="">Metodologia:</label>
                 <br>
-                <textarea name="" id=""  placeholder="Escribe aquí"></textarea>
+                <textarea  id=""  placeholder="Escribe aquí" [(ngModel)]="campania.metodologia" required="required" name="metodologia"></textarea>
             </div>
 
             <div>
@@ -97,12 +83,12 @@
             <div>
                 <label for="" >Perfil de influenciadores:</label>
                 <br>
-                <textarea name="" id="" placeholder="Escribe aquí" ></textarea>
+                <textarea  id="" placeholder="Escribe aquí" [(ngModel)]="campania.perfilInfluenceador" required="required" name="perfilInfluenceador"></textarea>
             </div>
             <div>
                 <label for="">Genero:</label>
-                <select name="genero" class="regular">
-                    <option>Selecciona una opción</option>
+                <select name="genero" class="regular" [(ngModel)]="campania.genero" required="required" >
+                    <option value="">Selecciona una opción</option>
                     <option value="HOMBRE">Hombre</option>
                     <option value="MUJER">Mujer</option>
                     <option value="OTRO">Otro</option>
@@ -110,14 +96,14 @@
             </div>
             <div>
                 <label for="">Rango de edad:</label>
-                <select  name="edad1" class="regular form-edad">
-                    <option value="">Selecciona una opción</option>
+                <select  name="edad1" class="regular form-edad" [(ngModel)]="limiteInferior" required="required">
+                    <option value="0">Selecciona una opción</option>
                     <option *ngFor="let edad of listaEdades" value="{{edad}}">{{edad}}</option>
                     
                 </select>
 
-                <select  name="edad2" class="regular form-edad">
-                    <option value="">Selecciona una opción</option>
+                <select  name="edad2" class="regular form-edad" [(ngModel)]="limiteSuperior" required="required">
+                    <option value="0">Selecciona una opción</option>
                     <option *ngFor="let edad of listaEdades" value="{{edad}}">{{edad}}</option>
                     
                 </select>
@@ -125,53 +111,42 @@
             <div>
                 <label for="">Categoria:</label>
                 <br>
-                <select name="anio" class="regular">
-                    <option>Selecciona una opción</option>
-                    <option>Avión</option>
-                    <option>Tren</option>
+                <select  name="categoria" class="regular" [(ngModel)]="categoriaActual.id" required="required">
+                    
+                    <option value="0">Selecciona una opción</option>
+                    <option *ngFor="let categoria of categorias" value="{{categoria.id}}">{{categoria.nombre}}</option>    
                 </select>
-                <select name="anio" class="regular">
-                    <option>Selecciona una opción</option>
-                    <option>Avión</option>
-                    <option>Tren</option>
-                </select>
-                <select name="anio" class="regular">
-                    <option>Selecciona una opción</option>
-                    <option>Avión</option>
-                    <option>Tren</option>
-                </select>
+                <button class="btn-red" (click)="agregarCategoria()">AGREGAR</button>
+                    <small class="regular small" *ngFor="let categoria of categoriasElegidas"> {{categoria.nombre}} <span (click)="eliminaCategoria(categoria.id)">X</span> </small>
+            
             </div>
             <div>
                 <label class="menos-t" for="">Tipo de contenido:</label>
                 <div >
              
-                   <input type="checkbox" value="value1" > <span class="letra">Historia</span> 
-                   <input type="checkbox" value="value2" > <span class="letra">Reels</span> 
-                    <input type="checkbox" value="value3"> <span class="letra">IGTV</span> 
-                <input type="checkbox" value="value1" > <span class="letra">Asistencia</span> 
-                    <br>
-                    <input type="checkbox" value="value2" > <span class="letra">Posts</span> 
-                    <input type="checkbox" value="value3" > <span class="letra">Live</span> 
-                    <input type="checkbox" value="value2" > <span class="letra">TikTok</span> 
-                    <input type="checkbox" value="value3" > <span class="letra">Otro: </span>  <input class="otro" type="text" value="Otro" >
+                   <span *ngFor="let tipo of tipoContenidos" class="letra"> <span *ngIf="campania.redSocial==tipo.redSocial || tipo.redSocial =='Presencial'"> <input type="checkbox" value="{{tipo.id}}" (change)="agregareliminarTipoContenido(tipo.id)"> {{tipo.nombre}}</span></span> 
+           
+                    
                 </div>
             </div>
             <div>
                 <label for="">Breve descripción de la campaña:</label>
-                <textarea name=""  placeholder="Escribe aquí"></textarea>
+                <textarea name="descripcion"  placeholder="Escribe aquí" [(ngModel)]="campania.descripcion" required="required"></textarea>
             </div>
             <div>
                 <label for="">¿Qué van a decir?</label>
-                <textarea name=""  placeholder="Escribe aquí"></textarea>
+                <textarea name="decir"  placeholder="Escribe aquí"  [(ngModel)]="campania.queVanADecir" required="required"></textarea>
             </div>
 
         </div>
 
             <div class="col-12 mt-5 centrar mb-5">
-                <button class="boton-rojo">CREAR</button>
+                <button class="boton-rojo" type="submit">CREAR</button>
             </div>
 
     </form>
    
 
 </div>
+
+

@@ -4,76 +4,149 @@
             <h2 class="bold">CREAR UN INFLUENCER</h2>
         </div>
         <div class="col-12">
-            <form action="" id="form" >
+            <form (ngSubmit)="!todoForm.invalid" id="form" #todoForm="ngForm" >
                 <div>
                     <label for="">Nombre:</label>
-                    <input type="text" placeholder="Escribe aquí">
+                    <input type="text" placeholder="Escribe aquí" name="nombre" [(ngModel)]="influencer.nombre" required="required">
                 </div>
                 <div>
                     <label for="">Ciudad de residencia:</label>
-                    <select name="anio" class="regular">
+                    <select name="ciudadR" [(ngModel)]="ciudadid"  class="regular">
                         <option value="0">Selecciona una opción</option>
-                        <option *ngFor="let ciudad of ciudades" [(ngModel)]="ciudadid" value="{{ciudad.id}}">{{ciudad.nombre}}</option>
+                        <option *ngFor="let ciudad of ciudades" value="{{ciudad.id}}">{{ciudad.nombre}}</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="">Ciudad de seguidores Instagram:</label>
+                    <select name="ciudadI" [(ngModel)]="influencer.ciudadInstagram"  class="regular">
+                        <option value="">Selecciona una opción</option>
+                        <option *ngFor="let ciudad of ciudades" value="{{ciudad.nombre}}">{{ciudad.nombre}}</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="">Ciudad de seguidores TikTok:</label>
+                    <select name="ciudadT" [(ngModel)]="influencer.ciudadTikTok"  class="regular">
+                        <option value="">Selecciona una opción</option>
+                        <option *ngFor="let ciudad of ciudades" value="{{ciudad.nombre}}">{{ciudad.nombre}}</option>
                     </select>
                 </div>
                 <div>
                     <label for="">Dirección:</label>
-                    <input type="text" placeholder="Escribe aquí">
+                    <input type="text" name="direccion" placeholder="Escribe aquí"  [(ngModel)]="influencer.direccion" required="required">
                 </div>
                 <div>
                     <label for="">Email:</label>
-                    <input type="text" placeholder="Escribe aquí">
+                    <input type="text" name="correo" placeholder="Escribe aquí" [(ngModel)]="influencer.correo" required="required">
                 </div>
                 <div>
                     <label for="">Contraseña:</label>
-                    <input type="text" placeholder="Escribe aquí">
+                    <input type="text" name="contrasena" placeholder="Escribe aquí" [(ngModel)]="influencer.password" required="required">
                 </div>
                 <div>
                     <label for="">Celular:</label>
-                    <input type="text" placeholder="Escribe aquí">
+                    <input type="text" placeholder="Escribe aquí" name="celular" [(ngModel)]="influencer.celular" required="required">  
                 </div>
                 <div>
                    
                     <div id="redes">
                         <label for="">Redes:</label>
                         <img src="../../../../assets/images/img/instagram-4.png" alt="">
-                        <input type="text" placeholder="Usuario">
+                        <input type="text" placeholder="Usuario" name="ig" [(ngModel)]="influencer.igUser">
+                  
+
                         <img src="../../../../assets/images/img/tik-tok.png" alt="">
-                        <input type="text" placeholder="Usuario">
-                        <img src="../../../../assets/images/img/twitter-2.png" alt="">
-                        <input type="text" placeholder="Usuario">
-                        <img src="../../../../assets/images/img/facebook-2.png" alt="">
-                        <input type="text" placeholder="Usuario">
-                        <img src="../../../../assets/images/img/youtube-4.png" alt="">
-                        <input type="text" placeholder="Usuario">
-                    </div>
-                    
+                        <input type="text" placeholder="Usuario" name="tiktok" [(ngModel)]="influencer.tikTokUser">
+          
+
+                   </div>
+         
+                   <div id="redes">
+                    <label for="">Redes Cantidad De Seguidores:</label>
+                    <img src="../../../../assets/images/img/instagram-4.png" alt="">
+                
+                    <input type="number" placeholder="Seguidores" name="igS" [(ngModel)]="influencer.seguidoresInstagram">
+
+                    <img src="../../../../assets/images/img/tik-tok.png" alt="">
+             
+                    <input type="number" placeholder="Seguidores" name="tiktokS" [(ngModel)]="influencer.seguidoresTikTok">
+
+               </div>
                 </div>
     
                 <div>
-                    <label for="">Tipo de contenido: </label>
-                    <select name="anio" class="regular">
-                        <option value="0">Selecciona una opción</option>
-                        <option *ngFor="let tipo of tipoContenidos" [(ngModel)]="ciudadid" value="{{tipo.id}}">{{tipo.nombre}}</option>
+                    <label for="">Edad de seguidores Instagram:</label>
+                    <select  name="edad1" class="regular" [(ngModel)]="influencer.edadInstagram" required="required">
+                        <option value="">Selecciona una opción</option>
+                        <option *ngFor="let edad of listaEdades" value="{{edad}}">{{edad}}</option>
+                        
                     </select>
-                    <button>Agregar</button>
+    
+                </div>
+
+                <div>
+                    <label for="">Edad de seguidores TikTok:</label>
+                    <select  name="edad" class="regular" [(ngModel)]="influencer.edadTikTok" required="required">
+                        <option value="">Selecciona una opción</option>
+                        <option *ngFor="let edad of listaEdades" value="{{edad}}">{{edad}}</option>
+                        
+                    </select>
+    
                 </div>
                 <div>
-                    <label for="">Gustos: </label>
-                    <select name="anio" class="regular">
-                        <option>Selecciona una opción</option>
-                        <option>Avión</option>
-                        <option>Tren</option>
+                    <label for="">Categoria de contenido: </label>
+                    <select name="tipoC" class="regular"  [(ngModel)]="actualContenido.id">
+                        <option value="0">Selecciona una opción</option>
+                        <option  *ngFor="let tipo of tipoContenidos"  value="{{tipo.id}}">{{tipo.nombre}}</option>
                     </select>
+                    <button class="btn-red" (click)="agregarTipoContenido()">AGREGAR</button>
+                    <small class="regular small" *ngFor="let tipo of tipoContenidosElegidos"> {{tipo.nombre}} <span (click)="eliminarTipoContenido(tipo.id)">X</span> </small>
                 </div>
+
+
+
+                <div>
+                    <label for="">Tipo de contenido y sus precios: </label>
+                    <select name="tipo" class="regular"  [(ngModel)]="actualContenidoCampania.id">
+                        <option value="0">Selecciona una opción</option>
+                        <option  *ngFor="let tipo of tipoContenidosCampania"  value="{{tipo.id}}">{{tipo.nombre}}</option>
+                    </select>
+                    <input type="number" placeholder="precio" name="precio" [(ngModel)]="precioActual" class="regular precio">
+                    <button class="btn-red" (click)="agregarTipoContenidoCampania()">AGREGAR</button>
+                    <small class="regular small" *ngFor="let tipo of tipoContenidosCampaniaElegidos;let i = index"> {{tipo.nombre}}: ${{precios[i]| number: '1.0-0'}} <span (click)="eliminarTipoContenidoCampania(tipo.id)">X</span> </small>
+                </div>
+
+
+
                 <div>
                     <label for="">Fecha de nacimiento:</label>
-                    <input type="date">
+                    <input type="date" name="fecha"  [(ngModel)]="influencer.fechaNacimiento" required="required">
                 </div>
                 <div>
                     <label for="">Genero:</label>
-                    <select name="genero" class="regular">
-                        <option>Selecciona una opción</option>
+                    <select name="genero" class="regular" [(ngModel)]="influencer.genero">
+                        <option value="">Selecciona una opción</option>
+                        <option value="HOMBRE">Hombre</option>
+                        <option value="MUJER">Mujer</option>
+                        <option value="OTRO">Otro</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="">Genero seguidores Instagram:</label>
+                    <select name="genero" class="regular" [(ngModel)]="influencer.generoInstagram">
+                        <option value="">Selecciona una opción</option>
+                        <option value="HOMBRE">Hombre</option>
+                        <option value="MUJER">Mujer</option>
+                        <option value="OTRO">Otro</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="">Genero seguidores TikTok:</label>
+                    <select name="genero" class="regular" [(ngModel)]="influencer.generoTikTok">
+                        <option value="">Selecciona una opción</option>
                         <option value="HOMBRE">Hombre</option>
                         <option value="MUJER">Mujer</option>
                         <option value="OTRO">Otro</option>
@@ -81,25 +154,28 @@
                 </div>
                 <div>
                     <label for="">Likes:</label>
-                    <select name="anio" class="regular">
-                        <option>Selecciona una opción</option>
-                        <option>Avión</option>
-                        <option>Tren</option>
+                    <select name="gustos" class="regular" [(ngModel)]="actualGusto.id">
+                        <option value="0">Selecciona una opción</option>
+                        <option *ngFor="let gusto of gustos"  value="{{gusto.id}}">{{gusto.nombre}}</option>
                     </select>
+                    <button class="btn-red" (click)="agregarGusto()">AGREGAR</button>
+                    <small class="regular small" *ngFor="let gusto of gustosElegidos"> {{gusto.nombre}} <span (click)="eliminarGusto(gusto.id)">X</span> </small>
                 </div>
     
                 <div>
                     <label for="">Dislikes:</label>
-                    <select name="anio" class="regular">
-                        <option>Selecciona una opción</option>
-                        <option>Avión</option>
-                        <option>Tren</option>
+                    <select name="disgustos" class="regular" [(ngModel)]="actualDisgusto.id" >
+                        <option value="0">Selecciona una opción</option>
+                        <option *ngFor="let gusto of gustos" value="{{gusto.id}}">{{gusto.nombre}}</option>
                     </select>
+
+                    <button class="btn-red" (click)="agregarDisgusto()">AGREGAR</button>
+                    <small class="regular small" *ngFor="let gusto of disgustosElegidos"> {{gusto.nombre}} <span (click)="eliminarDisgusto(gusto.id)">X</span> </small>
                 </div>
     
                 <div>
                     <label for="">Hijos:</label>
-                    <select name="anio" class="regular">
+                    <select name="hijos" class="regular" [(ngModel)]="influencer.hijos">
                         <option value="">Selecciona una opción</option>
                         <option value="0">0</option>
                         <option value="1">1</option>
@@ -114,23 +190,28 @@
     
                 <div>
                     <label for="">Mascotas:</label>
-                    <select name="anio" class="regular">
-                        <option>Selecciona una opción</option>
-                        <option>Avión</option>
-                        <option>Tren</option>
+                    <select name="mascotas" class="regular"  [(ngModel)]="actualMascota.id">
+                        <option value="0">Selecciona una opción</option>
+                        <option *ngFor="let mascota of mascotas" value="{{mascota.id}}">{{mascota.nombre}}</option>
                     </select>
+
+                    
+                    <button class="btn-red" (click)="agregarMascota()">AGREGAR</button>
+                    <small class="regular small" *ngFor="let mascota of mascotasElegidos"> {{mascota.nombre}} <span (click)="eliminarMascota(mascota.id)">X</span> </small>
                 </div>
     
                 <div>
                     <label for="">Ocupación:</label>
-                    <select name="anio" class="regular">
-                        <option>Selecciona una opción</option>
-                        <option>Avión</option>
-                        <option>Tren</option>
+                    <select name="ocupacion" class="regular" [(ngModel)]="actualOcupacion.id">
+                        <option value="0">Selecciona una opción</option>
+                        <option *ngFor="let ocupacion of ocupaciones"  value="{{ocupacion.id}}">{{ocupacion.nombre}}</option>
                     </select>
+
+                    <button class="btn-red" (click)="agregarOcupacion()">AGREGAR</button>
+                    <small class="regular small" *ngFor="let ocupacion of ocupacionElegidos"> {{ocupacion.nombre}} <span (click)="eliminarOcupacion(ocupacion.id)">X</span> </small>
                 </div>
                 <div class="derecha">
-                <button class="boton-rojo">AGREGAR</button>
+                    <button class="boton-rojo" (click)="guardarInfluencer()">AGREGAR</button>
                 </div>
             </form>
         </div>

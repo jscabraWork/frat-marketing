@@ -17,4 +17,7 @@ export class EmpresaService {
   getAllEmpresa(){
     return this.http.get<any>(`${API_URL}/empresas`);
   }
+  getMarcas(idEmpresa:number){
+    return this.http.get<any>(`${API_URL}/empresas/${idEmpresa}/marcas`);
+  }
 }

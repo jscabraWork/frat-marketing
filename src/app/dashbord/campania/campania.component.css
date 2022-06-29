@@ -1,10 +1,11 @@
 .dashbord{
-    border:6px solid black;
-    border-radius:25px;
+    min-height: 93.3vh;
+
     overflow:hidden;
     background-color:black;
-    
 }
+
+
 
 #menu ul{
     width: 100%;
@@ -16,8 +17,8 @@
     list-style:none;
     color: white;
     font-family: 'inter-regular';
-    font-size: 30px;
-    padding-top: 60px;
+    font-size: 27px;
+    padding-top: 50px;
     cursor: pointer;
 }
 
@@ -29,6 +30,7 @@
 }
 #contenido{
     background-color:white;
+    min-height: 93.3vh;
 }
 hr{
     color: red;

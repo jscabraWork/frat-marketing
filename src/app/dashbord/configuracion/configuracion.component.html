@@ -1,10 +1,10 @@
 <app-menu></app-menu>
 
-<div class="container mt-5 dashbord">
+<div class="container-fluid  dashbord">
     <div class="row min">
-        <div class="col-4" id="menu">
+        <div class="col-3" id="menu">
             <ul>
-                <li> <img src="../../../assets/images/img/pie-chart.png" alt="" routerLink="/home"><span  routerLink="/home">CONFIGURACIÓN ⮛</span> <hr>
+                <li> <img src="../../../assets/images/img/pie-chart.png" alt="" routerLink="/home"><span  routerLink="/home">PARAMETROS ⮛</span> <hr>
                     <ul>
                         <li (click)="cambiarEstado('cliente')" ><span [ngClass]="{'bold' : cliente}"> 1. CREAR CLIENTE</span></li>
                         <li (click)="cambiarEstado('industria')" ><span [ngClass]="{'bold' : industria}">2. CREAR MARCA</span></li>
@@ -14,7 +14,7 @@
                         
 
 
-                        <li (click)="cambiarEstado('parametros')" ><span [ngClass]="{'bold' : parametros}">PARAMETROS CAMPAÑA</span></li>
+                        <li (click)="cambiarEstado('parametros')" ><span [ngClass]="{'bold' : parametros}">PARAMETROS MARCA</span></li>
 
                         
                         <li (click)="cambiarEstado('pinfluenceador')" ><span [ngClass]="{'bold' : pinfluenceador}">PARAMETROS INFLUENCEADOR</span></li>
@@ -24,7 +24,7 @@
                 
             </ul>
         </div>
-        <div class="col-8" id="contenido">
+        <div class="col-9" id="contenido">
             <div *ngIf="cliente">
                 <app-crear-cliente></app-crear-cliente>
              </div>

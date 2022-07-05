@@ -85,6 +85,7 @@ export class PerfilamientoComponent implements OnInit {
     if (this.redSocial != "") {
       const dialogRef = this.dialog.open(FiltrarComponent, {
         width: '1000px',
+        height:'90%',
         data: {
           red: this.redSocial
         }

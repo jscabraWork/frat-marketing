@@ -13,12 +13,21 @@ export class CampaniaService {
   addCampania(campania:Campania, pMarca:number,pIndustria:number,pResponsable:number, pCategorias:string, pTipoContenido:string){
     return this.http.post<any>(`${API_URL}/campania/${pMarca}/${pIndustria}/${pResponsable}/${pCategorias}/${pTipoContenido}`,campania);
   }
+
+  actualizarCampania(campania:Campania, pMarca:number,pIndustria:number,pResponsable:number, pCategorias:string, pTipoContenido:string){
+    return this.http.put<any>(`${API_URL}/campania/${pMarca}/${pIndustria}/${pResponsable}/${pCategorias}/${pTipoContenido}`,campania);
+  }
+
   getAllCampanias(){
     return this.http.get<any>(`${API_URL}/campanias`);
   }
 
   getCampaniaRequerimientos(idCampania:number){
-    return this.http.get<any>(`${API_URL}/campanias/requerimientos/${idCampania}`);
-    
+    return this.http.get<any>(`${API_URL}/campanias/requerimientos/${idCampania}`); 
   }
+  
+  getCampaniaCompleta(idCampania:number){
+    return this.http.get<any>(`${API_URL}/campanias/completa/${idCampania}`); 
+  }
+
 }

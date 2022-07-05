@@ -39,7 +39,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { RelationsComponent } from './dashbord/relations/relations.component';
 
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
-import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
+import interactionPlugin from '@fullcalendar/interaction';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns'; // a plugin!
 
 
 
@@ -89,6 +91,7 @@ import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
 
 
   ],

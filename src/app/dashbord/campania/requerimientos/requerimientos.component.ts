@@ -29,7 +29,9 @@ export class RequerimientosComponent implements OnInit {
     noHacer: "",
     pitch: "",
     terminada: false,
-    retenciones: 0
+    retenciones: 0,
+    impresiones:0,
+      alcance:0
   }
   constructor(private servicioCampania: CampaniaService, private tareaService: TareasService) { }
 
@@ -55,7 +57,9 @@ export class RequerimientosComponent implements OnInit {
       noHacer: "",
       pitch: "",
       terminada: false,
-      retenciones: 0
+      retenciones: 0,
+      impresiones:0,
+      alcance:0
     }
     this.numerosTareas=[]
 

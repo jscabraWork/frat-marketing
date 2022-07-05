@@ -13,4 +13,138 @@
 .ver-mas{
     font-size: 16px;
     text-decoration: underline red;  
+    cursor: pointer;
+}
+.editar{
+    font-size: 18px;
+    cursor: pointer;
+    background-color:black;
+    padding:5px 10px 5px 10px;
+    color:white;
+    width:50%;
+    margin-left: 25%;
+}
+#form div div{
+
+    margin-top: 13px;
+    font-size: 20px;
+}
+
+select{
+    border:0px;
+    border-radius: 3px;
+    background-color:#e7e4e4;
+    color:#858585;
+    font-size: 12px;margin-left: 5px;
+}
+input[type="text"],
+input[type="number"],
+input[type="date"]{
+    width: 50%;
+    border:0px;
+    border-bottom: 1px solid black;
+    height: 20px;
+    font-size: 14px;
+    color:#858585;
+}
+
+input[type="text"]:focus{
+    color:black;
+    font-size: 16px;
+    border:0px;
+    border-bottom: 1px solid rgb(235, 12, 12);
+    outline: none;
+}
+input[type="date"]{
+    text-transform: uppercase;
+}
+.boton-gris{
+    
+    background-color:#e7e4e4;
+    color:#858585;
+    font-size: 13px;
+}
+textarea{
+    width: 85%;
+    margin-top: 5px;
+    border:0px;
+    background-color:#e7e4e4;
+    color:#858585;
+    font-size: 13px;
+    padding:8px;
+    border-radius: 10px;
+    resize: none;
+
+}
+
+textarea:focus{
+
+    color: black;
+}
+
+input[type="checkbox"]{
+    width:15px;
+    border:1px solid black;
+    margin:3px;
+}
+.letra{
+    font-size: 12px;
+}
+.otro{
+    width:20% !important;
+    font-size: 10px !important;
+}
+.boton-rojo{
+    background-color: #CA2339;
+    color: white;
+    border:0px;
+    border-radius: 5px;
+    padding: 10px 15px 10px 15px;
+    
+    font-size: 25px;
+}
+.form-edad{
+    width:10% !important;
+}
+.form-edad{
+    width:10% !important;
+}
+.btn-red{
+    background-color: #CA2339;
+    color: white;
+    margin-left: 15px;
+    padding: 2px 5px 2px 5px;
+    border:0px;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-top:10px;
+}
+small{
+    font-size: 13px;
+    margin-left: 5px;
+
+}
+small span{
+    font-size: 13px;
+    color: gray;
+    border: 0.5px solid gray;
+    width:3px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 300ms;
+}
+small span:hover{
+    background-color: gray;
+    color: white;
+}
+
+.btn-red-2{
+    background-color: #CA2339;
+    color: white;
+
+    padding: 4px 8px 4px 8px;
+    border:0px;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-top:10px;
 }

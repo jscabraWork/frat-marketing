@@ -1,16 +1,340 @@
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="campania.id==0">
     <div class="row">
         <div class="col-12 centrar mt-5">
             <h2 class="bold">CAMPAÑAS ACTIVAS</h2>
         </div>
         <div class="col-4 centrar mt-5" *ngFor="let campania of campanias">
-            <p class="bold f-24 mtn-3">{{campania.nombre}}</p>
-            <h3 class="logo">LOGO MARCA</h3>
-            <p>Editar</p>
+            <p class="bold f-24 mtn-3 cursor" (click)="seleccionarCampaniaVisualizar(campania.id)">{{campania.nombre}}</p>
+            <h3 class="logo" (click)="seleccionarCampaniaVisualizar(campania.id)">LOGO MARCA</h3>
+            <p class="bold editar" (click)="seleccionarCampania(campania.id)">Editar</p>
         </div>
         
     </div>
     <div class="row">
-        <div class="col-12 centrar mt-2 bold ver-mas"><p>VER MÁS</p></div>
+        <div class="col-12 centrar mt-2 bold ver-mas" ><p>VER MÁS</p></div>
     </div>
 </div>
+
+
+
+
+<div class="container-fluid" *ngIf="campania.id!=0 && editar">
+    <div class="row">
+        <div class="col-12 pt-4">
+            <h2 class="bold">MODIFICAR CAMPAÑA</h2>
+        </div>
+    </div>
+    <form class="row regular" (ngSubmit)="!todoForm.invalid" id="form" #todoForm="ngForm">
+        <div class="col-6">
+
+            <div>
+                <label for="">Compañia:</label>
+                <select name="industrias" class="regular" [(ngModel)]="idEmpresa" (change)="buscarMarcas()">
+                    <option value="0">Selecciona una opción</option>
+                    <option *ngFor="let empresa of companias" value="{{empresa.id}}">{{empresa.nombre}}</option>    
+                </select>
+            </div>
+            <div>
+                <label for="">Marca:</label>
+                <select name="marcas" class="regular"   [(ngModel)]="idMarca" >
+                    <option value="0">Selecciona una opción</option>
+                    <option *ngFor="let marca of marcas" value="{{marca.id}}">{{marca.razonSocial}}</option>    
+                </select>
+            </div>
+            <div>
+                <label for="">Publico Objetivo:</label>
+                <select name="industria" class="regular" [(ngModel)]="idIndustria" >
+                    <option value="0">Selecciona una opción</option>
+                    <option *ngFor="let industria of industrias" value="{{industria.id}}">{{industria.nombre}}</option>    
+                </select>
+            </div>
+            <div>
+                <label for="">KAM:</label>
+                <select name="kam" class="regular" [(ngModel)]="idKam" >
+                    <option value="0">Selecciona una opción</option>
+                    <option *ngFor="let kam of administradores" value="{{kam.id}}">{{kam.nombre}}</option>    
+                </select>
+            </div>
+            <div>
+                <label for="">Nombre campaña:</label>
+                <input type="text" placeholder="Escribe aquí" name="nombre" [(ngModel)]="campania.nombre" required="required"> 
+            </div>
+
+            <div>
+                <label for="">Alcance Estimado:</label>
+                <input type="number" placeholder="Escribe aquí" name="alcance" [(ngModel)]="campania.alcance" required="required"> 
+            </div>
+            <div>
+                <label for="">CPM Estimado:</label>
+                <input type="number" placeholder="Escribe aquí" name="cpm" [(ngModel)]="campania.cpmEstimado" required="required"> 
+            </div>
+
+
+            <div>
+                <label for="">Red Social:</label>
+                <select name="red" class="regular" [(ngModel)]="campania.redSocial" required="required">
+                    <option value="">Selecciona una opción</option>
+          
+                    <option value="Instagram">Instagram</option>
+                    <option value="TikTok">TikTok</option>
+                </select>
+            </div>
+            <div>
+                <label for="" >Presupuesto:</label>
+                <input type="text" placeholder="Escribe aquí" [(ngModel)]="campania.presupuesto" required="required" name="presupuesto">
+            </div>
+
+
+            <div>
+                <label for="">Fecha Inicio:</label>
+                <input type="date" [(ngModel)]="campania.fechaInicio" required="required"  name="inicio">
+            </div>
+
+            <div>
+                <label for="">Fecha fin:</label>
+                <input type="date" [(ngModel)]="campania.fechaFin" required="required" name="fin">
+            </div>
+
+            <div>
+                <label for="">Metodologia:</label>
+                <br>
+                <textarea  id=""  placeholder="Escribe aquí" [(ngModel)]="campania.metodologia" required="required" name="metodologia"></textarea>
+            </div>
+
+            <div>
+                <label for="">Adjunta archivos importantes:</label>
+                <button id="selectButton" class="boton-gris btn " (click)="fileInput.click()">Selecciona un archivo</button>
+                <input type="file" #fileInput hidden   />
+            </div>
+
+        </div>
+        <div class="col-6">
+            <div>
+                <label for="" >Perfil de influenciadores:</label>
+                <br>
+                <textarea  id="" placeholder="Escribe aquí" [(ngModel)]="campania.perfilInfluenceador" required="required" name="perfilInfluenceador"></textarea>
+            </div>
+            <div>
+                <label for="">Genero:</label>
+                <select name="genero" class="regular" [(ngModel)]="campania.genero" required="required" >
+                    <option value="">Selecciona una opción</option>
+                    <option value="HOMBRE">Hombre</option>
+                    <option value="MUJER">Mujer</option>
+                    <option value="OTRO">Otro</option>
+                </select>
+            </div>
+            <div>
+                <label for="">Rango de edad:</label>
+                <select  name="edad1" class="regular form-edad" [(ngModel)]="limiteInferior" required="required">
+                    <option value="0">Selecciona una opción</option>
+                    <option *ngFor="let edad of listaEdades" value="{{edad}}">{{edad}}</option>
+                    
+                </select>
+
+                <select  name="edad2" class="regular form-edad" [(ngModel)]="limiteSuperior" required="required">
+                    <option value="0">Selecciona una opción</option>
+                    <option *ngFor="let edad of listaEdades" value="{{edad}}">{{edad}}</option>
+                    
+                </select>
+            </div>
+            <div>
+                <label for="">Categoria:</label>
+                <br>
+                <select  name="categoria" class="regular" [(ngModel)]="categoriaActual.id" required="required">
+                    
+                    <option value="0">Selecciona una opción</option>
+                    <option *ngFor="let categoria of categorias" value="{{categoria.id}}">{{categoria.nombre}}</option>    
+                </select>
+                <button class="btn-red" (click)="agregarCategoria()">AGREGAR</button>
+                    <small class="regular small" *ngFor="let categoria of categoriasElegidas"> {{categoria.nombre}} <span (click)="eliminaCategoria(categoria.id)">X</span> </small>
+            
+            </div>
+            <div>
+                <label class="menos-t" for="">Tipo de contenido:</label>
+                <div >
+             
+                   <span *ngFor="let tipo of tipoContenidos" class="letra"> <span *ngIf="campania.redSocial==tipo.redSocial || tipo.redSocial =='Presencial'"> <input type="checkbox" value="{{tipo.id}}" (change)="agregareliminarTipoContenido(tipo.id)" [checked]="darElegido(tipo.id) == true" > {{tipo.nombre}}</span></span> 
+           
+                    
+                </div>
+            </div>
+            <div>
+                <label for="">Breve descripción de la campaña:</label>
+                <textarea name="descripcion"  placeholder="Escribe aquí" [(ngModel)]="campania.descripcion" required="required"></textarea>
+            </div>
+            <div>
+                <label for="">¿Qué van a decir?</label>
+                <textarea name="decir"  placeholder="Escribe aquí"  [(ngModel)]="campania.queVanADecir" required="required"></textarea>
+            </div>
+
+        </div>
+
+            <div class="col-12 mt-5 centrar mb-5">
+                <button class="boton-rojo" type="submit" (click)="saveCampania()">GUARDAR</button>
+            </div>
+
+    </form>
+   
+
+</div>
+
+
+
+<div class="container-fluid" *ngIf="campania.id!=0 && visualizar">
+    <div class="row">
+        <div class="col-12 pt-4">
+            
+            <h2 class="bold">Visualizar CAMPAÑA</h2>
+     
+        </div>
+    </div>
+    <div class="row regular mt-4" >
+        <div class="col-6">
+
+            <div>
+                <label class="bold visualizar-titulo" for="">Compañia:</label>
+               <p>
+                {{nombreEmpresa}}
+               </p>
+            </div>
+            <div>
+                <label  class="bold visualizar-titulo"  for="">Marca:</label>
+                <p>
+                    {{nombreMarca}}
+                </p>
+            </div>
+            <div>
+                <label class="bold visualizar-titulo"  for="">Publico Objetivo:</label>
+                <p>
+                    {{nombreIndustria}}
+                   </p>
+            </div>
+            <div>
+                <label class="bold visualizar-titulo"  for="">KAM:</label>
+                <p>
+                    {{nombreKam}}
+                   </p>
+            </div>
+            <div>
+                <label  class="bold visualizar-titulo"  for="">Nombre campaña:</label>
+                <p> 
+                    {{campania.nombre}}
+                </p>
+            </div>
+
+            <div>
+                <label class="bold visualizar-titulo"  for="">Alcance Estimado:</label>
+                
+                <p> 
+                    {{campania.alcance}}
+                </p>
+            </div>
+            <div>
+                <label class="bold visualizar-titulo"  for="">CPM Estimado:</label>
+                
+                <p> 
+                    {{campania.cpmEstimado}}
+                </p>
+            </div>
+     
+            <div>
+                <label class="bold visualizar-titulo"  for="">Red Social:</label>
+                <p> 
+                    {{campania.redSocial}}
+                </p>
+            </div>
+            <div>
+                <label class="bold visualizar-titulo"  for="" >Presupuesto:</label>
+                
+                <p> 
+                    {{campania.presupuesto}}
+                </p>
+            </div>
+
+
+            <div>
+                <label class="bold visualizar-titulo"  for="">Fecha Inicio:</label>
+                
+                <p> 
+                    {{campania.fechaInicio}}
+                </p>
+            </div>
+
+            <div>
+                <label class="bold visualizar-titulo"  for="">Fecha fin:</label>
+                
+                <p> 
+                    {{campania.fechaFin}}
+                </p>
+            </div>
+
+            <div>
+                <label class="bold visualizar-titulo"  for="">Metodologia:</label>
+         
+                <p> 
+                    {{campania.metodologia}}
+                </p>
+            </div>
+
+        </div>
+        <div class="col-6">
+            <div>
+                <label class="bold visualizar-titulo"  for="" >Perfil de influenciadores:</label>
+                <p> 
+                    {{campania.perfilInfluenceador}}
+                </p>
+            </div>
+            <div>
+                <label class="bold visualizar-titulo"  for="">Genero:</label>
+                <p> 
+                    {{campania.genero}}
+                </p>
+            </div>
+            <div>
+                <label class="bold visualizar-titulo"  for="">Rango de edad:</label>
+                <p> 
+                    {{campania.rangoEdad}}
+                </p>
+
+            </div>
+            <div>
+                <label class="bold visualizar-titulo"  for="">Categoria:</label>
+        
+                    <p class="regular" *ngFor="let categoria of categoriasElegidas"> {{categoria.nombre}} </p>
+            
+            </div>
+            <div>
+                <label  class="bold visualizar-titulo" for="">Tipo de contenido:</label>
+                <div >
+                    <p class="regular" *ngFor="let tipo of tipoContenidos"> {{tipo.nombre}} </p>
+
+                </div>
+            </div>
+            <div>
+                <label class="bold visualizar-titulo"  for="">Breve descripción de la campaña:</label>
+                
+                <p> 
+                    {{campania.descripcion}}
+                </p>
+
+            </div>
+            <div>
+                <label class="bold visualizar-titulo"  for="">¿Qué van a decir?</label>
+
+                <p> 
+                    {{campania.queVanADecir}}
+                </p>
+
+            </div>
+
+        </div>
+        <button (click)="ngOnInit()" class="btn-red-2 pequeno">Atras</button>
+
+    </div>
+   
+
+</div>
+
+
+
+

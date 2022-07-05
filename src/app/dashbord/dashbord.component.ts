@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class DashbordComponent implements OnInit {
 
   constructor() { }
-  seguimiento:boolean = false;
+  seguimiento:boolean = true;
   metricas:boolean = false
-  bd:boolean = true;
+  bd:boolean = false;
   prospeccion:boolean = false;
   requerimientos:boolean = false;
   informes:boolean = false;

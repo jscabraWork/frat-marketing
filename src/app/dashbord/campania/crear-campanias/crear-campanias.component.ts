@@ -60,6 +60,7 @@ export class CrearCampaniasComponent implements OnInit {
     presupuesto:0,
     redSocial:'',
     terminada:false,
+    cpmEstimado:''
   }
   constructor(
     private empresaService:EmpresaService,
@@ -106,6 +107,7 @@ export class CrearCampaniasComponent implements OnInit {
       presupuesto:0,
       redSocial:'',
       terminada:false,
+      cpmEstimado:''
     }
     for(let i=1; i <=70 ; i++){
       this.listaEdades.push(i)

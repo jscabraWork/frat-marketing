@@ -37,7 +37,7 @@
 mat-dialog-container {
   background-color: transparent !important;
   padding: 0px 0px 0px 0px !important;
-  overflow: hidden !important;
+
 }
 
 .rojo-texto{
@@ -45,3 +45,6 @@ mat-dialog-container {
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.cursor{
+  cursor: pointer;
+}

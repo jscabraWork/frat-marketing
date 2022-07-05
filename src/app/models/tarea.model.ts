@@ -7,7 +7,8 @@ export interface Tarea{
 	pitch:string;
 	terminada:boolean;
 	retenciones:number;
-	
+	alcance:number;
+	impresiones:number;
 
 
 }

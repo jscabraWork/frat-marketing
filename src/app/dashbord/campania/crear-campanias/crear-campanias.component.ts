@@ -2,16 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Administrador } from 'src/app/models/administrador.model';
 import { Campania } from 'src/app/models/campania.model';
-import { Categoria } from 'src/app/models/categoria.model';
+
 import { Empresa } from 'src/app/models/empresa.model';
-import { Industria } from 'src/app/models/industria.model';
+
 import { Marca } from 'src/app/models/marca.model';
 import { TipoContenido } from 'src/app/models/tipoContenido.model';
+import { TipoContenidoInfluencer } from 'src/app/models/tipoContenidoInfluencer.model';
 import { AdminService } from 'src/app/services/data/admin.service';
 import { CampaniaService } from 'src/app/services/data/campania.service';
-import { CategoriaService } from 'src/app/services/data/categoria.service';
+
 import { EmpresaService } from 'src/app/services/data/empresa.service';
 import { IndustriasService } from 'src/app/services/data/industrias.service';
+import { TipoContenidoInfluencerService } from 'src/app/services/data/tipo-contenido-influencer.service';
 import { TipoContenidoService } from 'src/app/services/data/tipo-contenido.service';
 
 @Component({
@@ -22,63 +24,55 @@ import { TipoContenidoService } from 'src/app/services/data/tipo-contenido.servi
 export class CrearCampaniasComponent implements OnInit {
 
 
-  limiteInferior:number =0
-  limiteSuperior:number=0
+  limiteInferior:number 
+  limiteSuperior:number
+  limiteInferior2:number 
+  limiteSuperior2:number
+
   listaEdades:number[]=[]
   companias:Empresa[]=[]
   idEmpresa:number=0
   idMarca:number=0
-  idIndustria:number=0
+
+  multiplesGenero:boolean
+
   idKam:number=0
   marcas:Marca[]=[]
-  industrias:Industria[]=[]
+
   administradores:Administrador[]=[]
-  categorias:Categoria[]=[]
-  categoriasElegidas:Categoria[]=[]
+  categorias:TipoContenidoInfluencer[]=[]
+  categoriasElegidas:TipoContenidoInfluencer[]=[]
   tipoContenidos:TipoContenido[]=[]
 
   tipoContenidosElegidos:TipoContenido[]=[]
 
   
 
-  categoriaActual:Categoria={
-    id:0,
-    nombre:'',
-  }
-  campania:Campania ={
-    id:0,
-    nombre:'',
-    descripcion:'',
-    queVanADecir:'',
-    alcance:'',
-    fechaInicio:new Date(),
-    fechaFin:new Date(),
-    metodologia:'',
-    perfilInfluenceador:'',
-    genero:'',
-    rangoEdad:'',
-    presupuesto:0,
-    redSocial:'',
-    terminada:false,
-    cpmEstimado:''
-  }
+  categoriaActual:TipoContenidoInfluencer
+  campania:Campania
   constructor(
     private empresaService:EmpresaService,
     private industriaService: IndustriasService,
     private adminService: AdminService,
-    private categoriaService: CategoriaService,
+ 
     private servicioTipoContenido: TipoContenidoService,
-    private servicioCampania: CampaniaService
+    private servicioCampania: CampaniaService,
+    private servicioTipoContenidoInfluencer: TipoContenidoInfluencerService,
   ) { }
 
   ngOnInit(): void {
+    this.multiplesGenero=false
+    this.limiteInferior=0
+    this.limiteInferior2=0
+    this.limiteSuperior=0
+    this.limiteSuperior2=0
     this.idEmpresa=0
     this.idMarca=0
-    this.idIndustria=0
+
     this.idKam=0
 
     this.marcas=[]
-    this.industrias=[]
+
     this.administradores=[]
     this.categorias=[]
     this.categoriasElegidas=[]
@@ -103,11 +97,14 @@ export class CrearCampaniasComponent implements OnInit {
       metodologia:'',
       perfilInfluenceador:'',
       genero:'',
-      rangoEdad:'',
+      rangoEdad:null,
+      genero2:'',
+      rangoEdad2:null,
       presupuesto:0,
       redSocial:'',
       terminada:false,
-      cpmEstimado:''
+      cpmEstimado:'',
+      publico:null
     }
     for(let i=1; i <=70 ; i++){
       this.listaEdades.push(i)
@@ -117,19 +114,15 @@ export class CrearCampaniasComponent implements OnInit {
         this.companias=response.empresas
       }
     )
-    this.industriaService.getAllIndustrias().subscribe(
-      response=>{
-        this.industrias=response.industrias
-      }
-    )
+
     this.adminService.getAllAdministradores().subscribe(
       response=>{
         this.administradores=response.kams
       }
     )
-    this.categoriaService.getAllCategorias().subscribe(
+    this.servicioTipoContenidoInfluencer.getAllTipoContenidoInfluencer().subscribe(
       response=>{
-        this.categorias=response.categorias
+        this.categorias=response.tipoContenidos
       }
     )
     this.servicioTipoContenido.getAllTipoContenido().subscribe(
@@ -164,7 +157,12 @@ export class CrearCampaniasComponent implements OnInit {
     }
     tipoContenido+='-1'
     this.campania.rangoEdad = this.limiteInferior +"-"+this.limiteSuperior
-    this.servicioCampania.addCampania(this.campania,this.idMarca,this.idIndustria,this.idKam,categoria,tipoContenido).subscribe(
+    
+    if(this.multiplesGenero){
+      this.campania.rangoEdad2 = this.limiteInferior2 +"-"+this.limiteSuperior2
+    }
+
+    this.servicioCampania.addCampania(this.campania,this.idMarca,this.idKam,categoria,tipoContenido).subscribe(
       response=>{
         alert(response.mensaje)
         this.ngOnInit()
@@ -231,5 +229,8 @@ export class CrearCampaniasComponent implements OnInit {
         }
       }
     }
+  }
+  agregarGenero(){
+    this.multiplesGenero=true
   }
 }

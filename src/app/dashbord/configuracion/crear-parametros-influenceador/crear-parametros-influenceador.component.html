@@ -78,4 +78,88 @@
             <hr>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-12">
+            <h4 class="bold">CREAR GENERO</h4>
+            <form (ngSubmit)="!todoForm5.invalid && saveGenero()"   #todoForm5="ngForm" id="form">
+                <div>
+                    <label for="">Nombre:</label>
+                    <input name="nombre5" required="required"[(ngModel)]="genero.nombre" type="text" placeholder="Escribe aquí">
+                </div>
+                <div>
+                    <button class="boton-rojo" type="submit">Guardar</button>
+                </div>
+            </form>
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <h4 class="bold">CREAR MÉTRICA</h4>
+            <form (ngSubmit)="!todoForm7.invalid && saveMetrica()"   #todoForm7="ngForm" id="form">
+                <div>
+                    <label for="">Nombre:</label>
+                    <input name="nombre7" required="required"[(ngModel)]="metrica.nombre" type="text" placeholder="Escribe aquí">
+                </div>
+                <div>
+                    <button class="boton-rojo" type="submit">Guardar</button>
+                </div>
+            </form>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h4 class="bold">CREAR ACCIÓN DE CAMPAÑA</h4>
+            <form (ngSubmit)="!todoForm8.invalid"  #todoForm8="ngForm" id="form">
+                <div>
+                    <label for="">Nombre:</label>
+                    <input type="text"  name="nombre8"required="required"[(ngModel)]="tipoContenidoC.nombre" placeholder="Escribe aquí">
+                </div>
+                <div>
+                    <label for="">Red Social:</label>
+                    <select name="red" class="regular" [(ngModel)]="tipoContenidoC.redSocial" required="required">
+                        <option value="">Selecciona una opción</option>
+              
+                        <option value="Instagram">Instagram</option>
+                        <!-- <option value="TikTok">TikTok</option> -->
+                        <option value="Presencial">Presencial</option>
+                    </select>
+
+
+                </div>
+                <div>
+                    <label for="">Metricas de la acción:</label>
+                    <select name="metricaActual" class="regular" [(ngModel)]="metricaActual.id" required="required">
+                        <option value="0">Selecciona una opción</option>
+                        <option  *ngFor="let metrica of metricas"  value="{{metrica.id}}">{{metrica.nombre}}</option>
+                      
+                    </select>
+                    <button class="btn-red" (click)="agregarMetrica()">AGREGAR</button>
+                    <small class="regular small" *ngFor="let metrica of metricasElegidas;let i = index"> {{metrica.nombre}} <span (click)="eliminarMetrica(metrica.id)">X</span> </small>
+                    
+                </div>
+                <div>
+                    <button class="boton-rojo" (click)=" saveTipoContenidoC()" type="submit">Guardar</button>
+                </div>
+            </form>          <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h4 class="bold">CREAR RANGO</h4>
+            <form (ngSubmit)="!todoForm6.invalid && saveRango()"   #todoForm6="ngForm" id="form">
+                <div>
+                    <label for="">Nombre:</label>
+                    <input name="nombre6" required="required"[(ngModel)]="rango.nombre" type="text" placeholder="Escribe aquí">
+                </div>
+                <div>
+                    <button class="boton-rojo" type="submit">Guardar</button>
+                </div>
+            </form>
+            <hr>
+        </div>
+    </div>
 </div>

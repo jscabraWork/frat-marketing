@@ -1,4 +1,4 @@
-export interface Tarea{
+export class Tarea{
     id:number;
     fecha:Date;
 	horaPublicacion:string;
@@ -8,7 +8,7 @@ export interface Tarea{
 	terminada:boolean;
 	retenciones:number;
 	alcance:number;
-	impresiones:number;
+	impresion:number;
 
 
 }

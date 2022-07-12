@@ -10,12 +10,12 @@ export class CampaniaService {
 
   constructor(private http:HttpClient) { }
 
-  addCampania(campania:Campania, pMarca:number,pIndustria:number,pResponsable:number, pCategorias:string, pTipoContenido:string){
-    return this.http.post<any>(`${API_URL}/campania/${pMarca}/${pIndustria}/${pResponsable}/${pCategorias}/${pTipoContenido}`,campania);
+  addCampania(campania:Campania, pMarca:number,pResponsable:number, pCategorias:string, pTipoContenido:string){
+    return this.http.post<any>(`${API_URL}/campania/${pMarca}/${pResponsable}/${pCategorias}/${pTipoContenido}`,campania);
   }
 
-  actualizarCampania(campania:Campania, pMarca:number,pIndustria:number,pResponsable:number, pCategorias:string, pTipoContenido:string){
-    return this.http.put<any>(`${API_URL}/campania/${pMarca}/${pIndustria}/${pResponsable}/${pCategorias}/${pTipoContenido}`,campania);
+  actualizarCampania(campania:Campania, pMarca:number,pResponsable:number, pCategorias:string, pTipoContenido:string){
+    return this.http.put<any>(`${API_URL}/campania/${pMarca}/${pResponsable}/${pCategorias}/${pTipoContenido}`,campania);
   }
 
   getAllCampanias(){

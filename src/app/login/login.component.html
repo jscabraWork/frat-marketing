@@ -1,0 +1,52 @@
+
+
+<app-menu></app-menu>
+    <section class="container contenedorPerfil">
+        <div class="row " >
+            
+           <div class="col-2"></div>
+        <div class="col-8  centrarMargen pl-4 pr-4 pt-5">
+            <div class="fondoBlanco shadow-lg  rounded p-4  ">
+                    <div class="centrarTexto ">
+
+                        <h1 class=" letrasMoradas pt-4 pl-4 pr-4 bold"> <strong>Login</strong></h1>
+                            
+                            <h2 class="tamaño pl-4 pr-4 pb-4 regular">FRAT marketing</h2>
+                    </div>      
+                    <form >
+                        <div class="form-group">                  
+                            <input name="usuario" required="required" type="text" id="usuario"
+                                class="form-control" placeholder="Usuario"  [(ngModel)]="usuario.correo" >
+                        </div>
+
+
+                        <div class="form-group mt-3">                    
+                            <input name="Password" required="required" type="password" id="Password"
+                                class="form-control" placeholder="Contraseña" [(ngModel)]="usuario.password" >
+                        </div>
+                    
+                    
+                        <div class="form-group">
+                            <button  class="btn  botonesLargos mt-3 rounded bold" (click)="login()">
+                                    Login
+                            </button> 
+                        </div>
+                    </form>
+                 
+                    <div class="centrarTexto mt-3">
+                        <a href="" class="regular">¿Olvidaste tu contraseña?</a>
+                    </div>
+                    <hr>
+                    <div class="centrarTexto">
+                        <button   class="btn bold   mt-3 mb-5 rounded botonCuentaNueva rounded" >
+                            Estoy interesado
+                        </button>  
+                        
+
+                    </div>
+            </div>    
+        </div>
+        <div class="col-2"></div>
+    </div>
+    </section>
+    

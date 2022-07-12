@@ -75,7 +75,12 @@ h6{
     margin-bottom: 40px;
     font-size: 20px;
 }
-
+.pequeno-btn{
+    width:20px;
+    height:20px;
+    border-radius: 20px;
+    text-align: center;
+}
 .boton-rojo-2{
     background-color: #CA2339;
     color: white;

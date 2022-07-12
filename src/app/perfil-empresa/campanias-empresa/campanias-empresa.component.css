@@ -1,0 +1,52 @@
+.m-40{
+    margin-top: 17%;
+}
+.f-40{
+    font-size: 60px;
+    
+}
+.f-35{
+    font-size: 27px;
+    
+}
+select{
+    width: 40%;
+    margin-top: 15px;
+    background-color: black;
+    color: white;
+    padding: 5px 10px 5px 10px;
+    border:0px;
+    border-radius: 10px;
+    font-size: 26px;
+    background-image: url("../../../assets/images/img/down.png"); 
+    background-repeat: no-repeat;
+    background-position: right center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+}
+select::-ms-expand {
+    display: none; /*Evita que se muestre la flecha por defecto en versiones de IE*/
+    }
+.mb-n{
+    margin-bottom: -5px;
+}
+.boton-rojo,
+.boton-azul{
+    background-color: #CA2339;
+    color: white;
+    border:0px;
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+    margin-right: 40px;
+    font-size: 30px;
+}
+.boton-azul{
+    background: #247BC0;
+
+}
+.largo{
+    width:80%;
+    margin-left: 10%;
+}

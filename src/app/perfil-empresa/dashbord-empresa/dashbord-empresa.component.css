@@ -1,0 +1,71 @@
+.img {
+    width: 50px;
+
+}
+.flotar{
+    float:left;
+}
+.nombre{
+    font-size: 40px;
+    margin-left: 15px;
+}
+.centrar{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  
+}
+.mt-10{
+    margin-top: 10%;
+}
+.flex{
+    display:flex;
+}
+.nombre-c{
+    font-size: 16px;
+    margin-bottom: -15px;
+}
+.logo{
+    text-transform: uppercase;
+    background-color: black;
+    color:white;
+    font-size: 50px;
+    margin-left: 36%;;
+    width:400px;
+    text-align: center;
+}
+.porcentaje{
+    font-size: 45px;
+}
+.centrarTexto{
+    text-align: center;
+}
+.requerimiento-p{
+    font-size: 15px;line-height:3px;
+}
+
+.p-grande{
+    font-size: 80px;
+}
+table{
+    padding: 10px;
+    border:1px solid black;
+    width:100%;
+}
+th{
+    border:1px solid black;
+    background-color: black;
+    color:white;
+    font-family: inter-bold;
+    padding: 5px;
+    
+}
+td{
+    border:1px solid black;
+}
+.descripcion{
+    margin-top: 15px;
+}
+.descripcion p{
+    line-height:6px;
+}

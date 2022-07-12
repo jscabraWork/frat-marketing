@@ -25,7 +25,7 @@ export class PerfilamientoComponent implements OnInit {
   ciudadesAgregadas: string[] = []
   precios: Precio[][] = []
   preciosAgregados: Precio[][] = []
-  numeros: number[][] = []
+  numeros: number[][] 
   retenciones: number[] = []
   idCampania:number=0
   constructor(public dialog: MatDialog, private servicioCampania: CampaniaService, private servicioInfluencer: InfluencerService, private tareasService:TareasService) { }
@@ -63,6 +63,15 @@ export class PerfilamientoComponent implements OnInit {
   }
 
   seleccionar(i: number) {
+
+    let encontro = false;
+    for(let j =0;j < this.influencersAgregados.length &&!encontro;j++){
+      if(this.influencersAgregados[j].id==this.influencers[i].id){
+        encontro =true;
+      }
+    }
+
+  if(!encontro){
     this.influencersAgregados.push(this.influencers[i]);
     this.ciudadesAgregadas.push(this.ciudades[i]);
     this.preciosAgregados.push(this.precios[i]);
@@ -71,16 +80,23 @@ export class PerfilamientoComponent implements OnInit {
     for (let j = 0; j < this.precios[i].length; j++) {
       actual.push(0)
     }
-
+    
     this.retenciones.push(0)
     this.numeros.push(actual)
-    
+    console.log(this.numeros)
+  }
     this.influencers.splice(i, 1);
     this.ciudades.splice(i, 1);
     this.precios.splice(i, 1);
+    if(encontro){
+      alert("Ya se agrego este influencer por lo cual fue eliminado del filtro")
+    }
 
   }
 
+  cambiarNumero(i,j,numero){
+    this.numeros[i][j]=numero
+  }
   openDialog(): void {
     if (this.redSocial != "") {
       const dialogRef = this.dialog.open(FiltrarComponent, {
@@ -119,22 +135,30 @@ export class PerfilamientoComponent implements OnInit {
     }
   }
 
+  masN(i,j){
+    this.numeros[i][j] =this.numeros[i][j]+1
+  }
+  menosN(i,j){
+    if(this.numeros[i][j]>0){
+    this.numeros[i][j] =this.numeros[i][j]-1
+    }
+  }
   darImpresiones(precios: Precio[], seguidores: number) {
     let impresiones = 0;
     for (let i = 0; i < precios.length; i++) {
       if (precios[i].tipoContenido.redSocial == this.redSocial) {
-        impresiones += ((precios[i].tipoContenido.alcance * seguidores) / 100)
+        impresiones += ((precios[i].alcance * seguidores) / 100)
       }
 
     }
-    impresiones = impresiones * 0.012;
+    impresiones = impresiones * 1.02;
     return impresiones;
   }
   darAlcanteTotal(precios: Precio[], seguidores: number, i: number) {
     let alcance = 0;
     for (let j = 0; j < precios.length; j++) {
 
-      alcance += ((precios[j].tipoContenido.alcance * seguidores) / 100) * this.numeros[i][j]
+      alcance += ((precios[j].alcance * seguidores) / 100) * this.numeros[i][j]
     }
     return alcance;
   }
@@ -149,7 +173,7 @@ export class PerfilamientoComponent implements OnInit {
       seguidores = this.influencers[i].seguidoresTikTok
     }
 
-    alcance += ((precios.tipoContenido.alcance * seguidores) / 100)
+    alcance += ((precios.alcance * seguidores) / 100)
 
     return alcance;
   }
@@ -160,7 +184,7 @@ export class PerfilamientoComponent implements OnInit {
     let precios = this.preciosAgregados[i]
     for (let j = 0; j < precios.length; j++) {
 
-      alcance += ((precios[j].tipoContenido.alcance * this.influencersAgregados[i].seguidoresInstagram) / 100) * this.numeros[i][j]
+      alcance += ((precios[j].alcance * this.influencersAgregados[i].seguidoresInstagram) / 100) * this.numeros[i][j]
     }
   }
     return alcance;
@@ -172,7 +196,7 @@ export class PerfilamientoComponent implements OnInit {
     let precios = this.preciosAgregados[i]
     for (let j = 0; j < precios.length; j++) {
 
-      alcance += ((precios[j].tipoContenido.alcance * this.influencersAgregados[i].seguidoresTikTok) / 100) * this.numeros[i][j]
+      alcance += ((precios[j].alcance * this.influencersAgregados[i].seguidoresTikTok) / 100) * this.numeros[i][j]
     }
   }
     return alcance;

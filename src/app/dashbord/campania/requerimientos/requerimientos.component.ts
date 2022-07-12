@@ -21,18 +21,7 @@ export class RequerimientosComponent implements OnInit {
   horas: string[] = []
   numerosTareas:string[] = []
 
-  tarea: Tarea = {
-    id: 0,
-    fecha: new Date(),
-    horaPublicacion: "",
-    hacer: "",
-    noHacer: "",
-    pitch: "",
-    terminada: false,
-    retenciones: 0,
-    impresiones:0,
-      alcance:0
-  }
+  tarea: Tarea 
   constructor(private servicioCampania: CampaniaService, private tareaService: TareasService) { }
 
   ngOnInit(): void {
@@ -49,18 +38,7 @@ export class RequerimientosComponent implements OnInit {
     this.tareas=[]
     this.influencers=[]
  
-    this.tarea = {
-      id: 0,
-      fecha: new Date(),
-      horaPublicacion: "",
-      hacer: "",
-      noHacer: "",
-      pitch: "",
-      terminada: false,
-      retenciones: 0,
-      impresiones:0,
-      alcance:0
-    }
+    this.tarea = new Tarea()
     this.numerosTareas=[]
 
     this.horas.push(12 + 'AM')

@@ -11,7 +11,7 @@
                         <li (click)="cambiarEstado('requerimientos')" ><span [ngClass]="{'bold' : requerimientos}">3. REQUERIMIENTOS</span></li>
                         <li (click)="cambiarEstado('campanias')" ><span [ngClass]="{'bold' : campanias}">4. CAMPAÑAS ACTIVAS</span></li>
                         
-                        <li (click)="cambiarEstado('parametros')" ><span [ngClass]="{'bold' : parametros}"> PARAMETROS DE CAMPAÑA</span></li>
+                
                     </ul>
                 
                 </li>
@@ -29,9 +29,7 @@
              <div *ngIf="perfilamiento">
                 <app-perfilamiento></app-perfilamiento>
              </div>
-             <div *ngIf="parametros">
-                <app-parametros-campania></app-parametros-campania>
-             </div>
+      
              <div *ngIf="requerimientos">
                 <app-requerimientos></app-requerimientos>
             </div>

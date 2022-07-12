@@ -1,0 +1,25 @@
+<app-menu></app-menu>
+<div class="container-fluid dashbord">
+    <div class="row">
+        <div class="col-3" id="menu">
+            <ul>
+                <li (click)="cambiarEstado('dashbord')"><img src="../../assets/images/img/growth.png" alt=""><span [ngClass]="{'bold' : dashbord}">DASHBROD</span> <hr *ngIf="dashbord"></li>
+                <li (click)="cambiarEstado('requerimientos')"><img src="../../assets/images/img/available.png" alt=""><span [ngClass]="{'bold' : requerimientos}">REQUERIMIENTOS</span> <hr *ngIf="requerimientos"></li>
+                <li (click)="cambiarEstado('metricas')"><img src="../../assets/images/img/report.png" alt=""><span [ngClass]="{'bold' : metricas}">METRICAS</span> <hr *ngIf="metricas"></li>
+              
+            </ul>
+        </div>
+        <div class="col-9" id="contenido">
+            <div *ngIf="dashbord">
+               <app-dashbord-influencer></app-dashbord-influencer>
+            </div>
+            <div *ngIf="metricas">
+                <app-cargar-metricas></app-cargar-metricas>
+             </div>
+             <div *ngIf="requerimientos">
+                <app-requerimientos-influencer></app-requerimientos-influencer>
+             </div>
+            
+        </div>
+    </div>
+</div>

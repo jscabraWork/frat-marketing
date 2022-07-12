@@ -1,0 +1,45 @@
+<div class="container-fluid mt-5">
+    <div class="row ">
+        <div class="col-12 centrar">
+            <h1 class="bold">CARGAR MÉTRICAS</h1>
+        </div>
+        <div class="col-12">
+            <select name="campania" class="regular select mt-3" [(ngModel)]="idActual" (change)="cambiar()">
+                <option value="0">Selecciona una campaña</option>
+                <option *ngFor="let campania of campanias" value="{{campania.id}}">{{campania.nombre}}</option>
+ 
+            </select>
+            <br>
+            <select name="campania" class="regular select mt-3" [(ngModel)]="idTarea" (change)="cambiarTarea()">
+                <option value="0">Selecciona una tarea</option>
+                <option value="1" *ngFor="let tarea of tareas; let i = index" value="{{tarea.id}}">{{tipos[i].nombre}}: {{tarea.fecha}} | {{tarea.horaPublicacion}}</option>
+                
+            </select>
+            <br>
+            <button class="mt-3 boton-negro">
+                Adjuntar el contenido realizado
+            </button>
+            <br>
+            <button class="mt-3 boton-negro">
+                Seleccionar tipo contenido
+            </button>
+        </div>
+        <div class="col-12 mt-3">
+            <p class="regular">
+                Escribe las métricas obtenidas en esta publicación
+            </p>
+        </div>
+        <div class="col-3" *ngFor="let metrica of metricas; let i = index;">
+            <div class="p-2">
+                <input type="text" placeholder="{{metricasN[i].nombre}}">
+            </div>
+        </div>
+       
+        <div class="col-12">
+            <button class="mt-3 boton-negro">Adjunta imágen de tus métricas</button>
+        </div>
+        <div class="col-12 derecha">
+            <button class="boton-rojo">Guardar</button>
+        </div>
+    </div>
+</div>

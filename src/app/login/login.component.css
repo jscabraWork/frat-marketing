@@ -1,0 +1,42 @@
+
+.centrarTexto{
+    text-align: center;
+}
+.centrarMargen{
+	margin-top: 7%;
+}
+.botonCuentaNueva{
+    width: 100%;
+    background-color:white; 
+	color:#CA2339  ;
+	border-color:#CA2339;
+	border-width: 2px;
+}
+.contenedorPerfil{
+    min-height: 75vh;
+    max-height: 85vh;
+    
+}
+.botonesLargos{
+    width:100%;
+    background-color:#CA2339 ; 
+	color:white  ;
+}
+
+h1{
+    color:#CA2339;
+    font-size: 32px;
+}
+.tamaño{
+    font-size: 23px;
+}
+
+a{
+    color:#CA2339  ;
+    font-size: 20px;
+    
+}
+.pequeño
+{
+    font-size: 15px;
+}

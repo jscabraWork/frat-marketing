@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ParametrosCampaniaComponent } from './parametros-campania.component';
+import { PerfilInfluencerComponent } from './perfil-influencer.component';
 
-describe('ParametrosCampaniaComponent', () => {
-  let component: ParametrosCampaniaComponent;
-  let fixture: ComponentFixture<ParametrosCampaniaComponent>;
+describe('PerfilInfluencerComponent', () => {
+  let component: PerfilInfluencerComponent;
+  let fixture: ComponentFixture<PerfilInfluencerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ParametrosCampaniaComponent ]
+      declarations: [ PerfilInfluencerComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ParametrosCampaniaComponent);
+    fixture = TestBed.createComponent(PerfilInfluencerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -18,9 +18,9 @@
 		</ul>
 	</div>
 
-	<div id="login">
+	<div id="login" style="cursor:pointer" *ngIf="logOut" (click)="logout()">
 		<ul>
-			<li>LOG IN</li>
+			<li>LOG OUT</li>
 	
 		</ul>
 	</div>

@@ -1,0 +1,80 @@
+<div class="container-fluid">
+    <div class="row mt-5" >
+        <div class="col-12 ">
+         
+                <h2 class="bold">REQUERIMIENTOS</h2>
+           
+          
+            <select name="campania" class="regular select" [(ngModel)]="idActual" (change)="cambiar()">
+                <option value="0">Selecciona una campaña</option>
+                <option *ngFor="let campania of campanias" value="{{campania.id}}">{{campania.nombre}}</option>
+ 
+            </select>
+            <br>
+
+        </div>
+    </div>
+<div class="row">
+    <div class="col-12 mt-4">
+        <div>
+            <img src="../../../../assets/images/img/user-2.png" alt="" class="img flotar"> <p class="regular nombre">{{influencer.nombre}}</p>
+        </div>
+        <table class="mb-3 tabla-2 centrar">
+            <tr >
+
+                <th *ngFor="let nombre of nombres">{{nombre}}</th>
+         
+            </tr>
+            <tr>
+               
+                <td  *ngFor="let cantidad of cantidades">
+                    {{cantidad}}
+                   
+                </td>
+                
+             
+            </tr>
+           
+            
+        </table>
+    </div>
+
+</div>
+
+<div class="row" > 
+        <div class="col-12 mt-4">
+        
+                <table class="tabla-1 centrar mb-3">
+                   
+                </table>
+        </div>
+    
+        <div class="col-12">
+            <table class="mb-3 tabla-2 centrar">
+                <tr>
+                    <th>TERMINADA</th>
+                    <th>ACCIÓN</th>
+                    <th>FECHA DE PUBLICACIÓN</th>
+                    <th>HORA DE PUBLICACIÓN</th>
+                    <th>DO´S</th>
+                    <th>DONT´S</th>
+                    <th>PITCH</th>
+                </tr>
+                <tr *ngFor="let tarea of tareas; let i = index">
+                    <td *ngIf="tarea.terminada" class="verde">SI</td>
+                    <td *ngIf="!tarea.terminada" class="rojo">NO</td>
+                    <td>{{tipos[i].nombre}}</td>
+                    <td>{{tarea.fecha}}</td>
+                    <td>{{tarea.horaPublicacion}}</td>
+                    <td>{{tarea.hacer}}</td>
+                    <td>{{tarea.noHacer}}</td>
+                    <td>{{tarea.pitch}}</td>
+                </tr>
+               
+                
+            </table>
+        </div>
+      
+
+    </div>
+</div>

@@ -5,3 +5,11 @@ h5{
     border:4px solid black;
     height:100%;
 }
+.boton-rojo{
+    background-color: #CA2339;
+    color: white;
+    border:0px;
+    font-size: 18px;
+    
+
+}

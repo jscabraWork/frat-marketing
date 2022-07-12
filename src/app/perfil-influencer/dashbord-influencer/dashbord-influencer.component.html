@@ -1,0 +1,60 @@
+<section class="container-fluid mt-10">
+    <div class="row">
+        <div class="col-12 ">
+            <div class="flex centrar">
+                <img src="../../../../assets/images/img/user-2.png" alt="" class="img "> <p class="regular nombre">{{influencer.nombre}}</p>
+                <div class="clear-fix"></div>
+            </div>
+        </div>
+        <div class="col-4 mt-4" *ngFor="let campania of campanias;let i = index">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 nombre-c centrar bold">
+                        <p>{{campania.nombre}}</p>
+                    </div>
+                    <div class="col-6 logo bold centrarTexto">
+                        LOGO MARCA
+                    </div>
+                    <div class="col-6 ">
+                        <h2 class="bold porcentaje">{{(cantidadSi[i])/(cantidadSi[i]+cantidadNo[i])| number: '1.0-0'}}%</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row mt-5">
+        <div class="col-12 centrar flex">
+          <div class="derecha ">
+                <h2 class="bold">INDICADOR DEL MÉS</h2>
+                <p class="regular requerimiento-p">Requerimientos cumplidos/</p>
+                <p class="regular requerimiento-p">Requerimientos totales</p>
+          </div>
+              <div class="p-grande centrarTexto">
+           
+                <h1 class="bold ">
+                    50%
+                </h1>
+              </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-4 mt-3" *ngFor="let tipo of tipoContenidos; let i =index">
+            <table>
+                <tr class="centrarTexto" >
+                    <th colspan="2">PROMEDIO {{tipo.nombre}}</th>
+                </tr>
+              <tr *ngFor="let metrica of metricas[i]">
+                <td>{{metrica.nombre}}</td>
+                <td>10.000</td>
+              </tr>
+             
+              <tr>
+                <td>CPM</td>
+                <td>$54.0</td>
+              </tr>
+            </table>
+        </div>
+        
+    </div>
+</section>

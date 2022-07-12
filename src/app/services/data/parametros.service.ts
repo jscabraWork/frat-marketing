@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Industria } from 'src/app/models/industria.model';
+
 import { API_URL } from 'src/app/app.constants';
 import { TipoContenido } from 'src/app/models/tipoContenido.model';
-import { Categoria } from 'src/app/models/categoria.model';
+
 import { Sector } from 'src/app/models/sector.model';
 import { Ciudad } from 'src/app/models/ciudad.model';
 import { Mascotas } from 'src/app/models/mascota.model';
 import { Ocupacion } from 'src/app/models/ocupacion.model';
 import { Gusto } from 'src/app/models/gusto.model';
 import { TipoContenidoInfluencer } from 'src/app/models/tipoContenidoInfluencer.model';
+import { Genero } from 'src/app/models/genero.model';
+import { Rango } from 'src/app/models/rangos.model';
+import { Metrica } from 'src/app/models/metrica.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,12 +20,10 @@ export class ParametrosService {
 
   constructor(private http:HttpClient) { }
 
-  crearIndustria(industria:Industria){
-    return this.http.post<any>(`${API_URL}/industrias`,industria);
-  }
 
-  crearTipoContenido(tipoContenido:TipoContenido){
-    return this.http.post<any>(`${API_URL}/tipoContenido`,tipoContenido);
+
+  crearTipoContenido(tipoContenido:TipoContenido, metricas:string){
+    return this.http.post<any>(`${API_URL}/tipoContenido/${metricas}`,tipoContenido);
   }
 
 
@@ -30,12 +31,14 @@ export class ParametrosService {
     return this.http.post<any>(`${API_URL}/tipoContenidoInfluencer`,tipoContenido);
   }
 
-  crearCategoria(categoria:Categoria){
-    return this.http.post<any>(`${API_URL}/categorias`,categoria);
-  }
+
 
   crearSector(sector:Sector){
     return this.http.post<any>(`${API_URL}/sectores`,sector);
+  }
+
+  crearMetrica(metrica:Metrica){
+    return this.http.post<any>(`${API_URL}/metricas`,metrica);
   }
 
   crearCiudad(ciudad:Ciudad){
@@ -50,6 +53,13 @@ export class ParametrosService {
     return this.http.post<any>(`${API_URL}/ocupaciones`,ocupacion);
   }
 
+  crearGenero(genero:Genero){
+    return this.http.post<any>(`${API_URL}/generos`,genero);
+  }
+
+  crearRango(rango:Rango){
+    return this.http.post<any>(`${API_URL}/rangos`,rango);
+  }
   crearGusto(gusto:Gusto){
     return this.http.post<any>(`${API_URL}/gustos`,gusto);
   }

@@ -14,6 +14,9 @@ export interface Campania{
 	perfilInfluenceador:string;
 	genero:string;
 	rangoEdad:string;
-	cpmEstimado:string
+	genero2:string;
+	rangoEdad2:string;
+	cpmEstimado:string;
+	publico:string
 
 }

@@ -1,0 +1,82 @@
+.select {
+    width: 32%;
+
+    background-color: black;
+    color: white;
+    padding: 5px 10px 5px 10px;
+    border: 0px;
+    border-radius: 10px;
+    font-size: 16px;
+    background-image: url("../../../assets/images/img/down.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+}
+
+.select::-ms-expand {
+    display: none;
+    /*Evita que se muestre la flecha por defecto en versiones de IE*/
+}
+
+.img {
+    width: 25px;
+    margin-right: 10px;
+}
+.flotar{
+    float:left;
+}
+.nombre{
+    font-size: 20px;
+}
+
+.tabla-1,
+.tabla-2{
+    border:1px solid black;
+    width:100%
+}
+.tabla-1 th,
+.tabla-2 th{
+    font-size: 12px;
+}
+
+.tabla-1 td,
+.tabla-2 td{
+    font-size: 12px;
+}
+th,td{
+    border:1px solid black;
+    
+    padding: 4px;
+}
+.boton-negro{
+    background-color:black;
+    color:white;
+    border:0px;
+    border-radius:5px;
+    padding: 5px 10px 5px 10px;
+}
+.boton-rojo{
+    background-color: #CA2339;
+    color: white;
+    border:0px;
+    border-radius: 5px;
+    padding: 10px 15px 10px 15px;
+    
+    font-size: 25px;
+}
+.font-18{
+    font-size: 18px;
+}
+.rojo{
+    background-color:red;
+    color:white;
+    font-family: inter-bold;
+}
+.verde{
+    background-color:green;
+    color:white;
+    font-family: inter-bold;
+}

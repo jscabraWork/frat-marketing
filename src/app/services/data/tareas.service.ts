@@ -18,4 +18,13 @@ export class TareasService {
   guardarRequerimientos(tareas:Tarea[]){ 
     return this.http.put<any>(`${API_URL}/tareas/requerimientos`,tareas)
   }
+
+  getTareasCalendario(terminada:boolean){ 
+    return this.http.get<any>(`${API_URL}/tareas/terminadas/${terminada}`)
+  }
+  getMetricasTarea(id:number){ 
+    return this.http.get<any>(`${API_URL}/tareas/metricas/${id}`)
+  }
+
+
 }

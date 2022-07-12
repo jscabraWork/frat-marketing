@@ -1,4 +1,4 @@
-export interface Influencer{
+export class Influencer{
     id:number;
     nombre:string;
     correo:string;
@@ -14,10 +14,5 @@ export interface Influencer{
 	seguidoresInstagram:number;
 	seguidoresTikTok:number;
 
-	edadInstagram:string;
-	edadTikTok:string;
-	ciudadInstagram:string;
-	ciudadTikTok:string;
-	generoInstagram:string;
-	generoTikTok:string;
+
 }

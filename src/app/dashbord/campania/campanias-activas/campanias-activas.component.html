@@ -43,10 +43,7 @@
             </div>
             <div>
                 <label for="">Publico Objetivo:</label>
-                <select name="industria" class="regular" [(ngModel)]="idIndustria" >
-                    <option value="0">Selecciona una opción</option>
-                    <option *ngFor="let industria of industrias" value="{{industria.id}}">{{industria.nombre}}</option>    
-                </select>
+                <input type="text" placeholder="Escribe aquí" name="publico" [(ngModel)]="campania.publico" required="required"> 
             </div>
             <div>
                 <label for="">KAM:</label>
@@ -61,11 +58,11 @@
             </div>
 
             <div>
-                <label for="">Alcance Estimado:</label>
+                <label for="" class="rojo">Alcance Estimado:</label>
                 <input type="number" placeholder="Escribe aquí" name="alcance" [(ngModel)]="campania.alcance" required="required"> 
             </div>
             <div>
-                <label for="">CPM Estimado:</label>
+                <label for=""  class="rojo">CPM Estimado:</label>
                 <input type="number" placeholder="Escribe aquí" name="cpm" [(ngModel)]="campania.cpmEstimado" required="required"> 
             </div>
 
@@ -120,7 +117,7 @@
                     <option value="">Selecciona una opción</option>
                     <option value="HOMBRE">Hombre</option>
                     <option value="MUJER">Mujer</option>
-                    <option value="OTRO">Otro</option>
+          
                 </select>
             </div>
             <div>
@@ -132,6 +129,31 @@
                 </select>
 
                 <select  name="edad2" class="regular form-edad" [(ngModel)]="limiteSuperior" required="required">
+                    <option value="0">Selecciona una opción</option>
+                    <option *ngFor="let edad of listaEdades" value="{{edad}}">{{edad}}</option>
+                    
+                </select>
+            </div>
+
+
+            <div>
+                <label for="">Segundo Genero:</label>
+                <select name="genero2" class="regular" [(ngModel)]="campania.genero2" required="required" >
+                    <option value="">Selecciona una opción</option>
+                    <option value="HOMBRE">Hombre</option>
+                    <option value="MUJER">Mujer</option>
+
+                </select>
+            </div>
+            <div >
+                <label for="">Segundo Rango de edad:</label>
+                <select  name="edad12" class="regular form-edad" [(ngModel)]="limiteInferior2" required="required">
+                    <option value="0">Selecciona una opción</option>
+                    <option *ngFor="let edad of listaEdades" value="{{edad}}">{{edad}}</option>
+                    
+                </select>
+
+                <select  name="edad22" class="regular form-edad" [(ngModel)]="limiteSuperior2" required="required">
                     <option value="0">Selecciona una opción</option>
                     <option *ngFor="let edad of listaEdades" value="{{edad}}">{{edad}}</option>
                     
@@ -206,7 +228,7 @@
             <div>
                 <label class="bold visualizar-titulo"  for="">Publico Objetivo:</label>
                 <p>
-                    {{nombreIndustria}}
+                    {{campania.publico}}
                    </p>
             </div>
             <div>
@@ -297,6 +319,20 @@
                 </p>
 
             </div>
+
+            <div>
+                <label class="bold visualizar-titulo"  for="">Segundo Genero:</label>
+                <p> 
+                    {{campania.genero2}}
+                </p>
+            </div>
+            <div>
+                <label class="bold visualizar-titulo"  for="">Segundo Rango de edad:</label>
+                <p> 
+                    {{campania.rangoEdad2}}
+                </p>
+
+            </div>
             <div>
                 <label class="bold visualizar-titulo"  for="">Categoria:</label>
         
@@ -328,7 +364,7 @@
             </div>
 
         </div>
-        <button (click)="ngOnInit()" class="btn-red-2 pequeno">Atras</button>
+        <button (click)="ngOnInit()" class="btn-red-2 pequeno mb-5">Atras</button>
 
     </div>
    

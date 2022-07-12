@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Administrador } from 'src/app/models/administrador.model';
 import { Campania } from 'src/app/models/campania.model';
-import { Categoria } from 'src/app/models/categoria.model';
+
 import { Empresa } from 'src/app/models/empresa.model';
-import { Industria } from 'src/app/models/industria.model';
+
 import { Marca } from 'src/app/models/marca.model';
 import { TipoContenido } from 'src/app/models/tipoContenido.model';
+import { TipoContenidoInfluencer } from 'src/app/models/tipoContenidoInfluencer.model';
 import { AdminService } from 'src/app/services/data/admin.service';
 import { CampaniaService } from 'src/app/services/data/campania.service';
-import { CategoriaService } from 'src/app/services/data/categoria.service';
+
 import { EmpresaService } from 'src/app/services/data/empresa.service';
 import { IndustriasService } from 'src/app/services/data/industrias.service';
+import { TipoContenidoInfluencerService } from 'src/app/services/data/tipo-contenido-influencer.service';
 import { TipoContenidoService } from 'src/app/services/data/tipo-contenido.service';
 
 @Component({
@@ -26,62 +28,52 @@ export class CampaniasActivasComponent implements OnInit {
   editar:boolean = false;
   limiteInferior:number =0
   limiteSuperior:number=0
+
+  limiteInferior2:number 
+  limiteSuperior2:number
+
   listaEdades:number[]=[]
   companias:Empresa[]=[]
   idEmpresa:number=0
   idMarca:number=0
-  idIndustria:number=0
+  
   idKam:number=0
   marcas:Marca[]=[]
-  industrias:Industria[]=[]
+
   administradores:Administrador[]=[]
-  categorias:Categoria[]=[]
-  categoriasElegidas:Categoria[]=[]
+  categorias:TipoContenidoInfluencer[]=[]
+  categoriasElegidas:TipoContenidoInfluencer[]=[]
   tipoContenidos:TipoContenido[]=[]
 
   tipoContenidosElegidos:TipoContenido[]=[]
 
   nombreEmpresa:string=""
   nombreMarca:string=""
-  nombreIndustria:string="" 
+
   nombreKam:string=""
 
-  categoriaActual:Categoria={
-    id:0,
-    nombre:'',
-  }
-  campania:Campania ={
-    id:0,
-    nombre:'',
-    descripcion:'',
-    queVanADecir:'',
-    alcance:'',
-    fechaInicio:new Date(),
-    fechaFin:new Date(),
-    metodologia:'',
-    perfilInfluenceador:'',
-    genero:'',
-    rangoEdad:'',
-    presupuesto:0,
-    redSocial:'',
-    terminada:false,
-    cpmEstimado:''
-  }
+  categoriaActual:TipoContenidoInfluencer
+  campania:Campania
   campanias:Campania[]=[]
   constructor( private servicioCampania: CampaniaService,
     private empresaService:EmpresaService,
     private industriaService: IndustriasService,
     private adminService: AdminService,
-    private categoriaService: CategoriaService,
-    private servicioTipoContenido: TipoContenidoService
+
+    private servicioTipoContenido: TipoContenidoService,
+    private servicioTipoContenidoInfluencer: TipoContenidoInfluencerService
     ) { }
 
   ngOnInit(): void {
 
 
+    this.limiteInferior=null
+    this.limiteInferior2=null
+    this.limiteSuperior=null
+    this.limiteSuperior2=null
     this.nombreEmpresa=""
     this.nombreMarca=""
-    this.nombreIndustria="" 
+  
     this.nombreKam=""
   
     this.editar = false
@@ -94,11 +86,11 @@ export class CampaniasActivasComponent implements OnInit {
 
       this.idEmpresa=0
     this.idMarca=0
-    this.idIndustria=0
+ 
     this.idKam=0
 
     this.marcas=[]
-    this.industrias=[]
+
     this.administradores=[]
     this.categorias=[]
     this.categoriasElegidas=[]
@@ -123,11 +115,14 @@ export class CampaniasActivasComponent implements OnInit {
       metodologia:'',
       perfilInfluenceador:'',
       genero:'',
-      rangoEdad:'',
+      rangoEdad:null,
+      genero2:'',
+      rangoEdad2:null,
       presupuesto:0,
       redSocial:'',
       terminada:false,
-      cpmEstimado:''
+      cpmEstimado:'',
+      publico:null
     }
     for(let i=1; i <=70 ; i++){
       this.listaEdades.push(i)
@@ -137,19 +132,15 @@ export class CampaniasActivasComponent implements OnInit {
         this.companias=response.empresas
       }
     )
-    this.industriaService.getAllIndustrias().subscribe(
-      response=>{
-        this.industrias=response.industrias
-      }
-    )
+
     this.adminService.getAllAdministradores().subscribe(
       response=>{
         this.administradores=response.kams
       }
     )
-    this.categoriaService.getAllCategorias().subscribe(
+    this.servicioTipoContenidoInfluencer.getAllTipoContenidoInfluencer().subscribe(
       response=>{
-        this.categorias=response.categorias
+        this.categorias=response.tipoContenidos
       }
     )
     this.servicioTipoContenido.getAllTipoContenido().subscribe(
@@ -163,18 +154,21 @@ export class CampaniasActivasComponent implements OnInit {
 
     this.servicioCampania.getCampaniaCompleta(id).subscribe(response=>{
       this.editar =true
-      console.log(response)
+      console.log(response.tipoContenidosCampania)
       this.campania = response.campania
       this.idEmpresa = response.empresa.id
       this.buscarMarcas()
 
       this.idMarca = response.marca.id
       this.idKam = response.kam.id
-      this.categoriasElegidas = response.categorias
+      this.categoriasElegidas = response.tipoContenidosCampania
       this.tipoContenidosElegidos = response.tipoContenidos
-      this.idIndustria = response.industria.id
       this.limiteInferior = parseInt( this.campania.rangoEdad.split("-")[0])
       this.limiteSuperior = parseInt( this.campania.rangoEdad.split("-")[1])
+    if(this.campania.rangoEdad2!=null){
+      this.limiteInferior2 = parseInt( this.campania.rangoEdad2.split("-")[0])
+      this.limiteSuperior2 = parseInt( this.campania.rangoEdad2.split("-")[1])
+    }
     })
   }
 
@@ -187,11 +181,15 @@ export class CampaniasActivasComponent implements OnInit {
       this.nombreMarca = response.marca.razonSocial
 
       this.nombreKam = response.kam.nombre
-      this.categoriasElegidas = response.categorias
+      this.categoriasElegidas = response.tipoContenidosCampania
       this.tipoContenidosElegidos = response.tipoContenidos
-      this.nombreIndustria = response.industria.nombre
+
       this.limiteInferior = parseInt( this.campania.rangoEdad.split("-")[0])
       this.limiteSuperior = parseInt( this.campania.rangoEdad.split("-")[1])
+      if(this.campania.rangoEdad2!=null){
+        this.limiteInferior2 = parseInt( this.campania.rangoEdad2.split("-")[0])
+        this.limiteSuperior2 = parseInt( this.campania.rangoEdad2.split("-")[1])
+      }
     })
   }
 
@@ -231,7 +229,7 @@ export class CampaniasActivasComponent implements OnInit {
     }
     tipoContenido+='-1'
     this.campania.rangoEdad = this.limiteInferior +"-"+this.limiteSuperior
-    this.servicioCampania.actualizarCampania(this.campania,this.idMarca,this.idIndustria,this.idKam,categoria,tipoContenido).subscribe(
+    this.servicioCampania.actualizarCampania(this.campania,this.idMarca,this.idKam,categoria,tipoContenido).subscribe(
       response=>{
         alert(response.mensaje)
         this.ngOnInit()

@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./campania.component.css']
 })
 export class CampaniaComponent implements OnInit {
-  crear:boolean=true
+  crear:boolean=false
   campanias:boolean=false
-  parametros:boolean=false
-  perfilamiento:boolean=false
+
+  perfilamiento:boolean=true
   requerimientos:boolean=false
   constructor() { }
 
@@ -21,7 +21,7 @@ export class CampaniaComponent implements OnInit {
    
      this.crear=true
      this.campanias=false
-     this.parametros=false
+
       this.perfilamiento=false
       this.requerimientos=false
 
@@ -30,23 +30,16 @@ export class CampaniaComponent implements OnInit {
    
      this.campanias=true
      this.crear=false
-     this.parametros=false
+
      this.perfilamiento=false
      this.requerimientos=false
    }
-   else if(tipo=='parametros'){
-   
-    this.campanias=false
-    this.crear=false
-    this.parametros=true
-    this.perfilamiento=false
-    this.requerimientos=false
-  }
+ 
   else if(tipo=='perfilamiento'){
    
     this.campanias=false
     this.crear=false
-    this.parametros=false
+
     this.perfilamiento=true
     this.requerimientos=false
   }
@@ -54,7 +47,7 @@ export class CampaniaComponent implements OnInit {
    
     this.campanias=false
     this.crear=false
-    this.parametros=false
+  
     this.perfilamiento=false
     this.requerimientos=true
   }

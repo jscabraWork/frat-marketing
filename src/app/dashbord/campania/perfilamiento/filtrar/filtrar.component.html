@@ -1,6 +1,6 @@
 <div class="container-fluid fondo-negro p-5">
     <div class="row">
-        <div class="col-12">
+        <div class="col-12" *ngIf="!booleanNombre">
             <form class="row regular" (ngSubmit)="!todoForm.invalid && filtrar()" id="form" #todoForm="ngForm">
                 <div class="col-12">
                     <label for="">Rango de Seguidores:</label>
@@ -17,15 +17,7 @@
                     </select>
                 </div>
 
-                <div>
-                    <label class="menos-t" for="">Tipo de contenido:</label>
-                    <div>
-                        <select name="cateogira" [(ngModel)]="contenidoNombreRedes"  class="regular">
-                            <option value="">Selecciona una opción</option>
-                           <option *ngFor="let contenido of tipoContenidosRedes"   value="{{contenido.nombre}}">{{contenido.nombre}}</option>
-                        </select> 
-                    </div>
-                </div>
+               
 
                 <div class="col-12">
                     <label for="" class="mt-4">Gustos:</label>
@@ -79,16 +71,15 @@
 
                     <label for="" class="mt-4">Rango Edad Prinicipal de Seguidores:</label>
                     <br>
-                    <select  name="edad1" class="regular form-edad" [(ngModel)]="limiteInferiorSeguidores" required="required">
-                        <option value="0">Inferior</option>
-                        <option *ngFor="let edad of listaEdades" value="{{edad}}">{{edad}}</option>
+                    <select  name="edad1" class="regular form-edad" [(ngModel)]="idRango" required="required">
+                        <option value="0">Rango</option>
+                        <option *ngFor="let rango of rangos" value="{{rango.id}}">{{rango.nombre}}</option>
                         
                     </select>
                     -
-                    <select  name="edad2" class="regular form-edad" [(ngModel)]="limiteSuperiorSeguidores" required="required">
-                        <option value="0">Superior</option>
-                        <option *ngFor="let edad of listaEdades" value="{{edad}}">{{edad}}</option>
-                        
+                    <select  name="edad2" class="regular form-edad" [(ngModel)]="porcentajeMinimo" required="required">
+                        <option value="0">Porcentaje Minimo</option>
+                        <option *ngFor="let edad of listaEdades" value="{{edad}}">{{edad}}%</option>
                     </select>
                 </div>
             </div>
@@ -101,23 +92,41 @@
                         <option value="">Selecciona una opción</option>
                         <option value="HOMBRE">Hombre</option>
                         <option value="MUJER">Mujer</option>
-                        <option value="OTRO">Otro</option>
+                   
                     </select>
           
                     <label for="" class="mt-4">Género Prinicipal de Seguidores:</label>
                     <br>
-                    <select name="ciudad" [(ngModel)]="generoSeguidores"  class="regular">
-                        <option value="">Selecciona una opción</option>
-                        <option value="HOMBRE">Hombre</option>
-                        <option value="MUJER">Mujer</option>
-                        <option value="OTRO">Otro</option>
+          
+                    <select name="generoIg" class="regular form-edad" [(ngModel)]="generoSeguidores">
+                        <option value="0">Selecciona una opción</option>
+                        <option  *ngFor="let genero of generos"  value="{{genero.id}}">{{genero.nombre}}</option>                    
+                    </select>
+                    -
+                    <select  name="porcentajeGenero" class="regular form-edad" [(ngModel)]="porcentajeGenero" required="required">
+                        <option value="0">Porcentaje Minimo</option>
+                        <option *ngFor="let edad of listaEdades" value="{{edad}}">{{edad}}%</option>
                     </select>
                 </div>
             </div>
                 <div class="centrar">
-                <button class="boton-blanco" (click)="filtrar()">FILTRAR</button>
+              
+               
+                <button class="boton-blanco ml-3" (click)="filtrar()">FILTRAR</button>
+                <br>
+                <button class="boton-blanco" (click)="cambiarFiltro()">BUSCAR POR NOMBRE</button>
             </div>
             </form>
+        </div>
+        <div class="col-12" *ngIf="booleanNombre">
+            <label for="">Nombre:</label>
+            <br>
+            <input type="text" placeholder="nombre" name="nombre"  [(ngModel)]="nombre"> 
+           
+            <br>
+            <button class="boton-blanco ml-3" (click)="filtrar()">FILTRAR</button>
+            <br>
+            <button class="boton-blanco" (click)="cambiarFiltro()">BUSCAR POR CARACTERISTICAS</button>
         </div>
     </div>
 </div>

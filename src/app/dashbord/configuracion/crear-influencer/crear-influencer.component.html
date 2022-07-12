@@ -19,19 +19,22 @@
 
                 <div>
                     <label for="">Ciudad de seguidores Instagram:</label>
-                    <select name="ciudadI" [(ngModel)]="influencer.ciudadInstagram"  class="regular">
-                        <option value="">Selecciona una opción</option>
-                        <option *ngFor="let ciudad of ciudades" value="{{ciudad.nombre}}">{{ciudad.nombre}}</option>
+                    <select name="ciudadI" [(ngModel)]="actualCiudad.id"  class="regular">
+                        <option value="0">Selecciona una opción</option>
+                        <option *ngFor="let ciudad of ciudades" value="{{ciudad.id}}">{{ciudad.nombre}}</option>
+                     
                     </select>
+                    <button class="btn-red" (click)="agregarCiudad()">AGREGAR</button>
+                    <small class="regular small" *ngFor="let ciudad of ciudadesElegidos;let i = index">{{i+1}}. {{ciudad.nombre}} <span (click)="eliminarCiudad(ciudad.id)">X</span> </small>
                 </div>
 
-                <div>
+                <!-- <div>
                     <label for="">Ciudad de seguidores TikTok:</label>
                     <select name="ciudadT" [(ngModel)]="influencer.ciudadTikTok"  class="regular">
                         <option value="">Selecciona una opción</option>
                         <option *ngFor="let ciudad of ciudades" value="{{ciudad.nombre}}">{{ciudad.nombre}}</option>
                     </select>
-                </div>
+                </div> -->
                 <div>
                     <label for="">Dirección:</label>
                     <input type="text" name="direccion" placeholder="Escribe aquí"  [(ngModel)]="influencer.direccion" required="required">
@@ -56,9 +59,9 @@
                         <input type="text" placeholder="Usuario" name="ig" [(ngModel)]="influencer.igUser">
                   
 
-                        <img src="../../../../assets/images/img/tik-tok.png" alt="">
+                        <!-- <img src="../../../../assets/images/img/tik-tok.png" alt="">
                         <input type="text" placeholder="Usuario" name="tiktok" [(ngModel)]="influencer.tikTokUser">
-          
+           -->
 
                    </div>
          
@@ -68,24 +71,26 @@
                 
                     <input type="number" placeholder="Seguidores" name="igS" [(ngModel)]="influencer.seguidoresInstagram">
 
-                    <img src="../../../../assets/images/img/tik-tok.png" alt="">
+                    <!-- <img src="../../../../assets/images/img/tik-tok.png" alt="">
              
-                    <input type="number" placeholder="Seguidores" name="tiktokS" [(ngModel)]="influencer.seguidoresTikTok">
+                    <input type="number" placeholder="Seguidores" name="tiktokS" [(ngModel)]="influencer.seguidoresTikTok"> -->
 
                </div>
                 </div>
     
                 <div>
-                    <label for="">Edad de seguidores Instagram:</label>
-                    <select  name="edad1" class="regular" [(ngModel)]="influencer.edadInstagram" required="required">
-                        <option value="">Selecciona una opción</option>
-                        <option *ngFor="let edad of listaEdades" value="{{edad}}">{{edad}}</option>
+                    <label for="">Rango de seguidores Instagram:</label>
+                    <select  name="edad1" class="regular" [(ngModel)]="actualRango.id" required="required">
+                        <option value="0">Selecciona una opción</option>
+                        <option *ngFor="let rango of rangos" value="{{rango.id}}">{{rango.nombre}}</option>
                         
                     </select>
-    
+                    <input type="number" placeholder="rangoP" name="rangoP" [(ngModel)]="porcentajeRangoActual" class="regular precio">
+                    <button class="btn-red" (click)="agregarRango()">AGREGAR</button>
+                    <small class="regular small" *ngFor="let rango of rangosElegidos; let i =index"> {{rango.nombre}}: %{{porcentajesRangos[i]| number: '1.0-0'}}<span (click)="eliminarRango(rango.id)">X</span> </small>
                 </div>
 
-                <div>
+                <!-- <div>
                     <label for="">Edad de seguidores TikTok:</label>
                     <select  name="edad" class="regular" [(ngModel)]="influencer.edadTikTok" required="required">
                         <option value="">Selecciona una opción</option>
@@ -93,7 +98,7 @@
                         
                     </select>
     
-                </div>
+                </div> -->
                 <div>
                     <label for="">Categoria de contenido: </label>
                     <select name="tipoC" class="regular"  [(ngModel)]="actualContenido.id">
@@ -107,14 +112,17 @@
 
 
                 <div>
-                    <label for="">Tipo de contenido y sus precios: </label>
+                    <label for="">Acciones de campaña, Precio y Alcance: </label>
                     <select name="tipo" class="regular"  [(ngModel)]="actualContenidoCampania.id">
                         <option value="0">Selecciona una opción</option>
                         <option  *ngFor="let tipo of tipoContenidosCampania"  value="{{tipo.id}}">{{tipo.nombre}}</option>
                     </select>
+                    <span class="pequeno"> Precio:</span>                    
                     <input type="number" placeholder="precio" name="precio" [(ngModel)]="precioActual" class="regular precio">
+                   <span class="pequeno"> Alcance:</span>
+                    <input type="number" placeholder="alcance" name="precio" [(ngModel)]="alcanceActual" class="regular precio">
                     <button class="btn-red" (click)="agregarTipoContenidoCampania()">AGREGAR</button>
-                    <small class="regular small" *ngFor="let tipo of tipoContenidosCampaniaElegidos;let i = index"> {{tipo.nombre}}: ${{precios[i]| number: '1.0-0'}} <span (click)="eliminarTipoContenidoCampania(tipo.id)">X</span> </small>
+                    <small class="regular small" *ngFor="let tipo of tipoContenidosCampaniaElegidos;let i = index"> {{tipo.nombre}}: ${{precios[i]| number: '1.0-0'}} Alcance:%{{alcances[i]| number: '1.0-0'}} <span (click)="eliminarTipoContenidoCampania(tipo.id)">X</span> </small>
                 </div>
 
 
@@ -129,21 +137,21 @@
                         <option value="">Selecciona una opción</option>
                         <option value="HOMBRE">Hombre</option>
                         <option value="MUJER">Mujer</option>
-                        <option value="OTRO">Otro</option>
                     </select>
                 </div>
 
                 <div>
                     <label for="">Genero seguidores Instagram:</label>
-                    <select name="genero" class="regular" [(ngModel)]="influencer.generoInstagram">
-                        <option value="">Selecciona una opción</option>
-                        <option value="HOMBRE">Hombre</option>
-                        <option value="MUJER">Mujer</option>
-                        <option value="OTRO">Otro</option>
+                    <select name="generoIg" class="regular" [(ngModel)]="actualGenero.id">
+                        <option value="0">Selecciona una opción</option>
+                        <option  *ngFor="let genero of generos"  value="{{genero.id}}">{{genero.nombre}}</option>                    
                     </select>
+                    <input type="number" placeholder="porcentaje" name="porcentaje" [(ngModel)]="porcentajeActual" class="regular precio">
+                    <button class="btn-red" (click)="agregarGenero()">AGREGAR</button>
+                    <small class="regular small" *ngFor="let genero of generosElegidos;let i = index"> {{genero.nombre}}: %{{porcentajes[i]| number: '1.0-0'}}<span (click)="eliminarGenero(genero.id)">X</span> </small>
                 </div>
 
-                <div>
+                <!-- <div>
                     <label for="">Genero seguidores TikTok:</label>
                     <select name="genero" class="regular" [(ngModel)]="influencer.generoTikTok">
                         <option value="">Selecciona una opción</option>
@@ -151,7 +159,7 @@
                         <option value="MUJER">Mujer</option>
                         <option value="OTRO">Otro</option>
                     </select>
-                </div>
+                </div> -->
                 <div>
                     <label for="">Likes:</label>
                     <select name="gustos" class="regular" [(ngModel)]="actualGusto.id">

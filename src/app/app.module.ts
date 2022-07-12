@@ -29,9 +29,9 @@ import { CrearParametrosComponent } from './dashbord/configuracion/crear-paramet
 import { FiltrarComponent } from './dashbord/campania/perfilamiento/filtrar/filtrar.component';
 
 import { CrearParametrosInfluenceadorComponent } from './dashbord/configuracion/crear-parametros-influenceador/crear-parametros-influenceador.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ParametrosCampaniaComponent } from './dashbord/campania/parametros-campania/parametros-campania.component';
+
 import { PerfilamientoComponent } from './dashbord/campania/perfilamiento/perfilamiento.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -42,7 +42,22 @@ import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
 import interactionPlugin from '@fullcalendar/interaction';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns'; // a plugin!
+import { CommonModule } from '@angular/common';
+import { FlatpickrModule } from 'angularx-flatpickr';
 
+
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { PerfilInfluencerComponent } from './perfil-influencer/perfil-influencer.component';
+import { LoginComponent } from './login/login.component';
+import { RequerimientosInfluencerComponent } from './perfil-influencer/requerimientos-influencer/requerimientos-influencer.component';
+import { CargarMetricasComponent } from './perfil-influencer/cargar-metricas/cargar-metricas.component';
+import { PerfilEmpresaComponent } from './perfil-empresa/perfil-empresa.component';
+import { DashbordEmpresaComponent } from './perfil-empresa/dashbord-empresa/dashbord-empresa.component';
+import { CampaniasEmpresaComponent } from './perfil-empresa/campanias-empresa/campanias-empresa.component';
+import { DashbordInfluencerComponent } from './perfil-influencer/dashbord-influencer/dashbord-influencer.component';
+import { TokenInterceptor } from './login/interceptors/token.interceptor';
+import { AuthInterceptor } from './login/interceptors/auth.interceptor';
 
 
 
@@ -74,9 +89,17 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns'; // a p
          FiltrarComponent,
 
          CrearParametrosInfluenceadorComponent,
-          ParametrosCampaniaComponent,
+  
           PerfilamientoComponent,
           RelationsComponent,
+          PerfilInfluencerComponent,
+          LoginComponent,
+          RequerimientosInfluencerComponent,
+          CargarMetricasComponent,
+          PerfilEmpresaComponent,
+          DashbordEmpresaComponent,
+          CampaniasEmpresaComponent,
+          DashbordInfluencerComponent,
          
          
          
@@ -92,10 +115,17 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns'; // a p
     BrowserAnimationsModule,
     MatDialogModule,
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+    CommonModule,
+    NgbModalModule,
+    FlatpickrModule.forRoot(),
+  
 
 
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS, useClass:TokenInterceptor, multi:true},
+    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

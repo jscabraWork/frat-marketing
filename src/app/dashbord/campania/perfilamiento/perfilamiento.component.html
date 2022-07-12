@@ -32,8 +32,8 @@
                 <tr>
                     <td>{{influ.nombre}}</td>
                     <td>{{ciudades[i]}}</td>
-                    <td *ngIf="redSocial=='Instagram'">{{influ.seguidoresInstagram}}</td>
-                    <td *ngIf="redSocial=='TikTok'">{{influ.seguidoresTikTok}}</td>
+                    <td *ngIf="redSocial=='Instagram'">{{influ.seguidoresInstagram | number: '1.0-0'}}</td>
+                    <td *ngIf="redSocial=='TikTok'">{{influ.seguidoresTikTok | number: '1.0-0'}}</td>
 
                     <td *ngFor="let precio of precios[i]">{{darAlcanteTotalPre(precio,i) | number: '1.0-0'}}</td>
 
@@ -87,14 +87,17 @@
                         <tr>
                             <td>{{influ.nombre}}</td>
                             <td>{{ciudadesAgregadas[i]}}</td>
-                            <td *ngIf="redSocial=='Instagram'">{{influ.seguidoresInstagram}}</td>
+                            <td *ngIf="redSocial=='Instagram'">{{influ.seguidoresInstagram | number: '1.0-0'}}</td>
                             <td *ngIf="redSocial=='TikTok'">{{influ.seguidoresTikTok}}</td>
 
-                            <td *ngFor="let numero of numeros[i];let j = index"><input type="number" name="{{influ.nombre + i +j}}" id="{{influ.nombre + i +j}}" min="0"
-                                    [(ngModel)]="numeros[i][j]" class="corto"></td>
+                            <td *ngFor="let numero of numeros[i]; let j = index">
+                                <button class="pequeno-btn" (click)="menosN(i,j)">-</button>
+                                {{numero}}
+                                <button class="pequeno-btn" (click)="masN(i,j)" >+</button>
+                            </td>
 
                             <td *ngFor="let precio of preciosAgregados[i];let j = index">{{((influ.seguidoresInstagram *
-                                precio.tipoContenido.alcance)/100 )*numeros[i][j]| number: '1.0-0'}}</td>
+                                precio.alcance)/100 )*numeros[i][j]| number: '1.0-0'}}</td>
 
                             <td *ngIf="redSocial=='Instagram'">
                                 {{darAlcanteTotal(preciosAgregados[i],influ.seguidoresInstagram,i)| number: '1.0-0'}}
@@ -103,11 +106,11 @@
                                 {{darAlcanteTotal(preciosAgregados[i],influ.seguidoresTikTok,i)| number: '1.0-0'}}</td>
 
                             <td *ngIf="redSocial=='Instagram'">
-                                {{0.012* darAlcanteTotal(preciosAgregados[i],influ.seguidoresInstagram,i) | number:
+                                {{1.02* darAlcanteTotal(preciosAgregados[i],influ.seguidoresInstagram,i) | number:
                                 '1.0-0'}}
                             </td>
                             <td *ngIf="redSocial=='TikTok'">
-                                {{0.012* darAlcanteTotal(preciosAgregados[i],influ.seguidoresTikTok,i)| number:
+                                {{1.02* darAlcanteTotal(preciosAgregados[i],influ.seguidoresTikTok,i)| number:
                                 '1.0-0'}}
                             </td>
 
@@ -160,8 +163,8 @@
             <div class="fondo-negro">
                 <p>Seguidores: <span *ngIf="redSocial=='Instagram'">{{darSeguidoresTotalIG()| number: '1.0-0'}}</span> <span *ngIf="redSocial=='TikTok'">{{darSeguidoresTotalTikTok()| number: '1.0-0'}}</span></p>
                 <p>Alcance: <span *ngIf="redSocial=='Instagram'">{{darAlcanteTotalCampanaIg()| number: '1.0-0'}}</span> <span *ngIf="redSocial=='TikTok'">{{darAlcanteTotalCampanaTikTok()| number: '1.0-0'}}</span></p>
-                <p>Impresiones: <span *ngIf="redSocial=='Instagram'">{{0.012*darAlcanteTotalCampanaIg()| number: '1.0-0'}}</span> <span *ngIf="redSocial=='TikTok'">{{0.012*darAlcanteTotalCampanaTikTok()| number: '1.0-0'}}</span></p>
-                <p>CPM: <span *ngIf="redSocial=='Instagram'">$ {{ ((0.012*darAlcanteTotalCampanaIg())/fee)*1000| number: '1.0-0'}}</span> <span *ngIf="redSocial=='TikTok'">$ {{((0.012*darAlcanteTotalCampanaTikTok())/fee)*1000| number: '1.0-0'}}</span></p>
+                <p>Impresiones: <span *ngIf="redSocial=='Instagram'">{{1.02*darAlcanteTotalCampanaIg()| number: '1.0-0'}}</span> <span *ngIf="redSocial=='TikTok'">{{1.02*darAlcanteTotalCampanaTikTok()| number: '1.0-0'}}</span></p>
+                <p>CPM: <span *ngIf="redSocial=='Instagram'">$ {{ ((1.02*darAlcanteTotalCampanaIg())/fee)*1000| number: '1.0-0'}}</span> <span *ngIf="redSocial=='TikTok'">$ {{((1.02*darAlcanteTotalCampanaTikTok())/fee)*1000| number: '1.0-0'}}</span></p>
                 <p>Acciones: {{darAcciones() | number: '1.0-0'}}</p>
             </div>
         </div>

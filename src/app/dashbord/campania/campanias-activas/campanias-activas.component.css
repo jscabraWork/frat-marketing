@@ -103,6 +103,11 @@ input[type="checkbox"]{
     
     font-size: 25px;
 }
+.rojo{
+    color:#CA2339;
+    font-weight: bold;
+    font-family: inter-bold;
+}
 .form-edad{
     width:10% !important;
 }

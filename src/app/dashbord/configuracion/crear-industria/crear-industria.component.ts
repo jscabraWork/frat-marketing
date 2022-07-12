@@ -17,18 +17,7 @@ export class CrearIndustriaComponent implements OnInit {
   sectores:Sector[]=[]
   idEmpresa:number=0
   idSector:number=0
-  marca:Marca={
-    id:0,
-    razonSocial:"",
-    nit:"",
-    contacto:"",
-    cargo_contacto:"",
-    otroContacto:"",
-    telefono:"",
-    correo:"",
-    descripcion:"",
-    facturacion:0,
-  }
+  marca:Marca
   constructor(
     private empresaService:EmpresaService,
     private sectorService:SectoresService,
@@ -43,15 +32,19 @@ export class CrearIndustriaComponent implements OnInit {
     this.sectores=[]
     this.marca={
       id:0,
-      razonSocial:"",
-      nit:"",
-      contacto:"",
-      cargo_contacto:"",
-      otroContacto:"",
-      telefono:"",
-      correo:"",
-      descripcion:"",
+      razonSocial:null,
+      nit:null,
+      contacto:null,
+      cargo_contacto:null,
+
+      telefono:null,
+      correo:null,
+      descripcion:null,
       facturacion:0,
+      contactoOtro:null,
+      cargo_contactoOtro:null,
+      telefonoOtro:null,
+      correoOtro:null
     }
     this.empresaService.getAllEmpresa().subscribe(
       response=>{

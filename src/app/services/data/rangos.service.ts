@@ -5,11 +5,12 @@ import { API_URL } from 'src/app/app.constants';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoriaService {
+export class RangosService {
 
   constructor(private http:HttpClient) { }
 
-  getAllCategorias(){ 
-    return this.http.get<any>(`${API_URL}/categorias`);
+
+  getAllRangos(){
+    return this.http.get<any>(`${API_URL}/rangos`);
   }
 }

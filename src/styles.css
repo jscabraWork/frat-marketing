@@ -48,3 +48,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .cursor{
   cursor: pointer;
 }
+.clear-fix{
+  clear: both;
+  float: none;
+}

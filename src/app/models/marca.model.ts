@@ -4,9 +4,12 @@ export interface Marca{
 	nit:string;
 	contacto:string;
 	cargo_contacto:string;
-	otroContacto:string;
 	telefono:string;
 	correo:string;
 	descripcion:string;
 	 facturacion:number;
+	 contactoOtro:string;
+	 cargo_contactoOtro:string;
+	 telefonoOtro:string;
+	 correoOtro:string;
 }

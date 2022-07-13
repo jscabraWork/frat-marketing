@@ -7,8 +7,12 @@
 .logo{
     background-color: black;
     color: white;
-    padding:20px 30px 20px 30px;
-    cursor:pointer
+    padding-top:35px ;
+    text-align: center;
+    width:150px;
+    height:150px;
+    cursor:pointer;
+    margin-top: 10px;
 }
 .ver-mas{
     font-size: 16px;
@@ -23,6 +27,7 @@
     color:white;
     width:50%;
     margin-left: 25%;
+    margin-top: 15px;
 }
 #form div div{
 
@@ -76,7 +81,11 @@ textarea{
     resize: none;
 
 }
-
+.centrar-f{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 textarea:focus{
 
     color: black;
@@ -152,4 +161,10 @@ small span:hover{
     font-size: 18px;
     border-radius: 5px;
     margin-top:10px;
+}
+.logo-marca{
+    margin-top: 10px;
+    width:150px;
+    height:150px;
+    cursor: pointer;
 }

@@ -17,6 +17,7 @@ export class SeguimientoComponent implements OnInit {
   tareasNoTerminadasCampania:number[]=[]
   alcances:number[]=[]
   impresiones:number[]=[]
+  imagenes:string[]=[]
 
   constructor( private servicioSeguimiento: SeguimientoService) { }
 
@@ -31,6 +32,7 @@ export class SeguimientoComponent implements OnInit {
         this.tareasNoTerminadasCampania = response.tareasNoTerminadasCampania
         this.alcances = response.alcances
         this.impresiones = response.impresiones
+        this.imagenes = response.imagenes
         console.log(response)
       })
   }

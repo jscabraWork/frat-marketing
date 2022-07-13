@@ -87,8 +87,9 @@
         <div class="col-2">
             <div>
                 
-                <button id="selectButton" class="boton-negro btn " (click)="fileInput.click()">Sube el logo</button>
-                <input type="file" #fileInput hidden   />
+                <button id="selectButton" class="boton-negro btn" (click)="fileInput.click()" *ngIf="!imageSrc">Sube el logo</button>
+                <img src="{{imageSrc}}" class="boton-negro btn" (click)="fileInput.click()" *ngIf="imageSrc">
+                <input type="file" #fileInput hidden accept="jpg,png,jpeg" (change)="selectFiles($event)"   />
             </div>
         </div>
     </div>

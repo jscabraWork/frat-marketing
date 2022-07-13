@@ -1,3 +1,5 @@
+import { Imagen } from "./imagen.model";
+
 export interface Marca{
     id:number;
     razonSocial:string;
@@ -12,4 +14,5 @@ export interface Marca{
 	 cargo_contactoOtro:string;
 	 telefonoOtro:string;
 	 correoOtro:string;
+	 logo:Imagen;
 }

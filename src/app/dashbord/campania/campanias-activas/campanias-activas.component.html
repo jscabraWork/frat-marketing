@@ -3,9 +3,14 @@
         <div class="col-12 centrar mt-5">
             <h2 class="bold">CAMPAÑAS ACTIVAS</h2>
         </div>
-        <div class="col-4 centrar mt-5" *ngFor="let campania of campanias">
+        <div class="col-4 centrar mt-5" *ngFor="let campania of campanias; let i = index">
             <p class="bold f-24 mtn-3 cursor" (click)="seleccionarCampaniaVisualizar(campania.id)">{{campania.nombre}}</p>
-            <h3 class="logo" (click)="seleccionarCampaniaVisualizar(campania.id)">LOGO MARCA</h3>
+            <div class="centrar centrar-f">
+                <h3 class="logo" (click)="seleccionarCampaniaVisualizar(campania.id)"  *ngIf="imagenes[i]==null">LOGO MARCA</h3>
+                <img src="{{imagenes[i]}}"  (click)="seleccionarCampaniaVisualizar(campania.id)" class="logo-marca" *ngIf="imagenes[i]!=null" alt="">
+            </div>
+  
+
             <p class="bold editar" (click)="seleccionarCampania(campania.id)">Editar</p>
         </div>
         

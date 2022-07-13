@@ -16,10 +16,14 @@
                     <div class="col-12 nombre-c centrar bold">
                         <p>{{campania.nombre}}</p>
                     </div>
-                    <div class="col-6 logo bold centrarTexto">
+                    <div class="col-6 logo bold centrarTexto" *ngIf="imagenes[i]==null">
                         LOGO MARCA
                     </div>
+                    <div class="col-6 centrar-f" *ngIf="imagenes[i]!=null"> 
+                        <img src="{{imagenes[i]}}"   class="logo-marca"  alt="">
+                    </div>
                     <div class="col-6 ">
+                        <h2  class="bold porcentaje-2"> Completada</h2>
                         <h2 class="bold porcentaje">{{((cantidadSi[i])/(cantidadSi[i]+cantidadNo[i]))*100| number: '1.0-0'}}%</h2>
                     </div>
                 </div>

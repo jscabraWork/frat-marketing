@@ -51,7 +51,7 @@ export class CampaniasActivasComponent implements OnInit {
   nombreMarca:string=""
 
   nombreKam:string=""
-
+  imagenes:string[]=[]
   categoriaActual:TipoContenidoInfluencer
   campania:Campania
   campanias:Campania[]=[]
@@ -82,6 +82,7 @@ export class CampaniasActivasComponent implements OnInit {
     this.servicioCampania.getAllCampanias().subscribe(
       (response) => {
         this.campanias = response.campanias
+        this.imagenes = response.imagenes
       })
 
       this.idEmpresa=0

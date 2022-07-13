@@ -13,6 +13,7 @@ import { InfluencerService } from 'src/app/services/data/influencer.service';
 })
 export class DashbordInfluencerComponent implements OnInit {
 
+  imagenes:string[]=[]
   influencer:Influencer
   campanias:Campania[] = []
   cantidadNo:number[]=[]
@@ -57,6 +58,7 @@ export class DashbordInfluencerComponent implements OnInit {
           this.sumasporTipo = response.sumasporTipo
           this.totalTerminadas = response.totalTerminadas
           this.totalNoTerminadas = response.totalNoTerminadas
+          this.imagenes = response.imagenes
           console.log(response)
         })
       

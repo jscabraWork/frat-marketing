@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfiguracionComponent implements OnInit {
   influencer: boolean = false;
-  cliente: boolean = false;
-  responsable: boolean = true;
+  cliente: boolean = true;
+  responsable: boolean = false;
   industria: boolean = false;
   parametros: boolean = false;
   pinfluenceador:boolean=false

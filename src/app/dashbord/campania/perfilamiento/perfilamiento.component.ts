@@ -83,7 +83,7 @@ export class PerfilamientoComponent implements OnInit {
     
     this.retenciones.push(0)
     this.numeros.push(actual)
-    console.log(this.numeros)
+
   }
     this.influencers.splice(i, 1);
     this.ciudades.splice(i, 1);
@@ -108,7 +108,7 @@ export class PerfilamientoComponent implements OnInit {
       });
 
       dialogRef.afterClosed().subscribe(result => {
-        console.log(result)
+  
         this.influencers = result.influencers
         this.ciudades = result.ciudades
         this.precios = result.precios
@@ -233,9 +233,7 @@ export class PerfilamientoComponent implements OnInit {
     return costo;
   }
 
-  imprimir(i: number) {
-    console.log(this.numeros[i])
-  }
+
 
   darCiudades() {
     let textos: String[] = []
@@ -362,22 +360,23 @@ export class PerfilamientoComponent implements OnInit {
 
     let encontro =false
     let posicion = 0
-    for(let i =0; i < this.retenciones[i];i++){
-      if(this.retenciones[i]==0){
+
+  
+    for(let k =0; k < this.retenciones.length &&!encontro;k++){
+      console.log(this.retenciones[k])
+      if(this.retenciones[k]==0){
         encontro = true;
-        posicion = i
+        posicion = k
       }
     }
-
+    console.log(encontro)
     if(!encontro){
     let creacionTareas = {
       influencers:this.influencersAgregados,
       numeros:this.numeros,
       retenciones:this.retenciones
     }
-
-
-    console.log(creacionTareas)
+  
     this.tareasService.crearTareasDeCampania(this.idCampania, creacionTareas).subscribe(response=>{
       response
       alert("Tareas creadas exitosamente!")

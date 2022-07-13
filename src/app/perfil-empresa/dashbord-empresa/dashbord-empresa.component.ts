@@ -24,7 +24,7 @@ export class DashbordEmpresaComponent implements OnInit {
   cantidadSinTerminar:number[][]=[]
   cantidadesInfluencers:number[][]=[]
   categoriasInfluencers:string[][] = []
-
+  imagenes:string[]=[]
   constructor(
     private servicio: EmpresaService,   
      private auth: AuthService
@@ -43,6 +43,8 @@ export class DashbordEmpresaComponent implements OnInit {
       this.cantidadSinTerminar = response.cantidadSinTerminar
       this.cantidadesInfluencers = response.cantidadesInfluencers
       this.categoriasInfluencers = response.categoriasInfluencers
+      this.imagenes = response.imagenes
+      console.log(response.empresa)
     })
 
   }

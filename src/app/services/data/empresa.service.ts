@@ -20,4 +20,9 @@ export class EmpresaService {
   getMarcas(idEmpresa:number){
     return this.http.get<any>(`${API_URL}/empresas/${idEmpresa}/marcas`);
   }
+
+  getPerfil(idEmpresa:number){
+    return this.http.get<any>(`${API_URL}/empresas/${idEmpresa}/perfil`);
+  }
 }
+

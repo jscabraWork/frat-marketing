@@ -91,7 +91,7 @@ export class CrearCampaniasComponent implements OnInit {
       nombre:'',
       descripcion:'',
       queVanADecir:'',
-      alcance:'',
+      alcanceEstimado:0,
       fechaInicio:new Date(),
       fechaFin:new Date(),
       metodologia:'',
@@ -103,7 +103,7 @@ export class CrearCampaniasComponent implements OnInit {
       presupuesto:0,
       redSocial:'',
       terminada:false,
-      cpmEstimado:'',
+  
       publico:null
     }
     for(let i=1; i <=70 ; i++){

@@ -58,7 +58,7 @@ import { CampaniasEmpresaComponent } from './perfil-empresa/campanias-empresa/ca
 import { DashbordInfluencerComponent } from './perfil-influencer/dashbord-influencer/dashbord-influencer.component';
 import { TokenInterceptor } from './login/interceptors/token.interceptor';
 import { AuthInterceptor } from './login/interceptors/auth.interceptor';
-
+import {IvyCarouselModule} from 'angular-responsive-carousel';
 
 
 @NgModule({
@@ -118,6 +118,7 @@ import { AuthInterceptor } from './login/interceptors/auth.interceptor';
     CommonModule,
     NgbModalModule,
     FlatpickrModule.forRoot(),
+    IvyCarouselModule
   
 
 

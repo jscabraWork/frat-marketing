@@ -19,8 +19,8 @@ export class InfluencerService {
     return this.http.get<any>(`${API_URL}/influencers`);
   }
 
-  getInfluencerPorId(id:number){
-    return this.http.get<any>(`${API_URL}/influencers/${id}`);
+  getInfluencerPorId(id:number,fechaI:string, fechaF:string){
+    return this.http.get<any>(`${API_URL}/influencers/${id}/${fechaI}/${fechaF}`);
   }
   getInfluencerYCampaniasPorId(id:number){
     return this.http.get<any>(`${API_URL}/influencers/campanias/${id}`);

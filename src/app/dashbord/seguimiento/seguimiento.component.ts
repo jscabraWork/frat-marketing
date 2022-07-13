@@ -13,7 +13,11 @@ export class SeguimientoComponent implements OnInit {
   campanias:Campania[]=[]
   tareasTerminadas:number=0
   tareasNoTerminadas:number=0
-  porcentajes:number[]=[]
+  tareasTerminadasCampania:number[]=[]
+  tareasNoTerminadasCampania:number[]=[]
+  alcances:number[]=[]
+  impresiones:number[]=[]
+
   constructor( private servicioSeguimiento: SeguimientoService) { }
 
   ngOnInit(): void {
@@ -23,7 +27,10 @@ export class SeguimientoComponent implements OnInit {
         this.campanias = response.campanias
         this.tareasNoTerminadas = response.tareasNoTerminadas
         this.tareasTerminadas= response.tareasTerminadas
-        this.porcentajes = response.porcentajes
+        this.tareasTerminadasCampania = response.tareasTerminadasCampania
+        this.tareasNoTerminadasCampania = response.tareasNoTerminadasCampania
+        this.alcances = response.alcances
+        this.impresiones = response.impresiones
         console.log(response)
       })
   }

@@ -47,6 +47,9 @@
 .p-grande{
     font-size: 80px;
 }
+.p-mediando{
+    font-size:28px;
+}
 table{
     padding: 10px;
     border:1px solid black;
@@ -68,4 +71,7 @@ td{
 }
 .descripcion p{
     line-height:6px;
+}
+carousel{
+    height:80vh;
 }

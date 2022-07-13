@@ -49,7 +49,7 @@ export class CargarMetricasComponent implements OnInit {
 
   cambiar() {
  
-    this.servicio.getTareasDeInfluenceadorCampania(this.influencer.id, this.idActual).subscribe(response=>{
+    this.servicio.getTareasDeInfluenceadorCampaniaNoTerminada(this.influencer.id, this.idActual).subscribe(response=>{
       this.tareas = response.tareas
       this.tipos = response.tipos
 
@@ -60,6 +60,8 @@ export class CargarMetricasComponent implements OnInit {
     for(let i = 0; i < this.tareas.length; i++){
       if(this.tareas[i].id = this.idTarea){
         this.tareaActual = this.tareas[i]
+        this.tareaActual.alcance= null
+        this.tareaActual.impresion= null
       }
     }
 
@@ -67,6 +69,37 @@ export class CargarMetricasComponent implements OnInit {
       console.log(response)
       this.metricasN = response.metricasN
       this.metricas = response.metricas
+      for(let i = 0; i < this.metricas.length; i++){
+        this.metricas[i].valor = null
+      }
     })
   }
-}
+
+  guardar(){
+
+    let metricas = ""
+    let valores = ""
+    for(let i = 0; i < this.metricas.length; i++){
+      metricas += this.metricas[i].id + "_"
+      valores += this.metricas[i].valor + "_"
+    }
+     metricas+='-1' 
+      valores+='-1'
+      console.log(metricas)
+      console.log(valores)
+    this.servicioTareas.cargarMetrica(metricas,valores,this.tareaActual).subscribe(response=>{
+
+      response
+      alert("Metricas guardadas")
+    },
+    error=>{
+      error
+      alert("Error al guardar metricas")
+    }
+    )
+  }
+
+
+    
+  }
+

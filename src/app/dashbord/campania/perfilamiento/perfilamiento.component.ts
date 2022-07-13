@@ -360,11 +360,23 @@ export class PerfilamientoComponent implements OnInit {
 
   crearTareas(){
 
+    let encontro =false
+    let posicion = 0
+    for(let i =0; i < this.retenciones[i];i++){
+      if(this.retenciones[i]==0){
+        encontro = true;
+        posicion = i
+      }
+    }
+
+    if(!encontro){
     let creacionTareas = {
       influencers:this.influencersAgregados,
       numeros:this.numeros,
       retenciones:this.retenciones
     }
+
+
     console.log(creacionTareas)
     this.tareasService.crearTareasDeCampania(this.idCampania, creacionTareas).subscribe(response=>{
       response
@@ -372,4 +384,8 @@ export class PerfilamientoComponent implements OnInit {
       this.ngOnInit()
     })
   }
+  else{
+    alert("Revisa las retenciones del influencer numero "+posicion)
+  }
+}
 }

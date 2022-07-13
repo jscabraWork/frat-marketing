@@ -1,7 +1,7 @@
 <div class="container-fluid mt-5">
     <div class="row">
         <div class="col-6 centrar">
-            <h2 class="bold f-120">{{(tareasTerminadas/(tareasTerminadas+tareasNoTerminadas))*100}} %</h2>
+            <h2 class="bold f-120">{{(tareasTerminadas/(tareasTerminadas+tareasNoTerminadas))*100 | number: '1.0-0'}} %</h2>
         </div>
         <div class="col-6">
             <h3 class="bold f-30 mt-60">
@@ -10,9 +10,9 @@
             </h3>
         </div>
     </div>
-    <div class="row mt-3">
+    <carousel class="row mt-3" [cellsToShow]="2">
 
-        <div class="col-6" *ngFor="let campania of campanias;let i = index">
+        <div class="carousel-cell col-6" *ngFor="let campania of campanias;let i = index">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
@@ -20,21 +20,21 @@
                     </div>
                     <div class="col-6 mr-n">
                         <h4 class="regular logo">LOGO MARCA</h4> 
-                        <p class="font-r bold mt-6">Alcance est: {{campania.alcance}}</p>
-                        <p class="font-r bold">Alcance real: 100.000</p>
-                        <p class="font-r bold">Porcentaje: 50%</p>
+                        <p class="font-r bold mt-6">Alcance est: {{campania.alcanceEstimado | number : '1.0-0'}}</p>
+                        <p class="font-r bold">Alcance real: {{alcances[i] | number : '1.0-0'}}</p>
+                        <p class="font-r bold">Porcentaje: {{(alcances[i]/campania.alcanceEstimado)*100 | number : '1.0-0'}}%</p>
                     </div>
                     <div class="col-6">
-                        <p class="bold f-40">{{porcentajes[i]}}%</p> 
-                        <p class="font-r bold">CPM est: ${{campania.cpmEstimado}}</p>
-                        <p class="font-r bold">CPM real: $5.000</p>
-                        <p class="font-r bold">Porcentaje: 50%</p>
+                        <p class="bold f-40">{{((tareasTerminadasCampania[i])/(tareasTerminadasCampania[i]+tareasNoTerminadasCampania[i]))*100 | number: '1.0-0'}}%</p> 
+                        <p class="font-r bold">CPM est: ${{ ((campania.alcanceEstimado *1.02)/(campania.presupuesto))*1000 | number: '1.0-0'}}</p>
+                        <p class="font-r bold">CPM real: ${{ ((impresiones[i])/(campania.presupuesto))*1000| number : '1.0-0'}}</p>
+                        <p class="font-r bold">Porcentaje: {{((((impresiones[i])/(campania.presupuesto))*1000) / (((campania.alcanceEstimado *1.02)/(campania.presupuesto))*1000)) *100 | number : '1.0-0'}} %</p>
                     </div>
                 </div>
             </div>
-        </div>
+        </div>  
 
-    </div>
+    </carousel>
     <div class="row mt-3">
         <table class="col-12 centrar">
             <tr class="border-b ">

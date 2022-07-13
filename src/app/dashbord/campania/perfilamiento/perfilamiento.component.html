@@ -18,6 +18,7 @@
         <div class="col-12" *ngFor="let influ of influencers; let i =index">
             <table class="tabla1">
                 <tr>
+                 
                     <th>NOMBRE</th>
                     <th>CIUDAD</th>
                     <th>SEGUIDORES {{redSocial}}</th>
@@ -63,6 +64,7 @@
                 <div *ngFor="let influ of influencersAgregados; let i =index">
                     <table class="tabla2">
                         <tr>
+                            <th>NÚMERO</th>
                             <th>NOMBRE</th>
                             <th>CIUDAD</th>
                             <th>SEGUIDORES {{redSocial}}</th>
@@ -85,6 +87,7 @@
                             <th>TOTAL COSTOS</th>
                         </tr>
                         <tr>
+                            <td>{{i}}</td>
                             <td>{{influ.nombre}}</td>
                             <td>{{ciudadesAgregadas[i]}}</td>
                             <td *ngIf="redSocial=='Instagram'">{{influ.seguidoresInstagram | number: '1.0-0'}}</td>

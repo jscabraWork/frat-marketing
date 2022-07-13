@@ -59,12 +59,9 @@
 
             <div>
                 <label for="" class="rojo">Alcance Estimado:</label>
-                <input type="number" placeholder="Escribe aquí" name="alcance" [(ngModel)]="campania.alcance" required="required"> 
+                <input type="number" placeholder="Escribe aquí" name="alcance" [(ngModel)]="campania.alcanceEstimado" required="required"> 
             </div>
-            <div>
-                <label for=""  class="rojo">CPM Estimado:</label>
-                <input type="number" placeholder="Escribe aquí" name="cpm" [(ngModel)]="campania.cpmEstimado" required="required"> 
-            </div>
+    
 
 
             <div>
@@ -248,16 +245,10 @@
                 <label class="bold visualizar-titulo"  for="">Alcance Estimado:</label>
                 
                 <p> 
-                    {{campania.alcance}}
+                    {{campania.alcanceEstimado}}
                 </p>
             </div>
-            <div>
-                <label class="bold visualizar-titulo"  for="">CPM Estimado:</label>
-                
-                <p> 
-                    {{campania.cpmEstimado}}
-                </p>
-            </div>
+     
      
             <div>
                 <label class="bold visualizar-titulo"  for="">Red Social:</label>

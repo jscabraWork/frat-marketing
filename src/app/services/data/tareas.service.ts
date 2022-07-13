@@ -26,5 +26,9 @@ export class TareasService {
     return this.http.get<any>(`${API_URL}/tareas/metricas/${id}`)
   }
 
+  cargarMetrica(metricas:string,valores:string,Tarea:Tarea){ 
+    return this.http.put<any>(`${API_URL}/tareas/metricas/actualizar/${metricas}/${valores}`,Tarea)
+  }
+
 
 }

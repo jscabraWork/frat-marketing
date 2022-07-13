@@ -7,7 +7,7 @@ export interface Campania{
     presupuesto:number;
 	descripcion:string;
 	queVanADecir:string;
-    alcance:string;
+    alcanceEstimado:number;
 	fechaInicio:Date;
 	fechaFin:Date;
 	metodologia:string;
@@ -16,7 +16,7 @@ export interface Campania{
 	rangoEdad:string;
 	genero2:string;
 	rangoEdad2:string;
-	cpmEstimado:string;
+
 	publico:string
 
 }

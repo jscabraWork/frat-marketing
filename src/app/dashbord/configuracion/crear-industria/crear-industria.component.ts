@@ -52,7 +52,7 @@ export class CrearIndustriaComponent implements OnInit {
       telefono:null,
       correo:null,
       descripcion:null,
-      facturacion:0,
+      facturacion:"",
       contactoOtro:null,
       cargo_contactoOtro:null,
       telefonoOtro:null,

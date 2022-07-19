@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Ciudad } from 'src/app/models/ciudad.model';
 import { Genero } from 'src/app/models/genero.model';
-import { Gusto } from 'src/app/models/gusto.model';
+
 import { Influencer } from 'src/app/models/influencer.model';
 import { Mascotas } from 'src/app/models/mascota.model';
 import { Ocupacion } from 'src/app/models/ocupacion.model';
@@ -10,7 +10,7 @@ import { TipoContenido } from 'src/app/models/tipoContenido.model';
 import { TipoContenidoInfluencer } from 'src/app/models/tipoContenidoInfluencer.model';
 import { CiudadesService } from 'src/app/services/data/ciudades.service';
 import { GeneroService } from 'src/app/services/data/genero.service';
-import { GustosService } from 'src/app/services/data/gustos.service';
+
 import { InfluencerService } from 'src/app/services/data/influencer.service';
 import { MascotasService } from 'src/app/services/data/mascotas.service';
 import { OcupacionService } from 'src/app/services/data/ocupacion.service';
@@ -29,23 +29,23 @@ export class CrearInfluencerComponent implements OnInit {
   influencer:Influencer
   ciudadid:number=0
   tipoContenidosElegidos:TipoContenidoInfluencer[]=[]
-  gustosElegidos:Gusto[]=[]
-  disgustosElegidos:Gusto[]=[]
+  gustosElegidos:TipoContenidoInfluencer[]=[]
+  
   mascotasElegidos:Mascotas[]=[]
   ocupacionElegidos:Ocupacion[]=[]
 
 
   actualContenido:TipoContenidoInfluencer 
-  actualGusto:Gusto
+  actualGusto:TipoContenidoInfluencer
   
-  actualDisgusto:Gusto
+
   
   actualMascota:Mascotas
   actualOcupacion:Ocupacion
 
   ciudades:Ciudad[]=[]
   tipoContenidos:TipoContenidoInfluencer[]=[]
-  gustos:Gusto[]=[]
+  gustos:TipoContenidoInfluencer[]=[]
 
   mascotas:Mascotas[]=[]
   ocupaciones:Ocupacion[]=[]
@@ -83,7 +83,7 @@ export class CrearInfluencerComponent implements OnInit {
   constructor(
     private servicioCiudades: CiudadesService,
     private servicioTipoContenido: TipoContenidoInfluencerService,
-    private servicioGustos: GustosService,
+
     private servicioOcupacion: OcupacionService,
     private servicioMascota: MascotasService,
     private servicioInfluencer: InfluencerService,
@@ -118,7 +118,7 @@ export class CrearInfluencerComponent implements OnInit {
     this.ocupaciones=[]
 
     this.tipoContenidosElegidos=[]
-    this.disgustosElegidos=[]
+    
     this.gustosElegidos=[]
     this.mascotasElegidos=[]
     this.ocupacionElegidos=[]
@@ -159,10 +159,7 @@ export class CrearInfluencerComponent implements OnInit {
       id:0,
       nombre:""
     }
-    this.actualDisgusto={
-      id:0,
-      nombre:""
-    }
+  
     this.actualMascota={
       id:0,
       nombre:""
@@ -171,7 +168,11 @@ export class CrearInfluencerComponent implements OnInit {
       id:0,
       nombre:""
     }
- 
+    this.servicioTipoContenido.getAllTipoContenidoInfluencer().subscribe(
+      response=>{
+        this.gustos=response.tipoContenidos
+      }
+    )
     this.rangoService.getAllRangos().subscribe(response=>{
       this.rangos=response.rangos
     })
@@ -191,11 +192,7 @@ export class CrearInfluencerComponent implements OnInit {
         this.tipoContenidos=response.tipoContenidos
       }
     )
-    this.servicioGustos.getAllGustos().subscribe(
-      response=>{
-        this.gustos=response.gustos
-      }
-    )
+  
     this.servicioMascota.getAllMascotas().subscribe(
       response=>{
         this.mascotas=response.mascotas
@@ -433,36 +430,7 @@ agregarRango(){
     alert("Seleccione un gusto")
   }
 }
-  agregarDisgusto(){
 
-    if(this.actualDisgusto.id!=0){
-    for(let i=0;i<this.gustos.length;i++){
-      if(this.gustos[i].id==this.actualDisgusto.id){
-       this.actualDisgusto=this.gustos[i]
-      }
-    }
-    console.log(this.actualDisgusto)
-
-    let encontro = false;
-    for(let i =0;i<this.disgustosElegidos.length && !encontro;i++){
-      if(this.disgustosElegidos[i].id==this.actualDisgusto.id){
-        alert("Este disgusto ya fue agregado al influenceador")
-        encontro=true
-      }
-    }
-    if(!encontro){
-      this.disgustosElegidos.push(this.actualDisgusto)
-    }
-
-    this.actualDisgusto ={
-      id:0,
-      nombre:""
-    }
-  }
-  else{
-    alert("Seleccione un disgusto")
-  }
-  }
   agregarMascota(){
 
     if(this.actualMascota.id!=0){
@@ -581,13 +549,7 @@ agregarRango(){
       }
     }
   }
-  eliminarDisgusto(id:number){
-    for(let i=0;i<this.disgustosElegidos.length;i++){
-      if(this.disgustosElegidos[i].id==id){
-        this.disgustosElegidos.splice(i,1)
-      }
-    }
-  }
+
   eliminarMascota(id:number){
     for(let i=0;i<this.mascotasElegidos.length;i++){
       if(this.mascotasElegidos[i].id==id){
@@ -623,11 +585,7 @@ agregarRango(){
     }
     gustos += '-1'
 
-    let disgustos:string="";
-    for(let i=0; i < this.disgustosElegidos.length;i++){
-      disgustos += this.disgustosElegidos[i].id + '_'
-    }
-    disgustos += '-1'
+
 
     let tipoContenido:string="";
     for(let i=0; i < this.tipoContenidosElegidos.length;i++){
@@ -688,7 +646,7 @@ agregarRango(){
 
     this.influencer.nombre = this.influencer.nombre.toUpperCase();
 
-    this.servicioInfluencer.crearInfluencer(this.influencer,ciudades,mascotas,ocupaciones,gustos,disgustos,tipoContenido,tipoContenidoCampania,precios,alcances,this.ciudadid,generos,porcentajes,rangos, porcentajesRangos).subscribe(
+    this.servicioInfluencer.crearInfluencer(this.influencer,ciudades,mascotas,ocupaciones,gustos,tipoContenido,tipoContenidoCampania,precios,alcances,this.ciudadid,generos,porcentajes,rangos, porcentajesRangos).subscribe(
       response=>{
         alert(response.mensaje)
         this.ngOnInit()

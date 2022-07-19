@@ -8,7 +8,7 @@ import { Sector } from 'src/app/models/sector.model';
 import { Ciudad } from 'src/app/models/ciudad.model';
 import { Mascotas } from 'src/app/models/mascota.model';
 import { Ocupacion } from 'src/app/models/ocupacion.model';
-import { Gusto } from 'src/app/models/gusto.model';
+
 import { TipoContenidoInfluencer } from 'src/app/models/tipoContenidoInfluencer.model';
 import { Genero } from 'src/app/models/genero.model';
 import { Rango } from 'src/app/models/rangos.model';
@@ -60,8 +60,6 @@ export class ParametrosService {
   crearRango(rango:Rango){
     return this.http.post<any>(`${API_URL}/rangos`,rango);
   }
-  crearGusto(gusto:Gusto){
-    return this.http.post<any>(`${API_URL}/gustos`,gusto);
-  }
+
 }
 

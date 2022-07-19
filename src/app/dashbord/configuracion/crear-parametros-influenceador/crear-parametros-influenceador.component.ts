@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Ciudad } from 'src/app/models/ciudad.model';
 import { Genero } from 'src/app/models/genero.model';
-import { Gusto } from 'src/app/models/gusto.model';
+
 import { Mascotas } from 'src/app/models/mascota.model';
 import { Metrica } from 'src/app/models/metrica.model';
 import { Ocupacion } from 'src/app/models/ocupacion.model';
@@ -25,7 +25,7 @@ export class CrearParametrosInfluenceadorComponent implements OnInit {
   ciudad:Ciudad 
   mascota:Mascotas 
   ocupacion:Ocupacion 
-  gusto:Gusto
+
   tipoContenido:TipoContenidoInfluencer
   genero:Genero
   rango:Rango
@@ -66,11 +66,7 @@ export class CrearParametrosInfluenceadorComponent implements OnInit {
       id:0,
       nombre:""
     };
-    this.gusto ={
-      id:0,
-      nombre:""
-    };
-  
+
     this.tipoContenido ={
       id:0,
       nombre:""
@@ -196,18 +192,7 @@ eliminarMetrica(id:number){
     )
     
   }
-  saveGusto(){
-    this.gusto.nombre=this.gusto.nombre.toUpperCase();
-    this.servicio.crearGusto(this.gusto).subscribe(response=>{
-      alert(response.mensaje)
-      this.ngOnInit()
-    },
-    error=>{
-      alert(error.error.mensaje)
-    }
-    )
-    
-  }
+
   saveTipoContenidoC(){
     console.log("A")
     let metricas= ""

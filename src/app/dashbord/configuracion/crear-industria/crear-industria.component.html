@@ -14,7 +14,7 @@
                 </div>
 
                 <div>
-                    <label for="">Razón Social:</label>
+                    <label for="">Nombre:</label>
                     <input type="text" placeholder="Escribe aquí" name="razon"  [(ngModel)]="marca.razonSocial">
                 </div>
                 <div>
@@ -31,7 +31,13 @@
     
                 <div>
                     <label for="">Facturación anual: </label>
-                    <input type="text" placeholder="Escribe aquí" name="facturacion"  [(ngModel)]="marca.facturacion">
+                    <select name="facturacion"  [(ngModel)]="marca.facturacion" class="bold">
+                        <option value="">Selecciona una empresa</option>
+                        <option value="Micro">Hasta $1.200.000.000</option>
+                        <option value="Pequeña">$1.200.000.000 - $5.000.000.000</option>
+                        <option value="Mediana"> $5.000.000.000 - $20.000.000.000</option>
+                        <option value="Grande">Mas $20.000.000.000</option>
+                    </select>
                 </div>
     
                 <div>

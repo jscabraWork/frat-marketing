@@ -2,6 +2,7 @@
     <div class="row">
         <div class="col-12">
             <h4 class="bold">CREAR CIUDAD</h4>
+            <small>(APLICA PARA CIUDAD DE RESIDENCIA Y CIUDAD DE SEGUIDORES DE LOS INFLUENCIADORES)</small>
             <form (ngSubmit)="!todoForm.invalid && saveCiudad()"   #todoForm="ngForm" id="form">
                 <div>
                     <label for="">Nombre:</label>
@@ -19,6 +20,7 @@
     <div class="row">
         <div class="col-12">
             <h4 class="bold">CREAR MASCOTAS</h4>
+            <small> (MASCOTA QUE TIENE EL INFLUENCIADOR)</small>
             <form (ngSubmit)="!todoForm1.invalid && saveMascota()"   #todoForm1="ngForm" id="form">
                 <div>
                     <label for="">Nombre:</label>
@@ -35,6 +37,7 @@
     <div class="row">
         <div class="col-12">
             <h4 class="bold">CREAR OCUPACIÓN</h4>
+            <small>(OCUPACION QUE TIENE EL INFLUENCIADOR)</small>
             <form (ngSubmit)="!todoForm2.invalid && saveOcupacion()"   #todoForm2="ngForm" id="form">
                 <div>
                     <label for="">Nombre:</label>
@@ -47,25 +50,12 @@
             <hr>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12">
-            <h4 class="bold">CREAR GUSTOS</h4>
-            <form (ngSubmit)="!todoForm3.invalid && saveGusto()"   #todoForm3="ngForm" id="form">
-                <div>
-                    <label for="">Nombre:</label>
-                    <input name="nombre4" required="required"[(ngModel)]="gusto.nombre" type="text" placeholder="Escribe aquí">
-                </div>
-                <div>
-                    <button class="boton-rojo" type="submit">Guardar</button>
-                </div>
-            </form>
-            <hr>
-        </div>
-    </div>
+
 
     <div class="row">
         <div class="col-12">
             <h4 class="bold">CREAR CATEGORIA DE CONTENIDO</h4>
+            <small> (TIPO DE CONTENIDO QUE GENERA EL INFLUENCIADOR EN REDES. EJ: MAKEUP, LIFESTYLE, EMPRENDIMIENTO)</small>
             <form (ngSubmit)="!todoForm4.invalid && saveTipoContenido()"   #todoForm4="ngForm" id="form">
                 <div>
                     <label for="">Nombre:</label>
@@ -82,6 +72,7 @@
     <div class="row">
         <div class="col-12">
             <h4 class="bold">CREAR GENERO</h4>
+            <small>(HOMBRE/MUJER)</small>
             <form (ngSubmit)="!todoForm5.invalid && saveGenero()"   #todoForm5="ngForm" id="form">
                 <div>
                     <label for="">Nombre:</label>
@@ -98,6 +89,7 @@
     <div class="row">
         <div class="col-12">
             <h4 class="bold">CREAR MÉTRICA</h4>
+            <small>(AGREGAR METRICAS QUE SUBEN INFLUENCIADORES. EJ: CLICKS EN EL LINK, GUARDADOS)</small>
             <form (ngSubmit)="!todoForm7.invalid && saveMetrica()"   #todoForm7="ngForm" id="form">
                 <div>
                     <label for="">Nombre:</label>
@@ -113,6 +105,7 @@
     <div class="row">
         <div class="col-12">
             <h4 class="bold">CREAR ACCIÓN DE CAMPAÑA</h4>
+            <small>(ACCION NUEVA DE INSTAGRAM)</small>
             <form (ngSubmit)="!todoForm8.invalid"  #todoForm8="ngForm" id="form">
                 <div>
                     <label for="">Nombre:</label>
@@ -150,6 +143,7 @@
     <div class="row">
         <div class="col-12">
             <h4 class="bold">CREAR RANGO</h4>
+            <small>(RANGOS DE EDADES DE METRICAS DE INFLUENCIADORES) </small>
             <form (ngSubmit)="!todoForm6.invalid && saveRango()"   #todoForm6="ngForm" id="form">
                 <div>
                     <label for="">Nombre:</label>

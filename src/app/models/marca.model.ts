@@ -9,7 +9,7 @@ export interface Marca{
 	telefono:string;
 	correo:string;
 	descripcion:string;
-	 facturacion:number;
+	 facturacion:string;
 	 contactoOtro:string;
 	 cargo_contactoOtro:string;
 	 telefonoOtro:string;

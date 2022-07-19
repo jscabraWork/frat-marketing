@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Ciudad } from 'src/app/models/ciudad.model';
 import { Genero } from 'src/app/models/genero.model';
-import { Gusto } from 'src/app/models/gusto.model';
+
 import { Influencer } from 'src/app/models/influencer.model';
 import { Rango } from 'src/app/models/rangos.model';
 import { TipoContenido } from 'src/app/models/tipoContenido.model';
@@ -11,7 +11,7 @@ import { CiudadesService } from 'src/app/services/data/ciudades.service';
 import { FiltroInstagramService } from 'src/app/services/data/filtro-instagram.service';
 import { FiltroTikTokService } from 'src/app/services/data/filtro-tik-tok.service';
 import { GeneroService } from 'src/app/services/data/genero.service';
-import { GustosService } from 'src/app/services/data/gustos.service';
+
 import { RangosService } from 'src/app/services/data/rangos.service';
 import { TipoContenidoInfluencerService } from 'src/app/services/data/tipo-contenido-influencer.service';
 import { TipoContenidoService } from 'src/app/services/data/tipo-contenido.service';
@@ -45,7 +45,7 @@ export class FiltrarComponent implements OnInit {
   contenidoNombre:string=""
 
 
-  gustos:Gusto[]=[]
+  gustos:TipoContenidoInfluencer[]=[]
 
   actualGusto:string=""
 
@@ -64,7 +64,7 @@ export class FiltrarComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private servicioTipoContenido: TipoContenidoInfluencerService,
     private servicioCiudades: CiudadesService,
-    private servicioGustos: GustosService,
+   
     private filtroInstagramService:FiltroInstagramService,
     private filtroTikTokService:FiltroTikTokService,
     private rangoService: RangosService,
@@ -106,9 +106,9 @@ export class FiltrarComponent implements OnInit {
         this.tipoContenidos=response.tipoContenidos
       }
     )
-    this.servicioGustos.getAllGustos().subscribe(
+    this.servicioTipoContenido.getAllTipoContenidoInfluencer().subscribe(
       response=>{
-        this.gustos=response.gustos
+        this.gustos=response.tipoContenidos
       }
     )
      

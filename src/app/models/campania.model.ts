@@ -5,7 +5,7 @@ export interface Campania{
 	terminada:boolean;
     redSocial:string;
     presupuesto:number;
-	descripcion:string;
+
 	queVanADecir:string;
     alcanceEstimado:number;
 	fechaInicio:Date;

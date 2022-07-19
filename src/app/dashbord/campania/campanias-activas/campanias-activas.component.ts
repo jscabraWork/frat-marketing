@@ -108,7 +108,7 @@ export class CampaniasActivasComponent implements OnInit {
     this.campania={
       id:0,
       nombre:'',
-      descripcion:'',
+ 
       queVanADecir:'',
       alcanceEstimado:0,
       fechaInicio:new Date(),

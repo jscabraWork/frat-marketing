@@ -79,7 +79,7 @@
                 </div>
     
                 <div>
-                    <label for="">Rango de seguidores Instagram:</label>
+                    <label for="">Rango de edad seguidores Instagram:</label>
                     <select  name="edad1" class="regular" [(ngModel)]="actualRango.id" required="required">
                         <option value="0">Selecciona una opción</option>
                         <option *ngFor="let rango of rangos" value="{{rango.id}}">{{rango.nombre}}</option>
@@ -109,6 +109,15 @@
                     <small class="regular small" *ngFor="let tipo of tipoContenidosElegidos"> {{tipo.nombre}} <span (click)="eliminarTipoContenido(tipo.id)">X</span> </small>
                 </div>
 
+                <div>
+                    <label for="">Categoria de contenido que no realiza:</label>
+                    <select name="gustos" class="regular" [(ngModel)]="actualGusto.id">
+                        <option value="0">Selecciona una opción</option>
+                        <option *ngFor="let gusto of gustos"  value="{{gusto.id}}">{{gusto.nombre}}</option>
+                    </select>
+                    <button class="btn-red" (click)="agregarGusto()">AGREGAR</button>
+                    <small class="regular small" *ngFor="let gusto of gustosElegidos"> {{gusto.nombre}} <span (click)="eliminarGusto(gusto.id)">X</span> </small>
+                </div>
 
 
                 <div>
@@ -160,26 +169,9 @@
                         <option value="OTRO">Otro</option>
                     </select>
                 </div> -->
-                <div>
-                    <label for="">Likes:</label>
-                    <select name="gustos" class="regular" [(ngModel)]="actualGusto.id">
-                        <option value="0">Selecciona una opción</option>
-                        <option *ngFor="let gusto of gustos"  value="{{gusto.id}}">{{gusto.nombre}}</option>
-                    </select>
-                    <button class="btn-red" (click)="agregarGusto()">AGREGAR</button>
-                    <small class="regular small" *ngFor="let gusto of gustosElegidos"> {{gusto.nombre}} <span (click)="eliminarGusto(gusto.id)">X</span> </small>
-                </div>
+ 
     
-                <div>
-                    <label for="">Dislikes:</label>
-                    <select name="disgustos" class="regular" [(ngModel)]="actualDisgusto.id" >
-                        <option value="0">Selecciona una opción</option>
-                        <option *ngFor="let gusto of gustos" value="{{gusto.id}}">{{gusto.nombre}}</option>
-                    </select>
-
-                    <button class="btn-red" (click)="agregarDisgusto()">AGREGAR</button>
-                    <small class="regular small" *ngFor="let gusto of disgustosElegidos"> {{gusto.nombre}} <span (click)="eliminarDisgusto(gusto.id)">X</span> </small>
-                </div>
+             
     
                 <div>
                     <label for="">Hijos:</label>

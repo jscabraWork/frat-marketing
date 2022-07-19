@@ -10,8 +10,8 @@ export class InfluencerService {
 
   constructor(private http:HttpClient) { }
 
-  crearInfluencer(influencer:Influencer,iCiudad:string,mascotas:string,ocupaciones:string,gustos:string,disgustos:string,tipoContenido:string,tipoContenidoCampania:string,precios:string,alcances:string, ciudadId:number, generos:string,porcentajes:string, rangos:string,porcentajesRangos:string){
-    return this.http.post<any>(`${API_URL}/influencer/${iCiudad}/${mascotas}/${ocupaciones}/${gustos}/${disgustos}/${tipoContenido}/${tipoContenidoCampania}/${precios}/${alcances}/${ciudadId}/${generos}/${porcentajes}/${rangos}/${porcentajesRangos}`,influencer);
+  crearInfluencer(influencer:Influencer,iCiudad:string,mascotas:string,ocupaciones:string,gustos:string,tipoContenido:string,tipoContenidoCampania:string,precios:string,alcances:string, ciudadId:number, generos:string,porcentajes:string, rangos:string,porcentajesRangos:string){
+    return this.http.post<any>(`${API_URL}/influencer/${iCiudad}/${mascotas}/${ocupaciones}/${gustos}/${tipoContenido}/${tipoContenidoCampania}/${precios}/${alcances}/${ciudadId}/${generos}/${porcentajes}/${rangos}/${porcentajesRangos}`,influencer);
                                           
   }
  

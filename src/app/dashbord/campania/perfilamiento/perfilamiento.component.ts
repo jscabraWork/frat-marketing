@@ -364,7 +364,7 @@ export class PerfilamientoComponent implements OnInit {
   
     for(let k =0; k < this.retenciones.length &&!encontro;k++){
       console.log(this.retenciones[k])
-      if(this.retenciones[k]==0){
+      if(this.retenciones[k]==-1){
         encontro = true;
         posicion = k
       }

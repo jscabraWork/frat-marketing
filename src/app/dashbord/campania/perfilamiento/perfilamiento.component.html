@@ -123,7 +123,8 @@
                             <td>${{darCosto(preciosAgregados[i],i)| number: '1.0-0'}}</td>
                             <td>
                                 <select name="genero" class="regular corto" [(ngModel)]="retenciones[i]" required="required">
-                                    <option value="0">Selecciona una opción</option>
+                                    <option value="-1">Selecciona una opción</option>
+                                    <option value="0">Sin retenciones</option>
                                     <option value="1.12">FACTURA PERSONA JURÍDICA</option>
                                     <option value="1.1">FACTURA PERSONA NATURAL FUERA CALI</option>
                                     <option value="1.11">FACTURA PERSONA NATURAL CALI</option>

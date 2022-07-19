@@ -43,6 +43,10 @@
     
     font-size: 25px;
 }
+.pequena{
+    padding-left: 20px;
+    width: 90px;
+}
 p{
     font-size: 20px;
 }

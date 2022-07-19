@@ -31,6 +31,30 @@ export class ImagenService {
     })
     return this.http.request(req);
   }
+
+  uploadMetricasTarea(file:File, pId): Observable<HttpEvent<any>>{
+
+    const formData: FormData= new FormData();
+    formData.append('files', file);
+    const req = new HttpRequest('POST',`${API_URL}/upload/metricas/tarea/${pId}`, formData,{
+      reportProgress:true,
+      responseType:'json'
+    })
+    return this.http.request(req);
+  }
+
+  uploadCotenidoTarea(file:File, pId): Observable<HttpEvent<any>>{
+
+    const formData: FormData= new FormData();
+    formData.append('files', file);
+    const req = new HttpRequest('POST',`${API_URL}/upload/contenido/tarea/${pId}`, formData,{
+      reportProgress:true,
+      responseType:'json'
+    })
+    return this.http.request(req);
+  }
+
+
   getFiles(){
     return this.http.get(`${API_URL}/files`)
   }
